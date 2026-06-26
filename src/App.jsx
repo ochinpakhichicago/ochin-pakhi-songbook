@@ -601,7 +601,46 @@ function PasswordGate({ onUnlock }) {
 }
 
 // ─── Song List ───
-function SongList({ onSelect }) {
+function UserBar({ onSignOut }) {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        gap: 12,
+        fontSize: 13,
+        flexShrink: 0,
+      }}
+    >
+      <span style={{ fontWeight: 600, color: colors.text }}>pakhis</span>
+      <a
+        href="https://ochinpakhichicago.org"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ color: colors.accent, textDecoration: "none" }}
+      >
+        Website
+      </a>
+      <button
+        onClick={onSignOut}
+        style={{
+          background: "none",
+          border: `1px solid ${colors.border}`,
+          borderRadius: 6,
+          padding: "4px 10px",
+          fontSize: 12,
+          color: colors.textMuted,
+          cursor: "pointer",
+          fontFamily: font.body,
+        }}
+      >
+        Sign out
+      </button>
+    </div>
+  );
+}
+
+function SongList({ onSelect, onSignOut }) {
   const [search, setSearch] = useState("");
 
   const filtered = useMemo(() => {
@@ -632,27 +671,30 @@ function SongList({ onSelect }) {
           background: colors.surface,
         }}
       >
-        <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
-          <span
-            style={{
-              fontFamily: font.bengali,
-              fontSize: 24,
-              color: colors.accent,
-              fontWeight: 700,
-            }}
-          >
-            অচিন পাখি
-          </span>
-          <span
-            style={{
-              fontFamily: font.display,
-              fontSize: 18,
-              color: colors.text,
-              fontWeight: 600,
-            }}
-          >
-            Songbook
-          </span>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
+            <span
+              style={{
+                fontFamily: font.bengali,
+                fontSize: 24,
+                color: colors.accent,
+                fontWeight: 700,
+              }}
+            >
+              অচিন পাখি
+            </span>
+            <span
+              style={{
+                fontFamily: font.display,
+                fontSize: 18,
+                color: colors.text,
+                fontWeight: 600,
+              }}
+            >
+              Songbook
+            </span>
+          </div>
+          <UserBar onSignOut={onSignOut} />
         </div>
         <div style={{ fontSize: 13, color: colors.textMuted, marginTop: 2 }}>
           {SONGS.length} songs
@@ -792,7 +834,7 @@ function SongList({ onSelect }) {
 }
 
 // ─── Song Detail ───
-function SongDetail({ song, onBack }) {
+function SongDetail({ song, onBack, onSignOut }) {
   const [tab, setTab] = useState("lyrics");
   const [activeWord, setActiveWord] = useState(null);
 
@@ -869,22 +911,24 @@ function SongDetail({ song, onBack }) {
           borderBottom: `1px solid ${colors.border}`,
         }}
       >
-        <button
-          onClick={onBack}
-          style={{
-            background: "none",
-            border: "none",
-            color: colors.accent,
-            fontFamily: font.body,
-            fontSize: 14,
-            cursor: "pointer",
-            padding: 0,
-            marginBottom: 10,
-            fontWeight: 500,
-          }}
-        >
-          ← All Songs
-        </button>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
+          <button
+            onClick={onBack}
+            style={{
+              background: "none",
+              border: "none",
+              color: colors.accent,
+              fontFamily: font.body,
+              fontSize: 14,
+              cursor: "pointer",
+              padding: 0,
+              fontWeight: 500,
+            }}
+          >
+            ← All Songs
+          </button>
+          <UserBar onSignOut={onSignOut} />
+        </div>
         <div style={{ display: "flex", gap: 10, alignItems: "flex-start", justifyContent: "space-between" }}>
           <div>
             <div
@@ -1543,9 +1587,10 @@ export default function App() {
       <SongDetail
         song={selectedSong}
         onBack={() => setSelectedSong(null)}
+        onSignOut={() => setUnlocked(false)}
       />
     );
   }
 
-  return <SongList onSelect={setSelectedSong} />;
+  return <SongList onSelect={setSelectedSong} onSignOut={() => setUnlocked(false)} />;
 }
