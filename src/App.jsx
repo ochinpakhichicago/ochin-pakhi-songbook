@@ -439,7 +439,7 @@ const SONGS = [
   },
 ];
 
-const PASSWORD = "ochinpakhi2026";
+const PASSWORD = "pakhis@2026";
 
 // ─── Styles ───
 const colors = {
@@ -799,8 +799,8 @@ function SongDetail({ song, onBack }) {
   const tabs = [
     { key: "lyrics", label: "Lyrics" },
     { key: "glossary", label: "Glossary" },
-    { key: "notes", label: "Arrangement" },
-    { key: "reference", label: "Reference" },
+    { key: "notes", label: "Arrangement Notes" },
+    { key: "reference", label: "Listen & Learn" },
     { key: "ours", label: "Our Version" },
   ];
 
