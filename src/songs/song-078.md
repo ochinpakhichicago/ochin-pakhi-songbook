@@ -125,5 +125,6 @@ Listen for the swell and drop — hold back volume, let it simmer.
 Devotion, Longing, Vaishnava, Lalon, Dream, Mysticism
 
 [Reference]
+Se Ki Amar Kobar Kotha — Lalon | https://www.youtube.com/watch?v=FKsEIIf0tHs
 
 [OurRecording]

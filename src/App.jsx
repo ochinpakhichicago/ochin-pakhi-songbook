@@ -451,7 +451,7 @@ function SongList({ songs, onSelect, searchState }) {
 }
 
 // ─── Song Detail ───
-function SongDetail({ song, onBack }) {
+function SongDetail({ song, onBack, onPlay }) {
   const [tab, setTab] = useState("lyrics");
   const [activeWord, setActiveWord] = useState(null);
 
@@ -892,7 +892,7 @@ function SongDetail({ song, onBack }) {
             </div>
             {song.reference && song.reference.length > 0 ? (
               song.reference.map((link, i) => (
-                <VideoCard key={i} link={link} accentBorder={false} />
+                <VideoCard key={i} link={link} accentBorder={false} onPlay={onPlay} />
               ))
             ) : (
               <EmptyState icon="🎵" text="No reference links yet." sub="Add YouTube URLs to the song file to embed them here." />
@@ -915,7 +915,7 @@ function SongDetail({ song, onBack }) {
             </div>
             {song.ourRecording && song.ourRecording.length > 0 ? (
               song.ourRecording.map((link, i) => (
-                <VideoCard key={i} link={link} accentBorder={true} />
+                <VideoCard key={i} link={link} accentBorder={true} onPlay={onPlay} />
               ))
             ) : (
               <div
@@ -1123,91 +1123,144 @@ function DiscussionSection({ label, children }) {
   );
 }
 
-function VideoCard({ link, accentBorder }) {
+function VideoCard({ link, accentBorder, onPlay }) {
   const youtubeId = link.url.includes("youtu.be")
     ? link.url.split("youtu.be/")[1]?.split("?")[0]
     : link.url.split("v=")[1]?.split("&")[0];
 
   return (
-    <a
-      href={link.url}
-      target="_blank"
-      rel="noopener noreferrer"
+    <div
       style={{
-        display: "block",
         background: colors.surface,
         border: `1px solid ${accentBorder ? colors.accent + "44" : colors.border}`,
         borderRadius: 10,
         padding: "14px 18px",
         marginBottom: 10,
-        textDecoration: "none",
       }}
-      onMouseEnter={(e) =>
-        (e.currentTarget.style.boxShadow = "0 2px 8px rgba(44,24,16,0.08)")
-      }
-      onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <span
+        <button
+          onClick={() => youtubeId && onPlay && onPlay(youtubeId, link.title)}
           style={{
-            fontSize: accentBorder ? 18 : 22,
-            background: accentBorder ? colors.accentLight : "transparent",
-            borderRadius: accentBorder ? "50%" : 0,
-            width: accentBorder ? 36 : "auto",
-            height: accentBorder ? 36 : "auto",
+            background: colors.accentLight,
+            border: "none",
+            borderRadius: "50%",
+            width: 36,
+            height: 36,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            cursor: "pointer",
             flexShrink: 0,
-            color: accentBorder ? colors.accent : "inherit",
+            fontSize: 14,
+            color: colors.accent,
           }}
         >
           ▶
-        </span>
-        <div>
-          <div
-            style={{
-              fontSize: 15,
-              fontWeight: 600,
-              color: accentBorder ? colors.accent : colors.text,
-            }}
-          >
+        </button>
+        <div style={{ flex: 1 }}>
+          <div style={{ fontSize: 15, fontWeight: 600, color: accentBorder ? colors.accent : colors.text }}>
             {link.title}
           </div>
           <div style={{ fontSize: 12, color: colors.textMuted, marginTop: 2 }}>
-            {accentBorder ? "Ochin Pakhi" : "YouTube"}
+            {accentBorder ? "Ochin Pakhi" : "YouTube"} · tap ▶ to play in app
           </div>
         </div>
-      </div>
-      {youtubeId && (
-        <div
-          style={{
-            marginTop: 12,
-            borderRadius: 8,
-            overflow: "hidden",
-            position: "relative",
-            paddingBottom: "56.25%",
-            height: 0,
-          }}
+        <a
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ fontSize: 18, color: colors.textMuted, textDecoration: "none", flexShrink: 0, padding: "4px 4px" }}
+          title="Open on YouTube"
         >
-          <iframe
-            src={`https://www.youtube.com/embed/${youtubeId}`}
-            title={link.title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
-            allowFullScreen
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              border: "none",
-              borderRadius: 8,
-            }}
-          />
+          ↗
+        </a>
+      </div>
+    </div>
+  );
+}
+
+function MiniPlayer({ nowPlaying, onClose }) {
+  const [expanded, setExpanded] = useState(true);
+
+  useEffect(() => { setExpanded(true); }, [nowPlaying?.videoId]);
+
+  if (!nowPlaying) return null;
+
+  return (
+    <div
+      style={{
+        position: "fixed",
+        bottom: 60,
+        left: 0,
+        right: 0,
+        zIndex: 200,
+        background: colors.surface,
+        borderTop: `2px solid ${colors.accent}44`,
+        boxShadow: "0 -2px 16px rgba(44,24,16,0.15)",
+      }}
+    >
+      {/* Always-visible header bar */}
+      <div style={{ display: "flex", alignItems: "center", padding: "10px 14px", gap: 10 }}>
+        <span style={{ fontSize: 16, color: colors.accent, flexShrink: 0 }}>♫</span>
+        <div style={{
+          flex: 1,
+          fontSize: 13,
+          fontWeight: 600,
+          color: colors.text,
+          overflow: "hidden",
+          textOverflow: "ellipsis",
+          whiteSpace: "nowrap",
+        }}>
+          {nowPlaying.title}
         </div>
-      )}
-    </a>
+        <button
+          onClick={() => setExpanded((e) => !e)}
+          style={{ background: "none", border: "none", cursor: "pointer", fontSize: 13, color: colors.textMuted, padding: "4px 8px" }}
+          title={expanded ? "Audio only" : "Show video"}
+        >
+          {expanded ? "▼ hide" : "▲ video"}
+        </button>
+        <button
+          onClick={onClose}
+          style={{ background: "none", border: "none", cursor: "pointer", fontSize: 18, color: colors.textMuted, padding: "4px 8px", lineHeight: 1 }}
+          title="Stop"
+        >
+          ✕
+        </button>
+      </div>
+
+      {/* iframe — always mounted so audio continues; visually hidden when collapsed */}
+      <div style={expanded ? {
+        position: "relative",
+        paddingBottom: "56.25%",
+        height: 0,
+        overflow: "hidden",
+      } : {
+        position: "absolute",
+        width: 1,
+        height: 1,
+        overflow: "hidden",
+        top: -9999,
+        left: -9999,
+      }}>
+        <iframe
+          key={nowPlaying.videoId}
+          src={`https://www.youtube.com/embed/${nowPlaying.videoId}?autoplay=1`}
+          title={nowPlaying.title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            border: "none",
+          }}
+        />
+      </div>
+    </div>
   );
 }
 
@@ -2112,6 +2165,7 @@ export default function App() {
   const [user, setUser] = useState(null); // { name, role: "member"|"admin" } | null
   const [showWelcome, setShowWelcome] = useState(false);
   const [mainTab, setMainTab] = useState("songs");
+  const [nowPlaying, setNowPlaying] = useState(null); // { videoId, title }
   const [selectedSong, setSelectedSong] = useState(null);
   const [hash, setHash] = useState(window.location.hash);
   const searchState = useState("");
@@ -2181,15 +2235,21 @@ export default function App() {
     }} />
   );
 
+  const handlePlay = (videoId, title) => setNowPlaying({ videoId, title });
+
   if (selectedSong) {
     return (
-      <SongDetail
-        song={selectedSong}
-        onBack={() => {
-          setSelectedSong(null);
-          window.location.hash = "#/";
-        }}
-      />
+      <>
+        <SongDetail
+          song={selectedSong}
+          onBack={() => {
+            setSelectedSong(null);
+            window.location.hash = "#/";
+          }}
+          onPlay={handlePlay}
+        />
+        <MiniPlayer nowPlaying={nowPlaying} onClose={() => setNowPlaying(null)} />
+      </>
     );
   }
 
@@ -2217,6 +2277,7 @@ export default function App() {
         />
       )}
       <BottomNav tab={mainTab} onChange={setMainTab} />
+      <MiniPlayer nowPlaying={nowPlaying} onClose={() => setNowPlaying(null)} />
       {showWelcome && user && (
         <WelcomePopup
           user={user}

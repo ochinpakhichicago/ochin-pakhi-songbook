@@ -112,5 +112,6 @@ Coming back to Emon manob Subho leads. Emon 3X, last time kobe P D N S hits to e
 Baul, Lalon, Syncretic, Equality, Social, Unity
 
 [Reference]
+Emon Manob Jonom Ar Ki Hobe — Lalon Geeti | https://www.youtube.com/watch?v=7VRdrHfpYy8
 
 [OurRecording]

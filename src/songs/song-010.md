@@ -109,5 +109,6 @@ Flute and dotara start. Groove: accordion and dotara on first half, cello on 2nd
 Solitude, Courage, Journey, Resilience
 
 [Reference]
+Jodi Tor Daak Shune Keu — Kishore Kumar | https://www.youtube.com/watch?v=kvMMipmwVSo
 
 [OurRecording]
