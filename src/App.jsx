@@ -1070,14 +1070,31 @@ function SongDetail({ song, onBack, onPlay, backLabel = "All Songs" }) {
           }}
         >
           <div style={{ flex: 1 }}>
-            <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 4 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 4, flexWrap: "wrap" }}>
               <span style={{ fontWeight: 700, color: colors.accent, fontSize: 15 }}>
                 {activeWord.word}
               </span>
               {activeWord.bn && (
-                <span style={{ fontFamily: font.bengali, color: colors.textMuted, fontSize: 14 }}>
-                  {activeWord.bn}
-                </span>
+                <>
+                  <span style={{ fontFamily: font.bengali, color: colors.textMuted, fontSize: 14 }}>
+                    {activeWord.bn}
+                  </span>
+                  {typeof window !== "undefined" && window.speechSynthesis && (
+                    <button
+                      onClick={() => {
+                        window.speechSynthesis.cancel();
+                        const u = new SpeechSynthesisUtterance(activeWord.bn);
+                        u.lang = "bn-IN";
+                        u.rate = 0.85;
+                        window.speechSynthesis.speak(u);
+                      }}
+                      title="Hear pronunciation"
+                      style={{ background: colors.accentLight, border: `1px solid ${colors.accent}44`, borderRadius: 6, padding: "2px 8px", cursor: "pointer", fontSize: 14, color: colors.accent, lineHeight: 1.4, flexShrink: 0 }}
+                    >
+                      🔊
+                    </button>
+                  )}
+                </>
               )}
             </div>
             <div style={{ fontSize: 14, color: colors.text, lineHeight: 1.5 }}>
