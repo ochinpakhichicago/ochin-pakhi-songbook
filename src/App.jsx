@@ -1,445 +1,17 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useEffect } from "react";
+import { parseSong } from "./parseSong";
 
-const SONGS = [
-  {
-    id: 3,
-    title: "Tomay Hrid Majhare Rakhibo",
-    titleBn: "তোমায় হৃদ মাঝারে রাখিব",
-    lyricist: "Dwij Bhushon",
-    lyricistBn: "দ্বিজ ভূষণ",
-    genre: "Baul",
-    sections: [
-      {
-        label: "Refrain",
-        lines: [
-          {
-            trans: "Ore chhere dile sonar gour",
-            bn: "ওরে ছেড়ে দিলে সোনার গৌর",
-            en: "Oh, if you let go of golden Gour (Chaitanya)",
-          },
-          {
-            trans: "Khepa chhere dile sonar gour",
-            bn: "খেপা ছেড়ে দিলে সোনার গৌর",
-            en: "O mad one, if you let go of golden Gour",
-          },
-          {
-            trans: "Amra aar pabo na, aar pabo na",
-            bn: "আমরা আর পাব না, আর পাব না",
-            en: "We won't find him again, never again",
-          },
-          {
-            trans: "Tomay hrid majhare rakhibo chhere debo na",
-            bn: "তোমায় হৃদ মাঝারে রাখিব ছেড়ে দেব না",
-            en: "I will keep you in my heart, I won't let you go",
-          },
-          {
-            trans: "Tomay bokhho mahje rakhibo chhere debo na",
-            bn: "তোমায় বক্ষ মাঝে রাখিব ছেড়ে দেব না",
-            en: "I will keep you in my chest, I won't let you go",
-          },
-        ],
-      },
-      {
-        label: "Verse 1",
-        lines: [
-          {
-            trans: "Bhubono mohono gora",
-            bn: "ভুবন মোহন গোরা",
-            en: "The one who enchants the world, the fair one",
-          },
-          {
-            trans: "Kon moni jonar mono hora",
-            bn: "কোন মণি জনার মন হরা",
-            en: "Who steals the mind like a jewel among people",
-          },
-          {
-            trans: "Ore radhar preme matowara",
-            bn: "ওরে রাধার প্রেমে মাতোয়ারা",
-            en: "Oh, intoxicated by Radha's love",
-          },
-          {
-            trans: "Chand gour amar",
-            bn: "চাঁদ গৌর আমার",
-            en: "My moon-like Gour",
-          },
-          {
-            trans: "Radhar preme matowara",
-            bn: "রাধার প্রেমে মাতোয়ারা",
-            en: "Intoxicated by Radha's love",
-          },
-          {
-            trans: "Dhulay jay bhai gora-gori",
-            bn: "ধূলায় যায় ভাই গোরা-গোরী",
-            en: "Into the dust goes, brother, the fair couple",
-          },
-          {
-            trans: "Jete chaile jete debo na",
-            bn: "যেতে চাইলে যেতে দেব না",
-            en: "Even if they wish to go, I won't let them",
-          },
-        ],
-      },
-      {
-        label: "Verse 2",
-        lines: [
-          {
-            trans: "Jabo brojer kule kule",
-            bn: "যাব ব্রজের কূলে কূলে",
-            en: "I will go along the banks of Braj (Krishna's homeland)",
-          },
-          {
-            trans: "Makhbo paaye ranga dhuli",
-            bn: "মাখব পায়ে রাঙা ধুলি",
-            en: "I will smear the red dust on my feet",
-          },
-          {
-            trans: "Ore pagol mon..",
-            bn: "ওরে পাগল মন..",
-            en: "Oh my mad heart..",
-          },
-          {
-            trans: "Ore noyonete noyon diye rakhbo tare",
-            bn: "ওরে নয়নেতে নয়ন দিয়ে রাখব তারে",
-            en: "With my eyes locked in his eyes, I will hold him",
-          },
-          {
-            trans: "Chole gele, chole gele jete debo na",
-            bn: "চলে গেলে, চলে গেলে যেতে দেব না",
-            en: "If he tries to leave, I won't let him go",
-          },
-        ],
-      },
-      {
-        label: "Verse 3",
-        lines: [
-          {
-            trans: "Je dake chand gour bole",
-            bn: "যে ডাকে চাঁদ গৌর বলে",
-            en: "Whoever calls out 'Moon-like Gour'",
-          },
-          {
-            trans: "Ogo bhoy ki go taar brojer kule",
-            bn: "ওগো ভয় কি গো তার ব্রজের কূলে",
-            en: "Oh, what fear could there be on the banks of Braj?",
-          },
-          {
-            trans: "Ore Dwijo Bhushon chand bole",
-            bn: "ওরে দ্বিজ ভূষণ চাঁদ বলে",
-            en: "Dwij Bhushon says, calling him 'Moon'",
-          },
-          {
-            trans: "Choron chhere debo na",
-            bn: "চরণ ছেড়ে দেব না",
-            en: "I will not let go of his feet",
-          },
-        ],
-      },
-    ],
-    glossary: [
-      { word: "hrid", bn: "হৃদ", meaning: "heart" },
-      { word: "majhare", bn: "মাঝারে", meaning: "in the middle of, within" },
-      { word: "rakhibo", bn: "রাখিব", meaning: "I will keep" },
-      { word: "chhere", bn: "ছেড়ে", meaning: "letting go, releasing" },
-      { word: "sonar", bn: "সোনার", meaning: "golden" },
-      { word: "gour", bn: "গৌর", meaning: "the fair one — refers to Chaitanya Mahaprabhu" },
-      { word: "khepa", bn: "খেপা", meaning: "mad one, ecstatic one" },
-      { word: "bokhho", bn: "বক্ষ", meaning: "chest, bosom" },
-      { word: "bhubono mohono", bn: "ভুবন মোহন", meaning: "enchanter of the universe" },
-      { word: "mono hora", bn: "মন হরা", meaning: "one who steals the mind" },
-      { word: "matowara", bn: "মাতোয়ারা", meaning: "intoxicated, ecstatic" },
-      { word: "radha", bn: "রাধা", meaning: "Radha — beloved of Krishna/Gour" },
-      { word: "dhulay", bn: "ধূলায়", meaning: "in the dust" },
-      { word: "brojer", bn: "ব্রজের", meaning: "of Braj — Krishna's homeland in Vrindavan" },
-      { word: "ranga dhuli", bn: "রাঙা ধুলি", meaning: "red/colored dust" },
-      { word: "noyon", bn: "নয়ন", meaning: "eyes" },
-      { word: "pagol", bn: "পাগল", meaning: "mad, crazy (with love)" },
-      { word: "choron", bn: "চরণ", meaning: "feet (of the divine)" },
-      { word: "chand", bn: "চাঁদ", meaning: "moon" },
-    ],
-    notes: "",
-    reference: [
-      // { title: "Description of the version", url: "https://youtube.com/watch?v=..." },
-    ],
-    ourRecording: [
-      // { title: "Rehearsal / Live / Studio", url: "https://youtube.com/watch?v=..." },
-    ],
-  },
-  {
-    id: 10,
-    title: "Jodi Tor Daak Shune",
-    titleBn: "যদি তোর ডাক শুনে",
-    lyricist: "Rabindranath Tagore",
-    lyricistBn: "রবীন্দ্রনাথ ঠাকুর",
-    genre: "Rabindrasangeet",
-    sections: [
-      {
-        label: "Refrain",
-        lines: [
-          {
-            trans: "Jodi tor daak shune keu na aashe tobe ekla cholo re",
-            bn: "যদি তোর ডাক শুনে কেউ না আসে তবে একলা চলো রে",
-            en: "If no one answers your call, then walk alone",
-          },
-          {
-            trans: "Ekla cholo ekla cholo ekla cholo ekla cholo re",
-            bn: "একলা চলো একলা চলো একলা চলো একলা চলো রে",
-            en: "Walk alone, walk alone, walk alone, walk alone",
-          },
-        ],
-      },
-      {
-        label: "Verse 1",
-        lines: [
-          {
-            trans: "Jodi keu kotha na koy ore ore o obhaga",
-            bn: "যদি কেউ কথা না কয় ওরে ওরে ও অভাগা",
-            en: "If no one speaks to you, oh you unfortunate one",
-          },
-          {
-            trans: "Jodi sobai thaake mukh phiraye shobai kore bhoy",
-            bn: "যদি সবাই থাকে মুখ ফিরায়ে সবাই করে ভয়",
-            en: "If everyone turns their face away, if all are afraid",
-          },
-          {
-            trans: "Tobe poran khuley",
-            bn: "তবে পরান খুলে",
-            en: "Then with an open heart",
-          },
-          {
-            trans: "O tui mukh phutey tor moner kotha ekla bolo re",
-            bn: "ও তুই মুখ ফুটে তোর মনের কথা একলা বলো রে",
-            en: "You speak your mind's words alone",
-          },
-        ],
-      },
-      {
-        label: "Verse 2",
-        lines: [
-          {
-            trans: "Jodi sobai phirey jay ore ore o obhaga",
-            bn: "যদি সবাই ফিরে যায় ওরে ওরে ও অভাগা",
-            en: "If everyone turns back, oh you unfortunate one",
-          },
-          {
-            trans: "Jodi gohon pothe jabar kaale keu phirey na chaai",
-            bn: "যদি গহন পথে যাবার কালে কেউ ফিরে না চায়",
-            en: "If on a deep dark path no one looks back for you",
-          },
-          {
-            trans: "Tobe pother kaaNta",
-            bn: "তবে পথের কাঁটা",
-            en: "Then the thorns of the path",
-          },
-          {
-            trans: "O tui roktomakha chorontole ekla dolo re",
-            bn: "ও তুই রক্তমাখা চরণতলে একলা দলো রে",
-            en: "You trample alone with bloodied feet",
-          },
-        ],
-      },
-      {
-        label: "Verse 3",
-        lines: [
-          {
-            trans: "Jodi aalo na dhore orey orey o obhaga",
-            bn: "যদি আলো না ধরে ওরে ওরে ও অভাগা",
-            en: "If no one holds up a light, oh you unfortunate one",
-          },
-          {
-            trans: "Jodi jhor badole aaNdhar raate duyar dey ghore",
-            bn: "যদি ঝড় বাদলে আঁধার রাতে দুয়ার দেয় ঘরে",
-            en: "If in storm and rain on a dark night they shut their doors",
-          },
-          {
-            trans: "Tobe bojranole",
-            bn: "তবে বজ্রনলে",
-            en: "Then with the fire of thunder",
-          },
-          {
-            trans: "Apon buker paajor jwaliye niye ekla jwolo re",
-            bn: "আপন বুকের পাঁজর জ্বালিয়ে নিয়ে একলা জ্বলো রে",
-            en: "Set your own ribs ablaze and burn alone",
-          },
-        ],
-      },
-    ],
-    glossary: [
-      { word: "daak", bn: "ডাক", meaning: "call, summons" },
-      { word: "ekla", bn: "একলা", meaning: "alone" },
-      { word: "cholo", bn: "চলো", meaning: "walk, go, move forward" },
-      { word: "obhaga", bn: "অভাগা", meaning: "unfortunate one, ill-fated" },
-      { word: "mukh phiraye", bn: "মুখ ফিরায়ে", meaning: "turning the face away" },
-      { word: "bhoy", bn: "ভয়", meaning: "fear" },
-      { word: "poran", bn: "পরান", meaning: "heart, soul, life-breath" },
-      { word: "moner kotha", bn: "মনের কথা", meaning: "the words of the heart/mind" },
-      { word: "gohon pothe", bn: "গহন পথে", meaning: "on a deep/dense path" },
-      { word: "kaaNta", bn: "কাঁটা", meaning: "thorns" },
-      { word: "roktomakha", bn: "রক্তমাখা", meaning: "smeared with blood, bloodied" },
-      { word: "chorontole", bn: "চরণতলে", meaning: "under the feet, at the soles" },
-      { word: "dolo", bn: "দলো", meaning: "trample, crush underfoot" },
-      { word: "aalo", bn: "আলো", meaning: "light" },
-      { word: "jhor", bn: "ঝড়", meaning: "storm" },
-      { word: "badol", bn: "বাদল", meaning: "rain, monsoon" },
-      { word: "aaNdhar", bn: "আঁধার", meaning: "darkness" },
-      { word: "duyar", bn: "দুয়ার", meaning: "door, doorway" },
-      { word: "bojranole", bn: "বজ্রনলে", meaning: "with thunderfire, lightning's flame" },
-      { word: "paajor", bn: "পাঁজর", meaning: "ribs" },
-      { word: "jwaliye", bn: "জ্বালিয়ে", meaning: "setting aflame, igniting" },
-      { word: "jwolo", bn: "জ্বলো", meaning: "burn, blaze" },
-    ],
-    notes:
-      "Flute and dotara start. Groove: accordion and dotara on first half, cello on 2nd half \"sniff a d d\".",
-    reference: [
-      // { title: "Description of the version", url: "https://youtube.com/watch?v=..." },
-    ],
-    ourRecording: [
-      // { title: "Rehearsal / Live / Studio", url: "https://youtube.com/watch?v=..." },
-    ],
-  },
-  {
-    id: 78,
-    title: "Se Ki Amar Kobar Kotha",
-    titleBn: "সে কি আমার কবার কথা",
-    lyricist: "Lalon Fakir",
-    lyricistBn: "লালন ফকির",
-    genre: "Baul / Lalongiti",
-    sections: [
-      {
-        label: "Refrain",
-        lines: [
-          {
-            trans: "Se ki amar kobar kotha",
-            bn: "সে কি আমার কবার কথা",
-            en: "Is this something I can even speak of?",
-          },
-          {
-            trans: "Apon bege aponi mori",
-            bn: "আপন বেগে আপনি মরি",
-            en: "I die by my own momentum",
-          },
-          {
-            trans: "(O mon) Gaur eshe hride bose",
-            bn: "(ও মন) গৌর এসে হৃদে বসে",
-            en: "(O my heart) Gaur came and sat in my heart",
-          },
-          {
-            trans: "Korlo amar monchuri",
-            bn: "করল আমার মনচুরি",
-            en: "And stole my mind away",
-          },
-        ],
-      },
-      {
-        label: "Verse 1",
-        lines: [
-          {
-            trans: "Kiba gaur rup lampote",
-            bn: "কিবা গৌর রূপ লম্পটে",
-            en: "What a beauty-obsessed form Gaur has!",
-          },
-          {
-            trans: "Dhairyer duri dey go kete",
-            bn: "ধৈর্যের দুরি দেয় গো কেটে",
-            en: "He cuts through the rope of my patience",
-          },
-          {
-            trans: "Lojja bhoy sob jay go chute",
-            bn: "লজ্জা ভয় সব যায় গো ছুটে",
-            en: "All shame and fear go running away",
-          },
-          {
-            trans: "Jokhon ai rup mone kori",
-            bn: "যখন ঐ রূপ মনে করি",
-            en: "Whenever I think of that form",
-          },
-        ],
-      },
-      {
-        label: "Verse 2",
-        lines: [
-          {
-            trans: "Ghumer ghore dekhlam jare",
-            bn: "ঘুমের ঘরে দেখলাম যারে",
-            en: "The one I saw in the room of sleep (in dreams)",
-          },
-          {
-            trans: "Chetan hoye paine tare",
-            bn: "চেতন হয়ে পাই নে তারে",
-            en: "When awake, I cannot find him",
-          },
-          {
-            trans: "Lukaile kon shohore",
-            bn: "লুকাইলে কোন শহরে",
-            en: "In which city has he hidden himself?",
-          },
-          {
-            trans: "Nob roser rasbihari",
-            bn: "নব রসের রসবিহারী",
-            en: "The one who revels in the nine rasas (essences of love)",
-          },
-        ],
-      },
-      {
-        label: "Verse 3",
-        lines: [
-          {
-            trans: "Meghe jemon chataker e",
-            bn: "মেঘে যেমন চাতকের এ",
-            en: "Like the chatak bird with the rain cloud",
-          },
-          {
-            trans: "Dekha diye fanke fere",
-            bn: "দেখা দিয়ে ফাঁকে ফেরে",
-            en: "He shows himself then slips away",
-          },
-          {
-            trans: "Lalon bole tai amare",
-            bn: "লালন বলে তাই আমারে",
-            en: "Lalon says, that is why with me",
-          },
-          {
-            trans: "Korlo gaur barabari",
-            bn: "করল গৌর বারবারী",
-            en: "Gaur has done this again and again",
-          },
-        ],
-      },
-    ],
-    glossary: [
-      { word: "kobar", bn: "কবার", meaning: "to speak of, to express" },
-      { word: "bege", bn: "বেগে", meaning: "with speed, with momentum" },
-      { word: "mori", bn: "মরি", meaning: "I die" },
-      { word: "gaur", bn: "গৌর", meaning: "the fair one — the divine beloved" },
-      { word: "hride", bn: "হৃদে", meaning: "in the heart" },
-      { word: "monchuri", bn: "মনচুরি", meaning: "mind-theft, stealing the mind" },
-      { word: "rup", bn: "রূপ", meaning: "form, beauty, appearance" },
-      { word: "lampote", bn: "লম্পটে", meaning: "one addicted to beauty, beauty-obsessed" },
-      { word: "dhairyer", bn: "ধৈর্যের", meaning: "of patience" },
-      { word: "duri", bn: "দুরি", meaning: "rope, cord" },
-      { word: "lojja", bn: "লজ্জা", meaning: "shame, modesty" },
-      { word: "bhoy", bn: "ভয়", meaning: "fear" },
-      { word: "ghumer ghore", bn: "ঘুমের ঘরে", meaning: "in the room of sleep — in dreams" },
-      { word: "chetan", bn: "চেতন", meaning: "awake, conscious" },
-      { word: "lukaile", bn: "লুকাইলে", meaning: "has hidden (himself)" },
-      { word: "nob ros", bn: "নব রস", meaning: "nine rasas — the essences/flavors of love in devotional poetry" },
-      { word: "rasbihari", bn: "রসবিহারী", meaning: "one who revels in rasa, the playful divine" },
-      { word: "chatak", bn: "চাতক", meaning: "a mythical bird that only drinks falling rainwater — symbol of intense longing" },
-      { word: "meghe", bn: "মেঘে", meaning: "in the cloud" },
-      { word: "fanke", bn: "ফাঁকে", meaning: "in the gap, slipping away" },
-      { word: "barabari", bn: "বারবারী", meaning: "again and again, repeatedly" },
-    ],
-    notes:
-      "Subho solo with light dotara plucking, then he slips into rhythm.\nNate Khol in on \"Gaur eshe\"\nMolly along on ektara 1st time\nChorus \"se ki\" is repeated by everyone but Subho 2nd time\nDotara 2nd time\nSam or Tzip? 1st interlude, Mehtab enters\nDotara 2nd interlude\nSam 3rd interlude\nBuilding through \"Gaur eshe\" then fade out for the end 3× \"se ki\"\nListen for the swell and drop — hold back volume, let it simmer.",
-    reference: [
-      // { title: "Description of the version", url: "https://youtube.com/watch?v=..." },
-    ],
-    ourRecording: [
-      // { title: "Rehearsal / Live / Studio", url: "https://youtube.com/watch?v=..." },
-    ],
-  },
-];
+const rawFiles = import.meta.glob("./songs/*.md", { query: "?raw", import: "default", eager: true });
+const SONGS = Object.values(rawFiles)
+  .map(parseSong)
+  .sort((a, b) => a.id - b.id);
 
 const PASSWORD = "pakhis@2026";
+
+const GENRES = [
+  "All", "Baul", "Rabindrasangeet", "Nazrulgiti",
+  "Bhatiyali", "Jhumur", "Qawwali", "Jit-sangeet",
+];
 
 // ─── Styles ───
 const colors = {
@@ -497,17 +69,26 @@ function PasswordGate({ onUnlock }) {
       <div
         style={{
           textAlign: "center",
-          maxWidth: 380,
           width: "100%",
-          animation: shake ? "shake 0.4s ease" : undefined,
+          maxWidth: 360,
+          animation: shake ? "shake 0.4s ease" : "none",
         }}
       >
+        <style>{`
+          @keyframes shake {
+            0%,100%{transform:translateX(0)}
+            20%{transform:translateX(-8px)}
+            40%{transform:translateX(8px)}
+            60%{transform:translateX(-5px)}
+            80%{transform:translateX(5px)}
+          }
+        `}</style>
         <div
           style={{
-            fontSize: 48,
-            marginBottom: 8,
             fontFamily: font.bengali,
+            fontSize: 42,
             color: colors.accent,
+            marginBottom: 4,
             fontWeight: 700,
           }}
         >
@@ -516,212 +97,181 @@ function PasswordGate({ onUnlock }) {
         <div
           style={{
             fontFamily: font.display,
-            fontSize: 22,
+            fontSize: 20,
             color: colors.text,
-            marginBottom: 4,
+            marginBottom: 32,
             fontWeight: 600,
           }}
         >
           Songbook
         </div>
-        <div
-          style={{
-            fontSize: 13,
-            color: colors.textMuted,
-            marginBottom: 32,
-            letterSpacing: "0.04em",
-          }}
-        >
-          Band members only
-        </div>
         <input
           type="password"
           placeholder="Enter password"
           value={pw}
-          onChange={(e) => {
-            setPw(e.target.value);
-            setError(false);
-          }}
+          onChange={(e) => { setPw(e.target.value); setError(false); }}
           onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+          autoFocus
           style={{
             width: "100%",
             boxSizing: "border-box",
-            padding: "14px 18px",
+            padding: "13px 16px",
             fontSize: 16,
             border: `1.5px solid ${error ? colors.accent : colors.border}`,
             borderRadius: 10,
             outline: "none",
-            background: colors.surface,
             fontFamily: font.body,
-            marginBottom: 12,
+            background: colors.surface,
             color: colors.text,
+            marginBottom: 10,
           }}
         />
+        {error && (
+          <div style={{ color: colors.accent, fontSize: 13, marginBottom: 10 }}>
+            Incorrect password. Try again.
+          </div>
+        )}
         <button
           onClick={handleSubmit}
           style={{
             width: "100%",
-            padding: "14px 0",
-            fontSize: 15,
-            fontWeight: 600,
+            padding: "13px 0",
             background: colors.accent,
-            color: "#FFF",
+            color: "#fff",
             border: "none",
             borderRadius: 10,
-            cursor: "pointer",
+            fontSize: 16,
+            fontWeight: 600,
             fontFamily: font.body,
-            letterSpacing: "0.02em",
+            cursor: "pointer",
+            minHeight: 44,
           }}
         >
           Enter
         </button>
-        {error && (
-          <div
-            style={{
-              color: colors.accent,
-              fontSize: 13,
-              marginTop: 10,
-            }}
-          >
-            Wrong password — ask Subho!
-          </div>
-        )}
-        <style>{`
-          @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20% { transform: translateX(-8px); }
-            40% { transform: translateX(8px); }
-            60% { transform: translateX(-6px); }
-            80% { transform: translateX(6px); }
-          }
-        `}</style>
       </div>
     </div>
   );
 }
 
 // ─── Song List ───
-function UserBar({ onSignOut }) {
-  return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: 12,
-        fontSize: 13,
-        flexShrink: 0,
-      }}
-    >
-      <span style={{ fontWeight: 600, color: colors.text }}>pakhis</span>
-      <a
-        href="https://ochinpakhichicago.org"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ color: colors.accent, textDecoration: "none" }}
-      >
-        Website
-      </a>
-      <button
-        onClick={onSignOut}
-        style={{
-          background: "none",
-          border: `1px solid ${colors.border}`,
-          borderRadius: 6,
-          padding: "4px 10px",
-          fontSize: 12,
-          color: colors.textMuted,
-          cursor: "pointer",
-          fontFamily: font.body,
-        }}
-      >
-        Sign out
-      </button>
-    </div>
-  );
-}
-
-function SongList({ onSelect, onSignOut }) {
-  const [search, setSearch] = useState("");
+function SongList({ songs, onSelect, searchState }) {
+  const [search, setSearch] = searchState;
+  const [genreFilter, setGenreFilter] = useState("All");
 
   const filtered = useMemo(() => {
-    const q = search.toLowerCase();
-    if (!q) return SONGS;
-    return SONGS.filter(
-      (s) =>
+    const q = search.toLowerCase().trim();
+    return songs.filter((s) => {
+      const matchesGenre =
+        genreFilter === "All" ||
+        s.genre.toLowerCase().includes(genreFilter.toLowerCase());
+      if (!matchesGenre) return false;
+      if (!q) return true;
+      return (
         s.title.toLowerCase().includes(q) ||
         s.lyricist.toLowerCase().includes(q) ||
         s.genre.toLowerCase().includes(q) ||
-        s.titleBn.includes(q)
-    );
-  }, [search]);
+        s.titleBn.includes(q) ||
+        s.tags.some((t) => t.toLowerCase().includes(q))
+      );
+    });
+  }, [songs, search, genreFilter]);
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: colors.bg,
-        fontFamily: font.body,
-      }}
-    >
+    <div style={{ minHeight: "100vh", background: colors.bg, fontFamily: font.body }}>
       {/* Header */}
       <div
         style={{
-          padding: "28px 24px 20px",
+          padding: "28px 20px 16px",
           borderBottom: `1px solid ${colors.border}`,
           background: colors.surface,
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
-            <span
-              style={{
-                fontFamily: font.bengali,
-                fontSize: 24,
-                color: colors.accent,
-                fontWeight: 700,
-              }}
-            >
-              অচিন পাখি
-            </span>
-            <span
-              style={{
-                fontFamily: font.display,
-                fontSize: 18,
-                color: colors.text,
-                fontWeight: 600,
-              }}
-            >
-              Songbook
-            </span>
-          </div>
-          <UserBar onSignOut={onSignOut} />
+        <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginBottom: 4 }}>
+          <span
+            style={{
+              fontFamily: font.bengali,
+              fontSize: 24,
+              color: colors.accent,
+              fontWeight: 700,
+            }}
+          >
+            অচিন পাখি
+          </span>
+          <span
+            style={{
+              fontFamily: font.display,
+              fontSize: 18,
+              color: colors.text,
+              fontWeight: 600,
+            }}
+          >
+            Songbook
+          </span>
         </div>
-        <div style={{ fontSize: 13, color: colors.textMuted, marginTop: 2 }}>
-          {SONGS.length} songs
+        <div style={{ fontSize: 13, color: colors.textMuted, marginBottom: 12 }}>
+          {songs.length} songs
         </div>
         <input
           type="text"
-          placeholder="Search by title, lyricist, or genre…"
+          placeholder="Search by title, lyricist, genre, or theme…"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           style={{
             width: "100%",
             boxSizing: "border-box",
-            marginTop: 14,
             padding: "11px 14px",
-            fontSize: 14,
+            fontSize: 16,
             border: `1px solid ${colors.border}`,
             borderRadius: 8,
             outline: "none",
             fontFamily: font.body,
             background: colors.bg,
             color: colors.text,
+            minHeight: 44,
           }}
         />
+
+        {/* Genre chips */}
+        <div
+          style={{
+            display: "flex",
+            gap: 8,
+            marginTop: 12,
+            overflowX: "auto",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            WebkitOverflowScrolling: "touch",
+            paddingBottom: 2,
+          }}
+        >
+          {GENRES.map((g) => (
+            <button
+              key={g}
+              onClick={() => setGenreFilter(g)}
+              style={{
+                flexShrink: 0,
+                padding: "6px 14px",
+                borderRadius: 20,
+                border: "none",
+                fontSize: 13,
+                fontFamily: font.body,
+                cursor: "pointer",
+                fontWeight: genreFilter === g ? 600 : 400,
+                background: genreFilter === g ? colors.accent : colors.tag,
+                color: genreFilter === g ? "#fff" : colors.text,
+                minHeight: 32,
+                transition: "background 0.15s, color 0.15s",
+              }}
+            >
+              {g}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Song cards */}
-      <div style={{ padding: "16px 16px 40px" }}>
+      <div style={{ padding: "14px 16px 100px" }}>
         {filtered.length === 0 && (
           <div
             style={{
@@ -729,6 +279,7 @@ function SongList({ onSelect, onSignOut }) {
               color: colors.textMuted,
               padding: 40,
               fontSize: 14,
+              fontStyle: "italic",
             }}
           >
             No songs match your search.
@@ -749,16 +300,15 @@ function SongList({ onSelect, onSignOut }) {
               marginBottom: 10,
               cursor: "pointer",
               fontFamily: font.body,
-              transition: "box-shadow 0.15s",
+              minHeight: 44,
             }}
             onMouseEnter={(e) =>
-              (e.currentTarget.style.boxShadow =
-                "0 2px 8px rgba(44,24,16,0.08)")
+              (e.currentTarget.style.boxShadow = "0 2px 8px rgba(44,24,16,0.08)")
             }
             onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
-              <div>
+              <div style={{ flex: 1, minWidth: 0 }}>
                 <div
                   style={{
                     fontFamily: font.display,
@@ -781,21 +331,35 @@ function SongList({ onSelect, onSignOut }) {
                   {song.titleBn}
                 </div>
               </div>
-              <span
-                style={{
-                  fontSize: 11,
-                  fontWeight: 600,
-                  color: colors.green,
-                  background: colors.greenLight,
-                  padding: "3px 9px",
-                  borderRadius: 20,
-                  whiteSpace: "nowrap",
-                  flexShrink: 0,
-                  marginTop: 2,
-                }}
-              >
-                #{song.id}
-              </span>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4, flexShrink: 0, marginLeft: 10 }}>
+                <span
+                  style={{
+                    fontSize: 11,
+                    fontWeight: 600,
+                    color: colors.green,
+                    background: colors.greenLight,
+                    padding: "3px 9px",
+                    borderRadius: 20,
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  #{song.id}
+                </span>
+                {song._local && (
+                  <span
+                    style={{
+                      fontSize: 10,
+                      color: colors.textMuted,
+                      background: colors.tag,
+                      padding: "1px 7px",
+                      borderRadius: 20,
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    local
+                  </span>
+                )}
+              </div>
             </div>
             <div
               style={{
@@ -806,12 +370,7 @@ function SongList({ onSelect, onSignOut }) {
                 alignItems: "center",
               }}
             >
-              <span
-                style={{
-                  fontSize: 12,
-                  color: colors.textMuted,
-                }}
-              >
+              <span style={{ fontSize: 12, color: colors.textMuted }}>
                 {song.lyricist}
               </span>
               <span
@@ -825,7 +384,43 @@ function SongList({ onSelect, onSignOut }) {
               >
                 {song.genre}
               </span>
+              {song.duration && (
+                <span style={{ fontSize: 11, color: colors.textMuted }}>
+                  {song.duration}
+                </span>
+              )}
             </div>
+            {song.tags.length > 0 && (
+              <div
+                style={{
+                  display: "flex",
+                  gap: 5,
+                  flexWrap: "wrap",
+                  marginTop: 7,
+                }}
+              >
+                {song.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSearch(tag);
+                    }}
+                    style={{
+                      fontSize: 11,
+                      color: colors.textMuted,
+                      background: colors.bg,
+                      border: `1px solid ${colors.border}`,
+                      padding: "1px 7px",
+                      borderRadius: 20,
+                      cursor: "pointer",
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </button>
         ))}
       </div>
@@ -834,19 +429,19 @@ function SongList({ onSelect, onSignOut }) {
 }
 
 // ─── Song Detail ───
-function SongDetail({ song, onBack, onSignOut }) {
+function SongDetail({ song, onBack }) {
   const [tab, setTab] = useState("lyrics");
   const [activeWord, setActiveWord] = useState(null);
 
   const tabs = [
     { key: "lyrics", label: "Lyrics" },
     { key: "glossary", label: "Glossary" },
-    { key: "notes", label: "Arrangement Notes" },
+    { key: "notes", label: "Arrangement" },
     { key: "reference", label: "Listen & Learn" },
-    { key: "ours", label: "Our Version" },
+    { key: "ours", label: "Our Recording" },
+    { key: "discussion", label: "Discussion" },
   ];
 
-  // Build a lookup from transliterated word → glossary entry
   const wordLookup = useMemo(() => {
     const map = {};
     song.glossary.forEach((g) => {
@@ -859,7 +454,6 @@ function SongDetail({ song, onBack, onSignOut }) {
     return map;
   }, [song]);
 
-  // Render transliteration with tappable glossary words
   const renderTransLine = useCallback(
     (line) => {
       const words = line.split(/(\s+)/);
@@ -868,14 +462,11 @@ function SongDetail({ song, onBack, onSignOut }) {
         const clean = w.replace(/[^a-zA-Z]/g, "").toLowerCase();
         const match = wordLookup[clean];
         if (match) {
-          const isActive =
-            activeWord && activeWord.word === match.word;
+          const isActive = activeWord && activeWord.word === match.word;
           return (
             <span
               key={i}
-              onClick={() =>
-                setActiveWord(isActive ? null : match)
-              }
+              onClick={() => setActiveWord(isActive ? null : match)}
               style={{
                 borderBottom: `2px dotted ${colors.gold}`,
                 cursor: "pointer",
@@ -895,6 +486,10 @@ function SongDetail({ song, onBack, onSignOut }) {
     [wordLookup, activeWord]
   );
 
+  const d = song.discussion;
+  const hasDiscussion =
+    d.summary || d.lyricistNote || d.talkingPoints.length || d.keyAspects.length;
+
   return (
     <div
       style={{
@@ -911,25 +506,34 @@ function SongDetail({ song, onBack, onSignOut }) {
           borderBottom: `1px solid ${colors.border}`,
         }}
       >
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 10 }}>
-          <button
-            onClick={onBack}
-            style={{
-              background: "none",
-              border: "none",
-              color: colors.accent,
-              fontFamily: font.body,
-              fontSize: 14,
-              cursor: "pointer",
-              padding: 0,
-              fontWeight: 500,
-            }}
-          >
-            ← All Songs
-          </button>
-          <UserBar onSignOut={onSignOut} />
-        </div>
-        <div style={{ display: "flex", gap: 10, alignItems: "flex-start", justifyContent: "space-between" }}>
+        <button
+          onClick={onBack}
+          style={{
+            background: "none",
+            border: "none",
+            color: colors.accent,
+            fontFamily: font.body,
+            fontSize: 14,
+            cursor: "pointer",
+            padding: "4px 0",
+            fontWeight: 500,
+            minHeight: 44,
+            display: "flex",
+            alignItems: "center",
+            gap: 4,
+          }}
+        >
+          ← All Songs
+        </button>
+        <div
+          style={{
+            display: "flex",
+            gap: 10,
+            alignItems: "flex-start",
+            justifyContent: "space-between",
+            marginTop: 6,
+          }}
+        >
           <div>
             <div
               style={{
@@ -974,11 +578,12 @@ function SongDetail({ song, onBack, onSignOut }) {
             display: "flex",
             gap: 8,
             marginTop: 8,
+            flexWrap: "wrap",
             alignItems: "center",
           }}
         >
           <span style={{ fontSize: 13, color: colors.textMuted }}>
-            {song.lyricist} ({song.lyricistBn})
+            {song.lyricist}{song.lyricistBn ? ` (${song.lyricistBn})` : ""}
           </span>
           <span
             style={{
@@ -991,7 +596,22 @@ function SongDetail({ song, onBack, onSignOut }) {
           >
             {song.genre}
           </span>
+          {song.key && (
+            <span style={{ fontSize: 11, color: colors.textMuted }}>
+              {song.key}
+            </span>
+          )}
+          {song.duration && (
+            <span style={{ fontSize: 11, color: colors.textMuted }}>
+              {song.duration}
+            </span>
+          )}
         </div>
+        {song.instruments && (
+          <div style={{ fontSize: 12, color: colors.textMuted, marginTop: 4 }}>
+            {song.instruments}
+          </div>
+        )}
       </div>
 
       {/* Tabs */}
@@ -1021,7 +641,7 @@ function SongDetail({ song, onBack, onSignOut }) {
                 tab === t.key
                   ? `2.5px solid ${colors.accent}`
                   : "2.5px solid transparent",
-              padding: "12px 16px 10px",
+              padding: "12px 14px 10px",
               fontSize: 14,
               fontWeight: tab === t.key ? 600 : 400,
               color: tab === t.key ? colors.accent : colors.textMuted,
@@ -1030,6 +650,7 @@ function SongDetail({ song, onBack, onSignOut }) {
               transition: "color 0.15s",
               whiteSpace: "nowrap",
               flexShrink: 0,
+              minHeight: 44,
             }}
           >
             {t.label}
@@ -1053,13 +674,7 @@ function SongDetail({ song, onBack, onSignOut }) {
           }}
         >
           <div>
-            <span
-              style={{
-                fontWeight: 700,
-                color: colors.text,
-                fontSize: 15,
-              }}
-            >
+            <span style={{ fontWeight: 700, color: colors.text, fontSize: 15 }}>
               {activeWord.word}
             </span>
             <span
@@ -1088,12 +703,17 @@ function SongDetail({ song, onBack, onSignOut }) {
             style={{
               background: "none",
               border: "none",
-              fontSize: 18,
+              fontSize: 20,
               color: colors.textMuted,
               cursor: "pointer",
               padding: 0,
               lineHeight: 1,
               flexShrink: 0,
+              minHeight: 44,
+              minWidth: 44,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
             ×
@@ -1102,7 +722,7 @@ function SongDetail({ song, onBack, onSignOut }) {
       )}
 
       {/* Tab content */}
-      <div style={{ padding: "16px 18px 60px" }}>
+      <div style={{ padding: "16px 18px 100px" }}>
         {/* ── Lyrics ── */}
         {tab === "lyrics" && (
           <div>
@@ -1114,7 +734,16 @@ function SongDetail({ song, onBack, onSignOut }) {
                 fontStyle: "italic",
               }}
             >
-              Tap <span style={{ borderBottom: `2px dotted ${colors.gold}`, padding: "0 2px" }}>highlighted words</span> to see meanings
+              Tap{" "}
+              <span
+                style={{
+                  borderBottom: `2px dotted ${colors.gold}`,
+                  padding: "0 2px",
+                }}
+              >
+                highlighted words
+              </span>{" "}
+              to see meanings
             </div>
             {song.sections.map((sec, si) => (
               <div key={si} style={{ marginBottom: 28 }}>
@@ -1131,14 +760,7 @@ function SongDetail({ song, onBack, onSignOut }) {
                   {sec.label}
                 </div>
                 {sec.lines.map((line, li) => (
-                  <div
-                    key={li}
-                    style={{
-                      marginBottom: 16,
-                      paddingLeft: 0,
-                    }}
-                  >
-                    {/* Transliteration */}
+                  <div key={li} style={{ marginBottom: 16 }}>
                     <div
                       style={{
                         fontSize: 16,
@@ -1149,30 +771,32 @@ function SongDetail({ song, onBack, onSignOut }) {
                     >
                       {renderTransLine(line.trans)}
                     </div>
-                    {/* Bengali */}
-                    <div
-                      style={{
-                        fontFamily: font.bengali,
-                        fontSize: 15,
-                        color: colors.textMuted,
-                        lineHeight: 1.6,
-                        marginTop: 1,
-                      }}
-                    >
-                      {line.bn}
-                    </div>
-                    {/* English */}
-                    <div
-                      style={{
-                        fontSize: 13,
-                        color: colors.accent,
-                        fontStyle: "italic",
-                        lineHeight: 1.45,
-                        marginTop: 2,
-                      }}
-                    >
-                      {line.en}
-                    </div>
+                    {line.bn && (
+                      <div
+                        style={{
+                          fontFamily: font.bengali,
+                          fontSize: 15,
+                          color: colors.textMuted,
+                          lineHeight: 1.6,
+                          marginTop: 1,
+                        }}
+                      >
+                        {line.bn}
+                      </div>
+                    )}
+                    {line.en && (
+                      <div
+                        style={{
+                          fontSize: 13,
+                          color: colors.accent,
+                          fontStyle: "italic",
+                          lineHeight: 1.45,
+                          marginTop: 2,
+                        }}
+                      >
+                        {line.en}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -1183,52 +807,60 @@ function SongDetail({ song, onBack, onSignOut }) {
         {/* ── Glossary ── */}
         {tab === "glossary" && (
           <div>
-            {song.glossary.map((g, i) => (
+            {song.glossary.length === 0 ? (
               <div
-                key={i}
                 style={{
-                  display: "flex",
-                  gap: 12,
-                  padding: "12px 0",
-                  borderBottom:
-                    i < song.glossary.length - 1
-                      ? `1px solid ${colors.border}`
-                      : "none",
-                  alignItems: "flex-start",
+                  textAlign: "center",
+                  color: colors.textMuted,
+                  padding: 40,
+                  fontSize: 14,
+                  fontStyle: "italic",
                 }}
               >
-                <div style={{ minWidth: 110, flexShrink: 0 }}>
-                  <div
-                    style={{
-                      fontWeight: 600,
-                      fontSize: 15,
-                      color: colors.text,
-                    }}
-                  >
-                    {g.word}
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: font.bengali,
-                      fontSize: 14,
-                      color: colors.textMuted,
-                    }}
-                  >
-                    {g.bn}
-                  </div>
-                </div>
+                No glossary entries yet.
+              </div>
+            ) : (
+              song.glossary.map((g, i) => (
                 <div
+                  key={i}
                   style={{
-                    fontSize: 14,
-                    color: colors.text,
-                    lineHeight: 1.45,
-                    paddingTop: 1,
+                    display: "flex",
+                    gap: 12,
+                    padding: "12px 0",
+                    borderBottom:
+                      i < song.glossary.length - 1
+                        ? `1px solid ${colors.border}`
+                        : "none",
+                    alignItems: "flex-start",
                   }}
                 >
-                  {g.meaning}
+                  <div style={{ minWidth: 110, flexShrink: 0 }}>
+                    <div style={{ fontWeight: 600, fontSize: 15, color: colors.text }}>
+                      {g.word}
+                    </div>
+                    <div
+                      style={{
+                        fontFamily: font.bengali,
+                        fontSize: 14,
+                        color: colors.textMuted,
+                      }}
+                    >
+                      {g.bn}
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      fontSize: 14,
+                      color: colors.text,
+                      lineHeight: 1.45,
+                      paddingTop: 1,
+                    }}
+                  >
+                    {g.meaning}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         )}
 
@@ -1264,7 +896,6 @@ function SongDetail({ song, onBack, onSignOut }) {
                       color: colors.text,
                       lineHeight: 1.6,
                       marginBottom: 4,
-                      paddingLeft: line.startsWith(" ") ? 16 : 0,
                     }}
                   >
                     {line}
@@ -1287,7 +918,7 @@ function SongDetail({ song, onBack, onSignOut }) {
           </div>
         )}
 
-        {/* ── Reference (authentic/old versions) ── */}
+        {/* ── Listen & Learn ── */}
         {tab === "reference" && (
           <div>
             <div
@@ -1298,120 +929,14 @@ function SongDetail({ song, onBack, onSignOut }) {
                 lineHeight: 1.5,
               }}
             >
-              Authentic and classic renditions to study the original feel of this song.
+              Authentic and classic renditions to study the original feel.
             </div>
             {song.reference && song.reference.length > 0 ? (
               song.reference.map((link, i) => (
-                <a
-                  key={i}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "block",
-                    background: colors.surface,
-                    border: `1px solid ${colors.border}`,
-                    borderRadius: 10,
-                    padding: "14px 18px",
-                    marginBottom: 10,
-                    textDecoration: "none",
-                    transition: "box-shadow 0.15s",
-                  }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.boxShadow =
-                      "0 2px 8px rgba(44,24,16,0.08)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.boxShadow = "none")
-                  }
-                >
-                  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                    <span style={{ fontSize: 22 }}>▶</span>
-                    <div>
-                      <div
-                        style={{
-                          fontSize: 15,
-                          fontWeight: 600,
-                          color: colors.text,
-                        }}
-                      >
-                        {link.title}
-                      </div>
-                      <div
-                        style={{
-                          fontSize: 12,
-                          color: colors.textMuted,
-                          marginTop: 2,
-                        }}
-                      >
-                        YouTube
-                      </div>
-                    </div>
-                  </div>
-                  {link.url.includes("youtube.com/watch") || link.url.includes("youtu.be") ? (
-                    <div
-                      style={{
-                        marginTop: 12,
-                        borderRadius: 8,
-                        overflow: "hidden",
-                        position: "relative",
-                        paddingBottom: "56.25%",
-                        height: 0,
-                      }}
-                    >
-                      <iframe
-                        src={`https://www.youtube.com/embed/${
-                          link.url.includes("youtu.be")
-                            ? link.url.split("youtu.be/")[1]?.split("?")[0]
-                            : link.url.split("v=")[1]?.split("&")[0]
-                        }`}
-                        title={link.title}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
-                        allowFullScreen
-                        style={{
-                          position: "absolute",
-                          top: 0,
-                          left: 0,
-                          width: "100%",
-                          height: "100%",
-                          border: "none",
-                          borderRadius: 8,
-                        }}
-                      />
-                    </div>
-                  ) : null}
-                </a>
+                <VideoCard key={i} link={link} accentBorder={false} />
               ))
             ) : (
-              <div
-                style={{
-                  background: colors.surface,
-                  border: `1px dashed ${colors.border}`,
-                  borderRadius: 10,
-                  padding: "36px 20px",
-                  textAlign: "center",
-                }}
-              >
-                <div style={{ fontSize: 28, marginBottom: 8 }}>🎵</div>
-                <div
-                  style={{
-                    fontSize: 14,
-                    color: colors.textMuted,
-                    fontStyle: "italic",
-                  }}
-                >
-                  No reference links yet.
-                </div>
-                <div
-                  style={{
-                    fontSize: 12,
-                    color: colors.textMuted,
-                    marginTop: 4,
-                  }}
-                >
-                  Add YouTube URLs to the song data to embed them here.
-                </div>
-              </div>
+              <EmptyState icon="🎵" text="No reference links yet." sub="Add YouTube URLs to the song file to embed them here." />
             )}
           </div>
         )}
@@ -1431,100 +956,7 @@ function SongDetail({ song, onBack, onSignOut }) {
             </div>
             {song.ourRecording && song.ourRecording.length > 0 ? (
               song.ourRecording.map((link, i) => (
-                <a
-                  key={i}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    display: "block",
-                    background: colors.surface,
-                    border: `1px solid ${colors.accent}44`,
-                    borderRadius: 10,
-                    padding: "14px 18px",
-                    marginBottom: 10,
-                    textDecoration: "none",
-                    transition: "box-shadow 0.15s",
-                  }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.boxShadow =
-                      "0 2px 8px rgba(179,90,56,0.12)")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.boxShadow = "none")
-                  }
-                >
-                  <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                    <span
-                      style={{
-                        fontSize: 18,
-                        background: colors.accentLight,
-                        borderRadius: "50%",
-                        width: 36,
-                        height: 36,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexShrink: 0,
-                        color: colors.accent,
-                      }}
-                    >
-                      ▶
-                    </span>
-                    <div>
-                      <div
-                        style={{
-                          fontSize: 15,
-                          fontWeight: 600,
-                          color: colors.accent,
-                        }}
-                      >
-                        {link.title}
-                      </div>
-                      <div
-                        style={{
-                          fontSize: 12,
-                          color: colors.textMuted,
-                          marginTop: 2,
-                        }}
-                      >
-                        Ochin Pakhi
-                      </div>
-                    </div>
-                  </div>
-                  {link.url.includes("youtube.com/watch") || link.url.includes("youtu.be") ? (
-                    <div
-                      style={{
-                        marginTop: 12,
-                        borderRadius: 8,
-                        overflow: "hidden",
-                        position: "relative",
-                        paddingBottom: "56.25%",
-                        height: 0,
-                      }}
-                    >
-                      <iframe
-                        src={`https://www.youtube.com/embed/${
-                          link.url.includes("youtu.be")
-                            ? link.url.split("youtu.be/")[1]?.split("?")[0]
-                            : link.url.split("v=")[1]?.split("&")[0]
-                        }`}
-                        title={link.title}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
-                        allowFullScreen
-                        style={{
-                          position: "absolute",
-                          top: 0,
-                          left: 0,
-                          width: "100%",
-                          height: "100%",
-                          border: "none",
-                          borderRadius: 8,
-                        }}
-                      />
-                    </div>
-                  ) : null}
-                </a>
+                <VideoCard key={i} link={link} accentBorder={true} />
               ))
             ) : (
               <div
@@ -1546,24 +978,99 @@ function SongDetail({ song, onBack, onSignOut }) {
                 >
                   অচিন পাখি
                 </div>
-                <div
-                  style={{
-                    fontSize: 14,
-                    color: colors.textMuted,
-                    fontStyle: "italic",
-                  }}
-                >
+                <div style={{ fontSize: 14, color: colors.textMuted, fontStyle: "italic" }}>
                   No recordings linked yet.
                 </div>
-                <div
-                  style={{
-                    fontSize: 12,
-                    color: colors.textMuted,
-                    marginTop: 4,
-                  }}
-                >
-                  Add YouTube URLs from the band's channel to embed them here.
-                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* ── Discussion ── */}
+        {tab === "discussion" && (
+          <div>
+            {!hasDiscussion ? (
+              <EmptyState
+                icon="💬"
+                text="No discussion notes yet."
+                sub="Add a summary, lyricist context, and talking points to the song file."
+              />
+            ) : (
+              <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+                {d.summary && (
+                  <DiscussionSection label="About this song">
+                    <p
+                      style={{
+                        fontFamily: font.display,
+                        fontSize: 16,
+                        fontStyle: "italic",
+                        color: colors.text,
+                        lineHeight: 1.7,
+                        margin: 0,
+                      }}
+                    >
+                      {d.summary}
+                    </p>
+                  </DiscussionSection>
+                )}
+                {d.lyricistNote && (
+                  <DiscussionSection label="About the lyricist">
+                    <p
+                      style={{
+                        fontSize: 15,
+                        color: colors.text,
+                        lineHeight: 1.65,
+                        margin: 0,
+                      }}
+                    >
+                      {d.lyricistNote}
+                    </p>
+                  </DiscussionSection>
+                )}
+                {d.talkingPoints.length > 0 && (
+                  <DiscussionSection label="Talk to the audience">
+                    <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+                      {d.talkingPoints.map((pt, i) => (
+                        <li
+                          key={i}
+                          style={{
+                            display: "flex",
+                            gap: 10,
+                            fontSize: 15,
+                            color: colors.text,
+                            lineHeight: 1.55,
+                            marginBottom: i < d.talkingPoints.length - 1 ? 10 : 0,
+                          }}
+                        >
+                          <span style={{ color: colors.gold, flexShrink: 0, fontWeight: 700 }}>•</span>
+                          <span>{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </DiscussionSection>
+                )}
+                {d.keyAspects.length > 0 && (
+                  <DiscussionSection label="Key aspects">
+                    <ul style={{ margin: 0, padding: 0, listStyle: "none" }}>
+                      {d.keyAspects.map((pt, i) => (
+                        <li
+                          key={i}
+                          style={{
+                            display: "flex",
+                            gap: 10,
+                            fontSize: 15,
+                            color: colors.textMuted,
+                            lineHeight: 1.55,
+                            marginBottom: i < d.keyAspects.length - 1 ? 10 : 0,
+                          }}
+                        >
+                          <span style={{ color: colors.border, flexShrink: 0, fontWeight: 700 }}>—</span>
+                          <span>{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </DiscussionSection>
+                )}
               </div>
             )}
           </div>
@@ -1573,24 +1080,637 @@ function SongDetail({ song, onBack, onSignOut }) {
   );
 }
 
+function DiscussionSection({ label, children }) {
+  return (
+    <div
+      style={{
+        background: colors.surface,
+        border: `1px solid ${colors.border}`,
+        borderRadius: 10,
+        padding: "16px 18px",
+      }}
+    >
+      <div
+        style={{
+          fontSize: 11,
+          fontWeight: 700,
+          color: colors.accent,
+          textTransform: "uppercase",
+          letterSpacing: "0.08em",
+          marginBottom: 10,
+        }}
+      >
+        {label}
+      </div>
+      {children}
+    </div>
+  );
+}
+
+function VideoCard({ link, accentBorder }) {
+  const youtubeId = link.url.includes("youtu.be")
+    ? link.url.split("youtu.be/")[1]?.split("?")[0]
+    : link.url.split("v=")[1]?.split("&")[0];
+
+  return (
+    <a
+      href={link.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{
+        display: "block",
+        background: colors.surface,
+        border: `1px solid ${accentBorder ? colors.accent + "44" : colors.border}`,
+        borderRadius: 10,
+        padding: "14px 18px",
+        marginBottom: 10,
+        textDecoration: "none",
+      }}
+      onMouseEnter={(e) =>
+        (e.currentTarget.style.boxShadow = "0 2px 8px rgba(44,24,16,0.08)")
+      }
+      onMouseLeave={(e) => (e.currentTarget.style.boxShadow = "none")}
+    >
+      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <span
+          style={{
+            fontSize: accentBorder ? 18 : 22,
+            background: accentBorder ? colors.accentLight : "transparent",
+            borderRadius: accentBorder ? "50%" : 0,
+            width: accentBorder ? 36 : "auto",
+            height: accentBorder ? 36 : "auto",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexShrink: 0,
+            color: accentBorder ? colors.accent : "inherit",
+          }}
+        >
+          ▶
+        </span>
+        <div>
+          <div
+            style={{
+              fontSize: 15,
+              fontWeight: 600,
+              color: accentBorder ? colors.accent : colors.text,
+            }}
+          >
+            {link.title}
+          </div>
+          <div style={{ fontSize: 12, color: colors.textMuted, marginTop: 2 }}>
+            {accentBorder ? "Ochin Pakhi" : "YouTube"}
+          </div>
+        </div>
+      </div>
+      {youtubeId && (
+        <div
+          style={{
+            marginTop: 12,
+            borderRadius: 8,
+            overflow: "hidden",
+            position: "relative",
+            paddingBottom: "56.25%",
+            height: 0,
+          }}
+        >
+          <iframe
+            src={`https://www.youtube.com/embed/${youtubeId}`}
+            title={link.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope"
+            allowFullScreen
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              border: "none",
+              borderRadius: 8,
+            }}
+          />
+        </div>
+      )}
+    </a>
+  );
+}
+
+function EmptyState({ icon, text, sub }) {
+  return (
+    <div
+      style={{
+        background: colors.surface,
+        border: `1px dashed ${colors.border}`,
+        borderRadius: 10,
+        padding: "36px 20px",
+        textAlign: "center",
+      }}
+    >
+      {icon && <div style={{ fontSize: 28, marginBottom: 8 }}>{icon}</div>}
+      <div style={{ fontSize: 14, color: colors.textMuted, fontStyle: "italic" }}>
+        {text}
+      </div>
+      {sub && (
+        <div style={{ fontSize: 12, color: colors.textMuted, marginTop: 4 }}>
+          {sub}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Setlists (Phase 2 placeholder) ───
+function SetlistsTab() {
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        background: colors.bg,
+        fontFamily: font.body,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: 40,
+        textAlign: "center",
+      }}
+    >
+      <div style={{ fontSize: 36, marginBottom: 16 }}>☰</div>
+      <div
+        style={{
+          fontFamily: font.display,
+          fontSize: 22,
+          fontWeight: 600,
+          color: colors.text,
+          marginBottom: 10,
+        }}
+      >
+        Setlists
+      </div>
+      <div style={{ fontSize: 15, color: colors.textMuted, lineHeight: 1.6 }}>
+        Create setlists, share with your audience via QR code. Coming soon.
+      </div>
+    </div>
+  );
+}
+
+// ─── About ───
+function AboutTab({ onSignOut, localSongs, allSongs, onAddSong, onRemoveSong }) {
+  const [preview, setPreview] = useState(null); // { raw, song } | { error }
+  const [copiedId, setCopiedId] = useState(null);
+  const fileInputRef = useState(null);
+  const staticIds = new Set(SONGS.map((s) => s.id));
+
+  const handleFileSelect = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const raw = ev.target.result;
+      try {
+        const song = parseSong(raw);
+        if (!song.id || !song.title) throw new Error("Missing id or title in front matter.");
+        setPreview({ raw, song, error: null });
+      } catch (err) {
+        setPreview({ raw: null, song: null, error: `Could not parse file: ${err.message}` });
+      }
+    };
+    reader.readAsText(file, "utf-8");
+    e.target.value = "";
+  };
+
+  const handleAdd = () => {
+    if (!preview?.song) return;
+    onAddSong(preview.raw);
+    setPreview(null);
+  };
+
+  const handleCopy = (raw, id) => {
+    navigator.clipboard.writeText(raw).then(() => {
+      setCopiedId(id);
+      setTimeout(() => setCopiedId(null), 2000);
+    });
+  };
+
+  const card = {
+    background: colors.surface,
+    border: `1px solid ${colors.border}`,
+    borderRadius: 12,
+    padding: "18px 20px",
+    marginBottom: 14,
+  };
+
+  const sectionLabel = {
+    fontSize: 11,
+    fontWeight: 700,
+    color: colors.accent,
+    textTransform: "uppercase",
+    letterSpacing: "0.08em",
+    marginBottom: 12,
+  };
+
+  return (
+    <div
+      style={{
+        minHeight: "100vh",
+        background: colors.bg,
+        fontFamily: font.body,
+        padding: "32px 20px 100px",
+      }}
+    >
+      {/* Header */}
+      <div style={{ textAlign: "center", marginBottom: 28 }}>
+        <div style={{ fontFamily: font.bengali, fontSize: 32, color: colors.accent, fontWeight: 700, marginBottom: 4 }}>
+          অচিন পাখি
+        </div>
+        <div style={{ fontFamily: font.display, fontSize: 17, color: colors.text, fontWeight: 600 }}>
+          Songbook
+        </div>
+        <div style={{ fontSize: 13, color: colors.textMuted, marginTop: 4 }}>
+          {allSongs.length} songs · {localSongs.length > 0 ? `${localSongs.length} local` : "all from repo"}
+        </div>
+      </div>
+
+      {/* Upload song file */}
+      <div style={card}>
+        <div style={sectionLabel}>Add Song File</div>
+        <p style={{ fontSize: 13, color: colors.textMuted, margin: "0 0 14px", lineHeight: 1.55 }}>
+          Upload a <code style={{ fontFamily: font.mono, background: colors.bg, padding: "1px 5px", borderRadius: 4 }}>.md</code> song
+          file to add it to the app on this device. Songs are stored locally until committed to GitHub.
+        </p>
+
+        <label style={{ display: "block" }}>
+          <input
+            type="file"
+            accept=".md"
+            onChange={handleFileSelect}
+            style={{ display: "none" }}
+            ref={(el) => { fileInputRef[0] = el; }}
+          />
+          <span
+            onClick={() => fileInputRef[0]?.click()}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              padding: "10px 18px",
+              background: colors.accentLight,
+              color: colors.accent,
+              border: `1.5px solid ${colors.accent}55`,
+              borderRadius: 8,
+              fontSize: 14,
+              fontWeight: 600,
+              cursor: "pointer",
+              minHeight: 44,
+              fontFamily: font.body,
+            }}
+          >
+            ↑ Choose .md file
+          </span>
+        </label>
+
+        {/* Error */}
+        {preview?.error && (
+          <div
+            style={{
+              marginTop: 14,
+              padding: "10px 14px",
+              background: "#FEF2F0",
+              border: `1px solid ${colors.accent}55`,
+              borderRadius: 8,
+              fontSize: 13,
+              color: colors.accent,
+            }}
+          >
+            {preview.error}
+          </div>
+        )}
+
+        {/* Preview */}
+        {preview?.song && (
+          <div
+            style={{
+              marginTop: 14,
+              padding: "14px 16px",
+              background: colors.bg,
+              border: `1px solid ${colors.border}`,
+              borderRadius: 8,
+            }}
+          >
+            <div style={{ fontFamily: font.display, fontSize: 16, fontWeight: 600, color: colors.text }}>
+              #{preview.song.id} — {preview.song.title}
+            </div>
+            {preview.song.titleBn && (
+              <div style={{ fontFamily: font.bengali, fontSize: 14, color: colors.textMuted, marginTop: 2 }}>
+                {preview.song.titleBn}
+              </div>
+            )}
+            <div style={{ fontSize: 13, color: colors.textMuted, marginTop: 6 }}>
+              {preview.song.lyricist} · {preview.song.genre}
+            </div>
+            <div style={{ fontSize: 12, color: colors.textMuted, marginTop: 4 }}>
+              {preview.song.sections.length} sections · {preview.song.glossary.length} glossary entries
+            </div>
+
+            {staticIds.has(preview.song.id) && (
+              <div style={{ marginTop: 10, fontSize: 12, color: colors.accent, background: colors.accentLight, padding: "6px 10px", borderRadius: 6 }}>
+                Song #{preview.song.id} already exists in the repo — local version will be ignored in the song list.
+              </div>
+            )}
+            {!staticIds.has(preview.song.id) && localSongs.some((s) => s.id === preview.song.id) && (
+              <div style={{ marginTop: 10, fontSize: 12, color: colors.textMuted, background: colors.bg, padding: "6px 10px", borderRadius: 6, border: `1px solid ${colors.border}` }}>
+                A local song with id #{preview.song.id} already exists — it will be replaced.
+              </div>
+            )}
+
+            <div style={{ display: "flex", gap: 10, marginTop: 14 }}>
+              <button
+                onClick={handleAdd}
+                style={{
+                  padding: "9px 18px",
+                  background: colors.accent,
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: 8,
+                  fontSize: 14,
+                  fontWeight: 600,
+                  fontFamily: font.body,
+                  cursor: "pointer",
+                  minHeight: 44,
+                }}
+              >
+                Add to App
+              </button>
+              <button
+                onClick={() => setPreview(null)}
+                style={{
+                  padding: "9px 18px",
+                  background: "none",
+                  color: colors.textMuted,
+                  border: `1px solid ${colors.border}`,
+                  borderRadius: 8,
+                  fontSize: 14,
+                  fontFamily: font.body,
+                  cursor: "pointer",
+                  minHeight: 44,
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Local songs list */}
+      {localSongs.length > 0 && (
+        <div style={card}>
+          <div style={sectionLabel}>Local Songs</div>
+          <div style={{ fontSize: 12, color: colors.textMuted, marginBottom: 14, lineHeight: 1.5 }}>
+            Stored on this device only. Copy the file content and commit to{" "}
+            <code style={{ fontFamily: font.mono, background: colors.bg, padding: "1px 4px", borderRadius: 3 }}>src/songs/</code>{" "}
+            in GitHub to make permanent for all devices.
+          </div>
+          {localSongs.map((song) => (
+            <div
+              key={song.id}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: 12,
+                padding: "10px 0",
+                borderBottom: `1px solid ${colors.border}`,
+              }}
+            >
+              <div style={{ minWidth: 0 }}>
+                <div style={{ fontSize: 14, fontWeight: 600, color: colors.text }}>
+                  #{song.id} — {song.title}
+                </div>
+                <div style={{ fontSize: 12, color: colors.textMuted }}>{song.lyricist}</div>
+              </div>
+              <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
+                <button
+                  onClick={() => handleCopy(song._raw, song.id)}
+                  style={{
+                    padding: "6px 12px",
+                    background: copiedId === song.id ? colors.greenLight : colors.bg,
+                    color: copiedId === song.id ? colors.green : colors.textMuted,
+                    border: `1px solid ${colors.border}`,
+                    borderRadius: 6,
+                    fontSize: 12,
+                    fontFamily: font.body,
+                    cursor: "pointer",
+                    minHeight: 36,
+                    minWidth: 60,
+                  }}
+                >
+                  {copiedId === song.id ? "Copied!" : "Copy"}
+                </button>
+                <button
+                  onClick={() => onRemoveSong(song.id)}
+                  style={{
+                    padding: "6px 12px",
+                    background: "none",
+                    color: colors.accent,
+                    border: `1px solid ${colors.accent}55`,
+                    borderRadius: 6,
+                    fontSize: 12,
+                    fontFamily: font.body,
+                    cursor: "pointer",
+                    minHeight: 36,
+                  }}
+                >
+                  Remove
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Band info */}
+      <div style={card}>
+        <div style={sectionLabel}>About</div>
+        <p style={{ fontSize: 14, color: colors.text, lineHeight: 1.65, margin: 0 }}>
+          Ochin Pakhi is a Chicago-based Bengali folk music ensemble performing Baul,
+          Rabindrasangeet, and other traditions of Bengal. This songbook is a private
+          rehearsal tool for band members.
+        </p>
+        <a
+          href="https://ochinpakhichicago.org"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: "inline-block", marginTop: 12, color: colors.accent, fontSize: 14, fontWeight: 500, textDecoration: "none" }}
+        >
+          ochinpakhichicago.org →
+        </a>
+      </div>
+
+      <button
+        onClick={onSignOut}
+        style={{
+          width: "100%",
+          padding: "14px 0",
+          background: "none",
+          border: `1.5px solid ${colors.border}`,
+          borderRadius: 10,
+          fontSize: 15,
+          color: colors.textMuted,
+          fontFamily: font.body,
+          cursor: "pointer",
+          minHeight: 44,
+        }}
+      >
+        Sign out
+      </button>
+    </div>
+  );
+}
+
+// ─── Bottom Nav ───
+function BottomNav({ tab, onChange }) {
+  const items = [
+    { key: "songs", label: "Songs", icon: "♪" },
+    { key: "setlists", label: "Setlists", icon: "☰" },
+    { key: "about", label: "About", icon: "ℹ" },
+  ];
+
+  return (
+    <div
+      style={{
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        height: 60,
+        background: colors.surface,
+        borderTop: `1px solid ${colors.border}`,
+        display: "flex",
+        zIndex: 100,
+      }}
+    >
+      {items.map((item) => (
+        <button
+          key={item.key}
+          onClick={() => onChange(item.key)}
+          style={{
+            flex: 1,
+            background: "none",
+            border: "none",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 3,
+            cursor: "pointer",
+            fontFamily: font.body,
+            color: tab === item.key ? colors.accent : colors.textMuted,
+            borderTop: `2px solid ${tab === item.key ? colors.accent : "transparent"}`,
+            minHeight: 60,
+          }}
+        >
+          <span style={{ fontSize: 18, lineHeight: 1 }}>{item.icon}</span>
+          <span style={{ fontSize: 11, fontWeight: tab === item.key ? 600 : 400 }}>
+            {item.label}
+          </span>
+        </button>
+      ))}
+    </div>
+  );
+}
+
 // ─── App ───
 export default function App() {
   const [unlocked, setUnlocked] = useState(false);
+  const [mainTab, setMainTab] = useState("songs");
   const [selectedSong, setSelectedSong] = useState(null);
+  const searchState = useState("");
 
-  if (!unlocked) {
-    return <PasswordGate onUnlock={() => setUnlocked(true)} />;
-  }
+  const [localRaws, setLocalRaws] = useState(() => {
+    try { return JSON.parse(localStorage.getItem("ochin-pakhi-local-songs") || "[]"); }
+    catch { return []; }
+  });
+
+  useEffect(() => {
+    localStorage.setItem("ochin-pakhi-local-songs", JSON.stringify(localRaws));
+  }, [localRaws]);
+
+  const localSongs = useMemo(() =>
+    localRaws.map(({ raw }) => ({ ...parseSong(raw), _local: true, _raw: raw })),
+    [localRaws]
+  );
+
+  const allSongs = useMemo(() => {
+    const staticIds = new Set(SONGS.map((s) => s.id));
+    const extras = localSongs.filter((s) => !staticIds.has(s.id));
+    return [...SONGS, ...extras].sort((a, b) => a.id - b.id);
+  }, [localSongs]);
+
+  const onAddSong = useCallback((raw) => {
+    const song = parseSong(raw);
+    setLocalRaws((prev) => {
+      const filtered = prev.filter((item) => item.id !== song.id);
+      return [...filtered, { raw, id: song.id }];
+    });
+  }, []);
+
+  const onRemoveSong = useCallback((id) => {
+    setLocalRaws((prev) => prev.filter((item) => item.id !== id));
+  }, []);
+
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash;
+      const songMatch = hash.match(/^#\/song\/(\d+)$/);
+      if (songMatch) {
+        const song = allSongs.find((s) => s.id === Number(songMatch[1]));
+        if (song) { setSelectedSong(song); return; }
+      }
+      setSelectedSong(null);
+    };
+    window.addEventListener("hashchange", handleHash);
+    handleHash();
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, [allSongs]);
+
+  if (!unlocked) return <PasswordGate onUnlock={() => setUnlocked(true)} />;
 
   if (selectedSong) {
     return (
       <SongDetail
         song={selectedSong}
-        onBack={() => setSelectedSong(null)}
-        onSignOut={() => setUnlocked(false)}
+        onBack={() => {
+          setSelectedSong(null);
+          window.location.hash = "#/";
+        }}
       />
     );
   }
 
-  return <SongList onSelect={setSelectedSong} onSignOut={() => setUnlocked(false)} />;
+  return (
+    <div>
+      {mainTab === "songs" && (
+        <SongList
+          songs={allSongs}
+          onSelect={(s) => {
+            setSelectedSong(s);
+            window.location.hash = `#/song/${s.id}`;
+          }}
+          searchState={searchState}
+        />
+      )}
+      {mainTab === "setlists" && <SetlistsTab />}
+      {mainTab === "about" && (
+        <AboutTab
+          onSignOut={() => { setUnlocked(false); setSelectedSong(null); }}
+          localSongs={localSongs}
+          allSongs={allSongs}
+          onAddSong={onAddSong}
+          onRemoveSong={onRemoveSong}
+        />
+      )}
+      <BottomNav tab={mainTab} onChange={setMainTab} />
+    </div>
+  );
 }
