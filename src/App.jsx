@@ -5,6 +5,8 @@ import { DndContext, closestCenter, PointerSensor, TouchSensor, useSensor, useSe
 import { SortableContext, verticalListSortingStrategy, useSortable, arrayMove } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 
+import STATIC_SETLISTS from "./setlists.json";
+
 const rawFiles = import.meta.glob("./songs/*.md", { query: "?raw", import: "default", eager: true });
 const SONGS = Object.values(rawFiles)
   .map(parseSong)
@@ -48,6 +50,7 @@ const font = {
 function PasswordGate({ onUnlock }) {
   const [name, setName] = useState("");
   const [pw, setPw] = useState("");
+  const [showPw, setShowPw] = useState(false);
   const [error, setError] = useState("");
   const [shake, setShake] = useState(false);
 
@@ -140,14 +143,25 @@ function PasswordGate({ onUnlock }) {
           autoFocus
           style={inputStyle(false)}
         />
-        <input
-          type="password"
-          placeholder="Password"
-          value={pw}
-          onChange={(e) => { setPw(e.target.value); setError(""); }}
-          onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
-          style={inputStyle(!!error)}
-        />
+        <div style={{ position: "relative" }}>
+          <input
+            type={showPw ? "text" : "password"}
+            placeholder="Password"
+            value={pw}
+            onChange={(e) => { setPw(e.target.value); setError(""); }}
+            onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+            style={{ ...inputStyle(!!error), paddingRight: 46, marginBottom: 0 }}
+          />
+          <button
+            type="button"
+            onClick={() => setShowPw((v) => !v)}
+            style={{ position: "absolute", right: 12, top: "50%", transform: "translateY(-50%)", background: "none", border: "none", cursor: "pointer", color: colors.textMuted, fontSize: 18, padding: 4, lineHeight: 1 }}
+            tabIndex={-1}
+          >
+            {showPw ? "🙈" : "👁"}
+          </button>
+        </div>
+        <div style={{ marginBottom: 10 }} />
         {error && (
           <div style={{ color: colors.accent, fontSize: 13, marginBottom: 10 }}>
             {error}
@@ -1382,62 +1396,28 @@ function AudienceSongDetail({ song, eventName, onBack }) {
 }
 
 // ─── Setlists ───
-const SETLISTS_KEY = "ochin-pakhi-setlists";
-
-function loadSetlists() {
-  try { return JSON.parse(localStorage.getItem(SETLISTS_KEY) || "[]"); }
-  catch { return []; }
-}
-
 function SetlistsTab({ allSongs }) {
-  const [setlists, setSetlists] = useState(loadSetlists);
   const [activeId, setActiveId] = useState(null);
+  const active = STATIC_SETLISTS.find((sl) => sl.id === activeId);
 
-  const save = (updated) => {
-    setSetlists(updated);
-    localStorage.setItem(SETLISTS_KEY, JSON.stringify(updated));
-  };
-
-  const createSetlist = () => {
-    const sl = { id: Date.now().toString(), name: "New Setlist", date: "", venue: "", songIds: [] };
-    const updated = [...setlists, sl];
-    save(updated);
-    setActiveId(sl.id);
-  };
-
-  const updateSetlist = (id, patch) => save(setlists.map((sl) => sl.id === id ? { ...sl, ...patch } : sl));
-  const deleteSetlist = (id) => { save(setlists.filter((sl) => sl.id !== id)); setActiveId(null); };
-
-  const active = setlists.find((sl) => sl.id === activeId);
   if (active) {
-    return (
-      <SetlistDetail
-        setlist={active}
-        allSongs={allSongs}
-        onUpdate={(patch) => updateSetlist(active.id, patch)}
-        onDelete={() => deleteSetlist(active.id)}
-        onBack={() => setActiveId(null)}
-      />
-    );
+    return <SetlistDetail setlist={active} allSongs={allSongs} onBack={() => setActiveId(null)} />;
   }
 
   return (
     <div style={{ minHeight: "100vh", background: colors.bg, fontFamily: font.body, paddingBottom: 60 }}>
-      <div style={{ padding: "16px 18px 14px", background: colors.surface, borderBottom: `1px solid ${colors.border}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <div style={{ padding: "16px 18px 14px", background: colors.surface, borderBottom: `1px solid ${colors.border}` }}>
         <span style={{ fontFamily: font.display, fontSize: 20, fontWeight: 700, color: colors.text }}>Setlists</span>
-        <button onClick={createSetlist} style={{ background: colors.accent, color: "#fff", border: "none", borderRadius: 8, padding: "8px 16px", fontFamily: font.body, fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
-          + New
-        </button>
       </div>
-      {setlists.length === 0 ? (
+      {STATIC_SETLISTS.length === 0 ? (
         <div style={{ textAlign: "center", padding: "60px 40px" }}>
           <div style={{ fontSize: 36, marginBottom: 12 }}>♪</div>
           <div style={{ fontFamily: font.display, fontSize: 18, fontWeight: 600, color: colors.text, marginBottom: 8 }}>No setlists yet</div>
-          <div style={{ fontSize: 14, color: colors.textMuted, lineHeight: 1.6 }}>Tap "+ New" to create a setlist and share it with your audience via QR code.</div>
+          <div style={{ fontSize: 14, color: colors.textMuted, lineHeight: 1.6 }}>Setlists are managed by the band and will appear here.</div>
         </div>
       ) : (
         <div style={{ padding: "12px 18px" }}>
-          {setlists.map((sl) => {
+          {STATIC_SETLISTS.map((sl) => {
             const count = sl.songIds.length;
             return (
               <div key={sl.id} onClick={() => setActiveId(sl.id)} style={{ background: colors.surface, borderRadius: 10, padding: "14px 16px", marginBottom: 10, border: `1px solid ${colors.border}`, cursor: "pointer" }}>
@@ -1445,7 +1425,7 @@ function SetlistsTab({ allSongs }) {
                 {(sl.date || sl.venue) && (
                   <div style={{ fontSize: 13, color: colors.textMuted, marginBottom: 6 }}>{[sl.date, sl.venue].filter(Boolean).join(" · ")}</div>
                 )}
-                <div style={{ fontSize: 13, color: colors.textMuted }}>{count === 0 ? "No songs yet" : `${count} song${count !== 1 ? "s" : ""}`}</div>
+                <div style={{ fontSize: 13, color: colors.textMuted }}>{count === 0 ? "No songs" : `${count} song${count !== 1 ? "s" : ""}`}</div>
               </div>
             );
           })}
@@ -1455,139 +1435,26 @@ function SetlistsTab({ allSongs }) {
   );
 }
 
-function SortableSetlistSong({ song, idx, onRemove }) {
-  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: song.id });
-  return (
-    <div
-      ref={setNodeRef}
-      style={{
-        transform: CSS.Transform.toString(transform),
-        transition,
-        opacity: isDragging ? 0.4 : 1,
-        background: isDragging ? colors.accentLight : colors.surface,
-        borderRadius: 10,
-        padding: "12px 14px",
-        marginBottom: 8,
-        border: `1px solid ${isDragging ? colors.accent : colors.border}`,
-        display: "flex",
-        alignItems: "center",
-        gap: 10,
-      }}
-    >
-      {/* Drag handle */}
-      <div
-        {...attributes}
-        {...listeners}
-        style={{ color: colors.border, fontSize: 20, cursor: "grab", padding: "4px 6px", flexShrink: 0, touchAction: "none", userSelect: "none", lineHeight: 1 }}
-      >
-        ⠿
-      </div>
-      <div style={{ color: colors.textMuted, fontSize: 13, fontWeight: 700, minWidth: 22, textAlign: "center" }}>{idx + 1}</div>
-      <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontWeight: 600, color: colors.text, fontSize: 15, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{song.title}</div>
-        <div style={{ fontSize: 12, color: colors.textMuted, marginTop: 2 }}>{[song.lyricist, song.genre].filter(Boolean).join(" · ")}</div>
-      </div>
-      <button
-        onClick={() => onRemove(song.id)}
-        style={{ background: "none", border: "none", color: colors.textMuted, fontSize: 20, cursor: "pointer", padding: "0 4px", minHeight: 44, minWidth: 36, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}
-      >
-        ×
-      </button>
-    </div>
-  );
-}
-
-function SetlistDetail({ setlist, allSongs, onUpdate, onDelete, onBack }) {
-  const [editingName, setEditingName] = useState(false);
-  const [nameInput, setNameInput] = useState(setlist.name);
-  const [showPicker, setShowPicker] = useState(false);
+function SetlistDetail({ setlist, allSongs, onBack }) {
   const [showQR, setShowQR] = useState(false);
-  const [pickerSearch, setPickerSearch] = useState("");
-  const [pickerSelected, setPickerSelected] = useState(new Set());
-
   const songs = setlist.songIds.map((id) => allSongs.find((s) => s.id === id)).filter(Boolean);
-
-  const sensors = useSensors(
-    useSensor(PointerSensor),
-    useSensor(TouchSensor, { activationConstraint: { delay: 200, tolerance: 8 } })
-  );
-
-  const handleDragEnd = ({ active, over }) => {
-    if (over && active.id !== over.id) {
-      const oldIdx = setlist.songIds.indexOf(active.id);
-      const newIdx = setlist.songIds.indexOf(over.id);
-      onUpdate({ songIds: arrayMove(setlist.songIds, oldIdx, newIdx) });
-    }
-  };
-
-  const removeSong = (id) => onUpdate({ songIds: setlist.songIds.filter((sid) => sid !== id) });
-
-  const togglePickerSong = (id) => {
-    setPickerSelected((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id); else next.add(id);
-      return next;
-    });
-  };
-  const confirmPickerAdd = () => {
-    const toAdd = [...pickerSelected].filter((id) => !setlist.songIds.includes(id));
-    if (toAdd.length > 0) onUpdate({ songIds: [...setlist.songIds, ...toAdd] });
-    setShowPicker(false);
-    setPickerSearch("");
-    setPickerSelected(new Set());
-  };
-  const closePicker = () => { setShowPicker(false); setPickerSearch(""); setPickerSelected(new Set()); };
-
-  const pickerSongs = allSongs.filter((s) => {
-    if (setlist.songIds.includes(s.id)) return false;
-    if (!pickerSearch) return true;
-    const q = pickerSearch.toLowerCase();
-    return s.title.toLowerCase().includes(q) || (s.titleBn || "").includes(q) || (s.lyricist || "").toLowerCase().includes(q);
-  });
-
   const audienceUrl = `${window.location.origin}${window.location.pathname}#/audience/${encodeURIComponent(setlist.name)}/${setlist.songIds.join(",")}`;
 
   return (
-    <div style={{ minHeight: "100vh", background: colors.bg, fontFamily: font.body, paddingBottom: 100 }}>
+    <div style={{ minHeight: "100vh", background: colors.bg, fontFamily: font.body, paddingBottom: 80 }}>
       {/* Header */}
       <div style={{ padding: "16px 18px 14px", background: colors.surface, borderBottom: `1px solid ${colors.border}` }}>
         <button onClick={onBack} style={{ background: "none", border: "none", color: colors.accent, fontFamily: font.body, fontSize: 14, cursor: "pointer", padding: "4px 0", fontWeight: 500, marginBottom: 10 }}>
           ← Setlists
         </button>
-        {editingName ? (
-          <input
-            autoFocus
-            value={nameInput}
-            onChange={(e) => setNameInput(e.target.value)}
-            onBlur={() => { onUpdate({ name: nameInput.trim() || setlist.name }); setEditingName(false); }}
-            onKeyDown={(e) => { if (e.key === "Enter") e.target.blur(); }}
-            style={{ fontFamily: font.display, fontSize: 22, fontWeight: 700, color: colors.text, border: "none", borderBottom: `2px solid ${colors.accent}`, background: "transparent", outline: "none", width: "100%", padding: "2px 0" }}
-          />
-        ) : (
-          <div onClick={() => { setNameInput(setlist.name); setEditingName(true); }} style={{ fontFamily: font.display, fontSize: 22, fontWeight: 700, color: colors.text, cursor: "text", display: "flex", alignItems: "center", gap: 8 }}>
-            {setlist.name}
-            <span style={{ fontSize: 14, color: colors.textMuted, fontFamily: font.body, fontWeight: 400 }}>✎</span>
-          </div>
+        <div style={{ fontFamily: font.display, fontSize: 22, fontWeight: 700, color: colors.text }}>{setlist.name}</div>
+        {(setlist.date || setlist.venue) && (
+          <div style={{ fontSize: 13, color: colors.textMuted, marginTop: 4 }}>{[setlist.date, setlist.venue].filter(Boolean).join(" · ")}</div>
         )}
-        <div style={{ display: "flex", gap: 8, marginTop: 12 }}>
-          <input
-            type="date"
-            value={setlist.date}
-            onChange={(e) => onUpdate({ date: e.target.value })}
-            style={{ flex: 1, border: `1px solid ${colors.border}`, borderRadius: 6, padding: "7px 8px", fontFamily: font.body, fontSize: 13, background: colors.bg, color: colors.text, outline: "none" }}
-          />
-          <input
-            type="text"
-            placeholder="Venue"
-            value={setlist.venue}
-            onChange={(e) => onUpdate({ venue: e.target.value })}
-            style={{ flex: 2, border: `1px solid ${colors.border}`, borderRadius: 6, padding: "7px 10px", fontFamily: font.body, fontSize: 13, background: colors.bg, color: colors.text, outline: "none" }}
-          />
-        </div>
       </div>
 
       {/* Share button */}
-      {setlist.songIds.length > 0 && (
+      {songs.length > 0 && (
         <div style={{ padding: "14px 18px 0" }}>
           <button
             onClick={() => setShowQR(true)}
@@ -1598,91 +1465,20 @@ function SetlistDetail({ setlist, allSongs, onUpdate, onDelete, onBack }) {
         </div>
       )}
 
-      {/* Song list — drag to reorder */}
+      {/* Song list — read only */}
       <div style={{ padding: "12px 18px" }}>
-        {songs.length === 0 && (
-          <div style={{ textAlign: "center", padding: "28px 0 16px", color: colors.textMuted, fontSize: 14 }}>No songs yet — tap below to add.</div>
-        )}
-        <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-          <SortableContext items={setlist.songIds} strategy={verticalListSortingStrategy}>
-            {songs.map((song, idx) => (
-              <SortableSetlistSong key={song.id} song={song} idx={idx} onRemove={removeSong} />
-            ))}
-          </SortableContext>
-        </DndContext>
-
-        <button
-          onClick={() => setShowPicker(true)}
-          style={{ width: "100%", background: "transparent", border: `1.5px dashed ${colors.border}`, borderRadius: 10, padding: "13px", color: colors.textMuted, fontFamily: font.body, fontSize: 14, cursor: "pointer", marginTop: 4 }}
-        >
-          + Add songs
-        </button>
-
-        <button
-          onClick={() => { if (window.confirm(`Delete "${setlist.name}"?`)) onDelete(); }}
-          style={{ width: "100%", background: "none", border: "none", color: colors.textMuted, fontFamily: font.body, fontSize: 13, cursor: "pointer", padding: "20px 0 4px", textDecoration: "underline" }}
-        >
-          Delete this setlist
-        </button>
-      </div>
-
-      {/* Song picker bottom sheet — multi-select */}
-      {showPicker && (
-        <div
-          onClick={(e) => { if (e.target === e.currentTarget) closePicker(); }}
-          style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.45)", zIndex: 300, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}
-        >
-          <div style={{ background: colors.bg, borderRadius: "16px 16px 0 0", maxHeight: "78vh", display: "flex", flexDirection: "column" }}>
-            {/* Search row */}
-            <div style={{ padding: "14px 18px 12px", borderBottom: `1px solid ${colors.border}`, display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
-              <input
-                autoFocus
-                type="text"
-                placeholder="Search songs…"
-                value={pickerSearch}
-                onChange={(e) => setPickerSearch(e.target.value)}
-                style={{ flex: 1, border: `1px solid ${colors.border}`, borderRadius: 8, padding: "8px 12px", fontFamily: font.body, fontSize: 15, background: colors.surface, outline: "none" }}
-              />
-              <button onClick={closePicker} style={{ background: "none", border: "none", fontSize: 22, color: colors.textMuted, cursor: "pointer", minHeight: 44, minWidth: 44, display: "flex", alignItems: "center", justifyContent: "center" }}>×</button>
-            </div>
-            {/* Song rows */}
-            <div style={{ overflowY: "auto", flex: 1 }}>
-              {pickerSongs.length === 0 ? (
-                <div style={{ textAlign: "center", padding: 32, color: colors.textMuted, fontSize: 14 }}>
-                  {pickerSearch ? "No matches" : "All songs already added"}
-                </div>
-              ) : pickerSongs.map((song) => {
-                const checked = pickerSelected.has(song.id);
-                return (
-                  <div
-                    key={song.id}
-                    onClick={() => togglePickerSong(song.id)}
-                    style={{ padding: "13px 18px", borderBottom: `1px solid ${colors.border}`, cursor: "pointer", background: checked ? colors.accentLight : colors.surface, display: "flex", alignItems: "center", gap: 14 }}
-                  >
-                    <div style={{ width: 22, height: 22, borderRadius: 6, border: `2px solid ${checked ? colors.accent : colors.border}`, background: checked ? colors.accent : "transparent", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                      {checked && <span style={{ color: "#fff", fontSize: 13, fontWeight: 700, lineHeight: 1 }}>✓</span>}
-                    </div>
-                    <div>
-                      <div style={{ fontWeight: 600, color: colors.text, fontSize: 15 }}>{song.title}</div>
-                      <div style={{ fontSize: 12, color: colors.textMuted, marginTop: 2 }}>{[song.lyricist, song.genre].filter(Boolean).join(" · ")}</div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-            {/* Confirm bar */}
-            <div style={{ padding: "12px 18px", borderTop: `1px solid ${colors.border}`, flexShrink: 0 }}>
-              <button
-                onClick={confirmPickerAdd}
-                disabled={pickerSelected.size === 0}
-                style={{ width: "100%", background: pickerSelected.size > 0 ? colors.accent : colors.border, color: "#fff", border: "none", borderRadius: 8, padding: "13px", fontFamily: font.body, fontSize: 15, fontWeight: 600, cursor: pickerSelected.size > 0 ? "pointer" : "default", transition: "background 0.15s" }}
-              >
-                {pickerSelected.size === 0 ? "Select songs to add" : `Add ${pickerSelected.size} song${pickerSelected.size !== 1 ? "s" : ""}`}
-              </button>
+        {songs.length === 0 ? (
+          <div style={{ textAlign: "center", padding: "40px 0", color: colors.textMuted, fontSize: 14 }}>No songs in this setlist yet.</div>
+        ) : songs.map((song, idx) => (
+          <div key={song.id} style={{ background: colors.surface, borderRadius: 10, padding: "12px 14px", marginBottom: 8, border: `1px solid ${colors.border}`, display: "flex", alignItems: "center", gap: 10 }}>
+            <div style={{ color: colors.textMuted, fontSize: 13, fontWeight: 700, minWidth: 22, textAlign: "center", flexShrink: 0 }}>{idx + 1}</div>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={{ fontWeight: 600, color: colors.text, fontSize: 15, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{song.title}</div>
+              <div style={{ fontSize: 12, color: colors.textMuted, marginTop: 2 }}>{[song.lyricist, song.genre].filter(Boolean).join(" · ")}</div>
             </div>
           </div>
-        </div>
-      )}
+        ))}
+      </div>
 
       {/* QR modal */}
       {showQR && (
