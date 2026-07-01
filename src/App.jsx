@@ -1436,7 +1436,7 @@ function SetlistCard({ sl, onClick }) {
   );
 }
 
-function SetlistsTab({ allSongs, user }) {
+function SetlistsTab({ allSongs, user, onSelectSong }) {
   const [mySetlists, setMySetlists] = useState(() => loadPersonalSetlists(user.name));
   const [activeId, setActiveId] = useState(null);
   const [activeIsPersonal, setActiveIsPersonal] = useState(false);
@@ -1464,12 +1464,13 @@ function SetlistsTab({ allSongs, user }) {
           onUpdate={(patch) => saveMy(mySetlists.map((s) => s.id === activeId ? { ...s, ...patch } : s))}
           onDelete={() => { saveMy(mySetlists.filter((s) => s.id !== activeId)); setActiveId(null); }}
           onBack={() => setActiveId(null)}
+          onSelectSong={onSelectSong}
         />
       );
     } else {
       const sl = STATIC_SETLISTS.find((s) => s.id === activeId);
       if (!sl) { setActiveId(null); return null; }
-      return <SetlistDetail setlist={sl} allSongs={allSongs} onBack={() => setActiveId(null)} />;
+      return <SetlistDetail setlist={sl} allSongs={allSongs} onBack={() => setActiveId(null)} onSelectSong={onSelectSong} />;
     }
   }
 
@@ -1497,7 +1498,7 @@ function SetlistsTab({ allSongs, user }) {
   );
 }
 
-function SetlistDetail({ setlist, allSongs, onBack }) {
+function SetlistDetail({ setlist, allSongs, onBack, onSelectSong }) {
   const [showQR, setShowQR] = useState(false);
   const songs = setlist.songIds.map((id) => allSongs.find((s) => s.id === id)).filter(Boolean);
 
@@ -1519,12 +1520,13 @@ function SetlistDetail({ setlist, allSongs, onBack }) {
         {songs.length === 0 ? (
           <div style={{ textAlign: "center", padding: "40px 0", color: colors.textMuted, fontSize: 14 }}>No songs in this setlist yet.</div>
         ) : songs.map((song, idx) => (
-          <div key={song.id} style={{ background: colors.surface, borderRadius: 10, padding: "12px 14px", marginBottom: 8, border: `1px solid ${colors.border}`, display: "flex", alignItems: "center", gap: 10 }}>
+          <div key={song.id} onClick={() => onSelectSong && onSelectSong(song)} style={{ background: colors.surface, borderRadius: 10, padding: "12px 14px", marginBottom: 8, border: `1px solid ${colors.border}`, display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}>
             <div style={{ color: colors.textMuted, fontSize: 13, fontWeight: 700, minWidth: 22, textAlign: "center", flexShrink: 0 }}>{idx + 1}</div>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ fontWeight: 600, color: colors.text, fontSize: 15, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{song.title}</div>
               <div style={{ fontSize: 12, color: colors.textMuted, marginTop: 2 }}>{[song.lyricist, song.genre].filter(Boolean).join(" · ")}</div>
             </div>
+            <span style={{ color: colors.textMuted, fontSize: 16, flexShrink: 0 }}>›</span>
           </div>
         ))}
       </div>
@@ -1533,13 +1535,13 @@ function SetlistDetail({ setlist, allSongs, onBack }) {
   );
 }
 
-function SortableSetlistSong({ song, idx, onRemove }) {
+function SortableSetlistSong({ song, idx, onRemove, onSelect }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: song.id });
   return (
     <div ref={setNodeRef} style={{ transform: CSS.Transform.toString(transform), transition, opacity: isDragging ? 0.4 : 1, background: isDragging ? colors.accentLight : colors.surface, borderRadius: 10, padding: "12px 14px", marginBottom: 8, border: `1px solid ${isDragging ? colors.accent : colors.border}`, display: "flex", alignItems: "center", gap: 10 }}>
       <div {...attributes} {...listeners} style={{ color: colors.border, fontSize: 20, cursor: "grab", padding: "4px 6px", flexShrink: 0, touchAction: "none", userSelect: "none", lineHeight: 1 }}>⠿</div>
       <div style={{ color: colors.textMuted, fontSize: 13, fontWeight: 700, minWidth: 22, textAlign: "center" }}>{idx + 1}</div>
-      <div style={{ flex: 1, minWidth: 0 }}>
+      <div onClick={() => onSelect && onSelect(song)} style={{ flex: 1, minWidth: 0, cursor: "pointer" }}>
         <div style={{ fontWeight: 600, color: colors.text, fontSize: 15, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{song.title}</div>
         <div style={{ fontSize: 12, color: colors.textMuted, marginTop: 2 }}>{[song.lyricist, song.genre].filter(Boolean).join(" · ")}</div>
       </div>
@@ -1548,7 +1550,7 @@ function SortableSetlistSong({ song, idx, onRemove }) {
   );
 }
 
-function PersonalSetlistDetail({ setlist, allSongs, onUpdate, onDelete, onBack }) {
+function PersonalSetlistDetail({ setlist, allSongs, onUpdate, onDelete, onBack, onSelectSong }) {
   const [editingName, setEditingName] = useState(false);
   const [nameInput, setNameInput] = useState(setlist.name);
   const [showPicker, setShowPicker] = useState(false);
@@ -1614,7 +1616,7 @@ function PersonalSetlistDetail({ setlist, allSongs, onUpdate, onDelete, onBack }
         <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
           <SortableContext items={setlist.songIds} strategy={verticalListSortingStrategy}>
             {songs.map((song, idx) => (
-              <SortableSetlistSong key={song.id} song={song} idx={idx} onRemove={(id) => onUpdate({ songIds: setlist.songIds.filter((sid) => sid !== id) })} />
+              <SortableSetlistSong key={song.id} song={song} idx={idx} onRemove={(id) => onUpdate({ songIds: setlist.songIds.filter((sid) => sid !== id) })} onSelect={onSelectSong} />
             ))}
           </SortableContext>
         </DndContext>
@@ -2216,7 +2218,7 @@ export default function App() {
           searchState={searchState}
         />
       )}
-      {mainTab === "setlists" && <SetlistsTab allSongs={allSongs} user={user} />}
+      {mainTab === "setlists" && <SetlistsTab allSongs={allSongs} user={user} onSelectSong={(s) => { setSelectedSong(s); window.location.hash = `#/song/${s.id}`; }} />}
       {mainTab === "about" && (
         <AboutTab
           user={user}
