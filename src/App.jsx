@@ -1,12 +1,18 @@
 import { useState, useCallback, useMemo, useEffect } from "react";
 import { parseSong } from "./parseSong";
+import { QRCodeSVG } from "qrcode.react";
+import { DndContext, closestCenter, PointerSensor, TouchSensor, useSensor, useSensors } from "@dnd-kit/core";
+import { SortableContext, verticalListSortingStrategy, useSortable, arrayMove } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 
 const rawFiles = import.meta.glob("./songs/*.md", { query: "?raw", import: "default", eager: true });
 const SONGS = Object.values(rawFiles)
   .map(parseSong)
   .sort((a, b) => a.id - b.id);
 
-const PASSWORD = "pakhis@2026";
+const MEMBER_PASSWORD = import.meta.env.VITE_MEMBER_PASSWORD;
+const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD;
+const ADMIN_USERNAME = (import.meta.env.VITE_ADMIN_USERNAME || "admin").toLowerCase();
 
 const GENRES = [
   "All", "Baul", "Rabindrasangeet", "Nazrulgiti",
@@ -40,19 +46,39 @@ const font = {
 
 // ─── Password Gate ───
 function PasswordGate({ onUnlock }) {
+  const [name, setName] = useState("");
   const [pw, setPw] = useState("");
-  const [error, setError] = useState(false);
+  const [error, setError] = useState("");
   const [shake, setShake] = useState(false);
 
-  const handleSubmit = () => {
-    if (pw.trim().toLowerCase() === PASSWORD) {
-      onUnlock();
-    } else {
-      setError(true);
-      setShake(true);
-      setTimeout(() => setShake(false), 500);
-    }
+  const triggerShake = (msg) => {
+    setError(msg);
+    setShake(true);
+    setTimeout(() => setShake(false), 500);
   };
+
+  const handleSubmit = () => {
+    const trimmedName = name.trim();
+    if (!trimmedName) { triggerShake("Please enter your name."); return; }
+    const isAdmin = trimmedName.toLowerCase() === ADMIN_USERNAME && pw === ADMIN_PASSWORD;
+    const isMember = pw === MEMBER_PASSWORD;
+    if (!isAdmin && !isMember) { triggerShake("Incorrect password. Try again."); return; }
+    onUnlock({ name: trimmedName, role: isAdmin ? "admin" : "member" });
+  };
+
+  const inputStyle = (hasError) => ({
+    width: "100%",
+    boxSizing: "border-box",
+    padding: "13px 16px",
+    fontSize: 16,
+    border: `1.5px solid ${hasError ? colors.accent : colors.border}`,
+    borderRadius: 10,
+    outline: "none",
+    fontFamily: font.body,
+    background: colors.surface,
+    color: colors.text,
+    marginBottom: 10,
+  });
 
   return (
     <div
@@ -106,29 +132,25 @@ function PasswordGate({ onUnlock }) {
           Songbook
         </div>
         <input
-          type="password"
-          placeholder="Enter password"
-          value={pw}
-          onChange={(e) => { setPw(e.target.value); setError(false); }}
+          type="text"
+          placeholder="Your name"
+          value={name}
+          onChange={(e) => { setName(e.target.value); setError(""); }}
           onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
           autoFocus
-          style={{
-            width: "100%",
-            boxSizing: "border-box",
-            padding: "13px 16px",
-            fontSize: 16,
-            border: `1.5px solid ${error ? colors.accent : colors.border}`,
-            borderRadius: 10,
-            outline: "none",
-            fontFamily: font.body,
-            background: colors.surface,
-            color: colors.text,
-            marginBottom: 10,
-          }}
+          style={inputStyle(false)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={pw}
+          onChange={(e) => { setPw(e.target.value); setError(""); }}
+          onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+          style={inputStyle(!!error)}
         />
         {error && (
           <div style={{ color: colors.accent, fontSize: 13, marginBottom: 10 }}>
-            Incorrect password. Try again.
+            {error}
           </div>
         )}
         <button
@@ -1213,43 +1235,432 @@ function EmptyState({ icon, text, sub }) {
   );
 }
 
-// ─── Setlists (Phase 2 placeholder) ───
-function SetlistsTab() {
+// ─── Audience View (no password required) ───
+function firstELine(song) {
+  for (const sec of song.sections) {
+    for (const line of sec.lines) {
+      if (line.e) return line.e;
+    }
+  }
+  return null;
+}
+
+function AudienceView({ eventName, songs }) {
+  const [selected, setSelected] = useState(null);
+  if (selected) return <AudienceSongDetail song={selected} eventName={eventName} onBack={() => setSelected(null)} />;
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        background: colors.bg,
-        fontFamily: font.body,
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: 40,
-        textAlign: "center",
-      }}
-    >
-      <div style={{ fontSize: 36, marginBottom: 16 }}>☰</div>
-      <div
-        style={{
-          fontFamily: font.display,
-          fontSize: 22,
-          fontWeight: 600,
-          color: colors.text,
-          marginBottom: 10,
-        }}
-      >
-        Setlists
+    <div style={{ minHeight: "100vh", background: colors.bg, fontFamily: font.body }}>
+      <div style={{ padding: "24px 18px 16px", background: colors.surface, borderBottom: `1px solid ${colors.border}`, textAlign: "center" }}>
+        <div style={{ fontSize: 12, color: colors.textMuted, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 4 }}>Ochin Pakhi</div>
+        <div style={{ fontFamily: font.display, fontSize: 22, fontWeight: 700, color: colors.text }}>{eventName}</div>
       </div>
-      <div style={{ fontSize: 15, color: colors.textMuted, lineHeight: 1.6 }}>
-        Create setlists, share with your audience via QR code. Coming soon.
+      <div style={{ padding: "16px 18px 40px" }}>
+        {songs.map((song, idx) => {
+          const preview = firstELine(song);
+          return (
+            <div
+              key={song.id}
+              onClick={() => setSelected(song)}
+              style={{ background: colors.surface, borderRadius: 10, padding: "14px 16px", marginBottom: 10, border: `1px solid ${colors.border}`, cursor: "pointer", display: "flex", alignItems: "flex-start", gap: 14 }}
+            >
+              <div style={{ fontFamily: font.display, fontSize: 20, fontWeight: 700, color: colors.accent, minWidth: 28, paddingTop: 2 }}>{idx + 1}</div>
+              <div style={{ flex: 1 }}>
+                <div style={{ fontWeight: 600, color: colors.text, fontSize: 16 }}>{song.title}</div>
+                {song.titleBn && <div style={{ fontFamily: font.bengali, color: colors.textMuted, fontSize: 14, marginTop: 2 }}>{song.titleBn}</div>}
+                {preview && (
+                  <div style={{ fontSize: 13, color: colors.textMuted, fontStyle: "italic", marginTop: 5, lineHeight: 1.5, borderLeft: `2px solid ${colors.gold}`, paddingLeft: 8 }}>
+                    {preview}
+                  </div>
+                )}
+                <div style={{ fontSize: 12, color: colors.textMuted, marginTop: 6 }}>{[song.lyricist, song.genre].filter(Boolean).join(" · ")}</div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
 }
 
+function AudienceSongDetail({ song, eventName, onBack }) {
+  const d = song.discussion;
+  return (
+    <div style={{ minHeight: "100vh", background: colors.bg, fontFamily: font.body }}>
+      <div style={{ padding: "16px 18px 14px", background: colors.surface, borderBottom: `1px solid ${colors.border}` }}>
+        <button onClick={onBack} style={{ background: "none", border: "none", color: colors.accent, fontFamily: font.body, fontSize: 14, cursor: "pointer", padding: "4px 0", fontWeight: 500, marginBottom: 10 }}>
+          ← {eventName}
+        </button>
+        <div style={{ fontFamily: font.display, fontSize: 22, fontWeight: 700, color: colors.text }}>{song.title}</div>
+        {song.titleBn && <div style={{ fontFamily: font.bengali, color: colors.textMuted, fontSize: 16, marginTop: 4 }}>{song.titleBn}</div>}
+        {song.lyricist && <div style={{ fontSize: 13, color: colors.textMuted, marginTop: 6 }}>{[song.lyricist, song.genre].filter(Boolean).join(" · ")}</div>}
+      </div>
+      <div style={{ padding: "16px 18px 40px" }}>
+        {d.summary && (
+          <div style={{ background: colors.surface, borderRadius: 10, padding: "14px 16px", marginBottom: 20, border: `1px solid ${colors.border}` }}>
+            <div style={{ fontStyle: "italic", color: colors.textMuted, lineHeight: 1.65, fontSize: 14 }}>{d.summary}</div>
+          </div>
+        )}
+        {d.talkingPoints.length > 0 && (
+          <div style={{ marginBottom: 24 }}>
+            <div style={{ fontSize: 11, fontWeight: 700, color: colors.accent, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 10 }}>Points of interest</div>
+            {d.talkingPoints.map((pt, i) => (
+              <div key={i} style={{ display: "flex", gap: 10, fontSize: 14, color: colors.textMuted, lineHeight: 1.55, marginBottom: 8 }}>
+                <span style={{ color: colors.gold, flexShrink: 0 }}>•</span>
+                <span>{pt}</span>
+              </div>
+            ))}
+          </div>
+        )}
+        {song.sections.map((sec, si) => {
+          const eLines = sec.lines.filter((l) => l.e);
+          if (eLines.length === 0) return null;
+          return (
+            <div key={si} style={{ marginBottom: 24 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: colors.accent, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 10 }}>{sec.label}</div>
+              {eLines.map((line, li) => (
+                <div key={li} style={{ fontSize: 15, color: colors.text, lineHeight: 1.7, marginBottom: 6 }}>{line.e}</div>
+              ))}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+// ─── Setlists ───
+const SETLISTS_KEY = "ochin-pakhi-setlists";
+
+function loadSetlists() {
+  try { return JSON.parse(localStorage.getItem(SETLISTS_KEY) || "[]"); }
+  catch { return []; }
+}
+
+function SetlistsTab({ allSongs }) {
+  const [setlists, setSetlists] = useState(loadSetlists);
+  const [activeId, setActiveId] = useState(null);
+
+  const save = (updated) => {
+    setSetlists(updated);
+    localStorage.setItem(SETLISTS_KEY, JSON.stringify(updated));
+  };
+
+  const createSetlist = () => {
+    const sl = { id: Date.now().toString(), name: "New Setlist", date: "", venue: "", songIds: [] };
+    const updated = [...setlists, sl];
+    save(updated);
+    setActiveId(sl.id);
+  };
+
+  const updateSetlist = (id, patch) => save(setlists.map((sl) => sl.id === id ? { ...sl, ...patch } : sl));
+  const deleteSetlist = (id) => { save(setlists.filter((sl) => sl.id !== id)); setActiveId(null); };
+
+  const active = setlists.find((sl) => sl.id === activeId);
+  if (active) {
+    return (
+      <SetlistDetail
+        setlist={active}
+        allSongs={allSongs}
+        onUpdate={(patch) => updateSetlist(active.id, patch)}
+        onDelete={() => deleteSetlist(active.id)}
+        onBack={() => setActiveId(null)}
+      />
+    );
+  }
+
+  return (
+    <div style={{ minHeight: "100vh", background: colors.bg, fontFamily: font.body, paddingBottom: 60 }}>
+      <div style={{ padding: "16px 18px 14px", background: colors.surface, borderBottom: `1px solid ${colors.border}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <span style={{ fontFamily: font.display, fontSize: 20, fontWeight: 700, color: colors.text }}>Setlists</span>
+        <button onClick={createSetlist} style={{ background: colors.accent, color: "#fff", border: "none", borderRadius: 8, padding: "8px 16px", fontFamily: font.body, fontSize: 14, fontWeight: 600, cursor: "pointer" }}>
+          + New
+        </button>
+      </div>
+      {setlists.length === 0 ? (
+        <div style={{ textAlign: "center", padding: "60px 40px" }}>
+          <div style={{ fontSize: 36, marginBottom: 12 }}>♪</div>
+          <div style={{ fontFamily: font.display, fontSize: 18, fontWeight: 600, color: colors.text, marginBottom: 8 }}>No setlists yet</div>
+          <div style={{ fontSize: 14, color: colors.textMuted, lineHeight: 1.6 }}>Tap "+ New" to create a setlist and share it with your audience via QR code.</div>
+        </div>
+      ) : (
+        <div style={{ padding: "12px 18px" }}>
+          {setlists.map((sl) => {
+            const count = sl.songIds.length;
+            return (
+              <div key={sl.id} onClick={() => setActiveId(sl.id)} style={{ background: colors.surface, borderRadius: 10, padding: "14px 16px", marginBottom: 10, border: `1px solid ${colors.border}`, cursor: "pointer" }}>
+                <div style={{ fontFamily: font.display, fontSize: 16, fontWeight: 600, color: colors.text, marginBottom: 4 }}>{sl.name}</div>
+                {(sl.date || sl.venue) && (
+                  <div style={{ fontSize: 13, color: colors.textMuted, marginBottom: 6 }}>{[sl.date, sl.venue].filter(Boolean).join(" · ")}</div>
+                )}
+                <div style={{ fontSize: 13, color: colors.textMuted }}>{count === 0 ? "No songs yet" : `${count} song${count !== 1 ? "s" : ""}`}</div>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SortableSetlistSong({ song, idx, onRemove }) {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: song.id });
+  return (
+    <div
+      ref={setNodeRef}
+      style={{
+        transform: CSS.Transform.toString(transform),
+        transition,
+        opacity: isDragging ? 0.4 : 1,
+        background: isDragging ? colors.accentLight : colors.surface,
+        borderRadius: 10,
+        padding: "12px 14px",
+        marginBottom: 8,
+        border: `1px solid ${isDragging ? colors.accent : colors.border}`,
+        display: "flex",
+        alignItems: "center",
+        gap: 10,
+      }}
+    >
+      {/* Drag handle */}
+      <div
+        {...attributes}
+        {...listeners}
+        style={{ color: colors.border, fontSize: 20, cursor: "grab", padding: "4px 6px", flexShrink: 0, touchAction: "none", userSelect: "none", lineHeight: 1 }}
+      >
+        ⠿
+      </div>
+      <div style={{ color: colors.textMuted, fontSize: 13, fontWeight: 700, minWidth: 22, textAlign: "center" }}>{idx + 1}</div>
+      <div style={{ flex: 1, minWidth: 0 }}>
+        <div style={{ fontWeight: 600, color: colors.text, fontSize: 15, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{song.title}</div>
+        <div style={{ fontSize: 12, color: colors.textMuted, marginTop: 2 }}>{[song.lyricist, song.genre].filter(Boolean).join(" · ")}</div>
+      </div>
+      <button
+        onClick={() => onRemove(song.id)}
+        style={{ background: "none", border: "none", color: colors.textMuted, fontSize: 20, cursor: "pointer", padding: "0 4px", minHeight: 44, minWidth: 36, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}
+      >
+        ×
+      </button>
+    </div>
+  );
+}
+
+function SetlistDetail({ setlist, allSongs, onUpdate, onDelete, onBack }) {
+  const [editingName, setEditingName] = useState(false);
+  const [nameInput, setNameInput] = useState(setlist.name);
+  const [showPicker, setShowPicker] = useState(false);
+  const [showQR, setShowQR] = useState(false);
+  const [pickerSearch, setPickerSearch] = useState("");
+  const [pickerSelected, setPickerSelected] = useState(new Set());
+
+  const songs = setlist.songIds.map((id) => allSongs.find((s) => s.id === id)).filter(Boolean);
+
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(TouchSensor, { activationConstraint: { delay: 200, tolerance: 8 } })
+  );
+
+  const handleDragEnd = ({ active, over }) => {
+    if (over && active.id !== over.id) {
+      const oldIdx = setlist.songIds.indexOf(active.id);
+      const newIdx = setlist.songIds.indexOf(over.id);
+      onUpdate({ songIds: arrayMove(setlist.songIds, oldIdx, newIdx) });
+    }
+  };
+
+  const removeSong = (id) => onUpdate({ songIds: setlist.songIds.filter((sid) => sid !== id) });
+
+  const togglePickerSong = (id) => {
+    setPickerSelected((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
+    });
+  };
+  const confirmPickerAdd = () => {
+    const toAdd = [...pickerSelected].filter((id) => !setlist.songIds.includes(id));
+    if (toAdd.length > 0) onUpdate({ songIds: [...setlist.songIds, ...toAdd] });
+    setShowPicker(false);
+    setPickerSearch("");
+    setPickerSelected(new Set());
+  };
+  const closePicker = () => { setShowPicker(false); setPickerSearch(""); setPickerSelected(new Set()); };
+
+  const pickerSongs = allSongs.filter((s) => {
+    if (setlist.songIds.includes(s.id)) return false;
+    if (!pickerSearch) return true;
+    const q = pickerSearch.toLowerCase();
+    return s.title.toLowerCase().includes(q) || (s.titleBn || "").includes(q) || (s.lyricist || "").toLowerCase().includes(q);
+  });
+
+  const audienceUrl = `${window.location.origin}${window.location.pathname}#/audience/${encodeURIComponent(setlist.name)}/${setlist.songIds.join(",")}`;
+
+  return (
+    <div style={{ minHeight: "100vh", background: colors.bg, fontFamily: font.body, paddingBottom: 100 }}>
+      {/* Header */}
+      <div style={{ padding: "16px 18px 14px", background: colors.surface, borderBottom: `1px solid ${colors.border}` }}>
+        <button onClick={onBack} style={{ background: "none", border: "none", color: colors.accent, fontFamily: font.body, fontSize: 14, cursor: "pointer", padding: "4px 0", fontWeight: 500, marginBottom: 10 }}>
+          ← Setlists
+        </button>
+        {editingName ? (
+          <input
+            autoFocus
+            value={nameInput}
+            onChange={(e) => setNameInput(e.target.value)}
+            onBlur={() => { onUpdate({ name: nameInput.trim() || setlist.name }); setEditingName(false); }}
+            onKeyDown={(e) => { if (e.key === "Enter") e.target.blur(); }}
+            style={{ fontFamily: font.display, fontSize: 22, fontWeight: 700, color: colors.text, border: "none", borderBottom: `2px solid ${colors.accent}`, background: "transparent", outline: "none", width: "100%", padding: "2px 0" }}
+          />
+        ) : (
+          <div onClick={() => { setNameInput(setlist.name); setEditingName(true); }} style={{ fontFamily: font.display, fontSize: 22, fontWeight: 700, color: colors.text, cursor: "text", display: "flex", alignItems: "center", gap: 8 }}>
+            {setlist.name}
+            <span style={{ fontSize: 14, color: colors.textMuted, fontFamily: font.body, fontWeight: 400 }}>✎</span>
+          </div>
+        )}
+        <div style={{ display: "flex", gap: 8, marginTop: 12 }}>
+          <input
+            type="date"
+            value={setlist.date}
+            onChange={(e) => onUpdate({ date: e.target.value })}
+            style={{ flex: 1, border: `1px solid ${colors.border}`, borderRadius: 6, padding: "7px 8px", fontFamily: font.body, fontSize: 13, background: colors.bg, color: colors.text, outline: "none" }}
+          />
+          <input
+            type="text"
+            placeholder="Venue"
+            value={setlist.venue}
+            onChange={(e) => onUpdate({ venue: e.target.value })}
+            style={{ flex: 2, border: `1px solid ${colors.border}`, borderRadius: 6, padding: "7px 10px", fontFamily: font.body, fontSize: 13, background: colors.bg, color: colors.text, outline: "none" }}
+          />
+        </div>
+      </div>
+
+      {/* Share button */}
+      {setlist.songIds.length > 0 && (
+        <div style={{ padding: "14px 18px 0" }}>
+          <button
+            onClick={() => setShowQR(true)}
+            style={{ width: "100%", background: colors.accent, color: "#fff", border: "none", borderRadius: 8, padding: "13px", fontFamily: font.body, fontSize: 15, fontWeight: 600, cursor: "pointer" }}
+          >
+            Share with Audience (QR)
+          </button>
+        </div>
+      )}
+
+      {/* Song list — drag to reorder */}
+      <div style={{ padding: "12px 18px" }}>
+        {songs.length === 0 && (
+          <div style={{ textAlign: "center", padding: "28px 0 16px", color: colors.textMuted, fontSize: 14 }}>No songs yet — tap below to add.</div>
+        )}
+        <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+          <SortableContext items={setlist.songIds} strategy={verticalListSortingStrategy}>
+            {songs.map((song, idx) => (
+              <SortableSetlistSong key={song.id} song={song} idx={idx} onRemove={removeSong} />
+            ))}
+          </SortableContext>
+        </DndContext>
+
+        <button
+          onClick={() => setShowPicker(true)}
+          style={{ width: "100%", background: "transparent", border: `1.5px dashed ${colors.border}`, borderRadius: 10, padding: "13px", color: colors.textMuted, fontFamily: font.body, fontSize: 14, cursor: "pointer", marginTop: 4 }}
+        >
+          + Add songs
+        </button>
+
+        <button
+          onClick={() => { if (window.confirm(`Delete "${setlist.name}"?`)) onDelete(); }}
+          style={{ width: "100%", background: "none", border: "none", color: colors.textMuted, fontFamily: font.body, fontSize: 13, cursor: "pointer", padding: "20px 0 4px", textDecoration: "underline" }}
+        >
+          Delete this setlist
+        </button>
+      </div>
+
+      {/* Song picker bottom sheet — multi-select */}
+      {showPicker && (
+        <div
+          onClick={(e) => { if (e.target === e.currentTarget) closePicker(); }}
+          style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.45)", zIndex: 300, display: "flex", flexDirection: "column", justifyContent: "flex-end" }}
+        >
+          <div style={{ background: colors.bg, borderRadius: "16px 16px 0 0", maxHeight: "78vh", display: "flex", flexDirection: "column" }}>
+            {/* Search row */}
+            <div style={{ padding: "14px 18px 12px", borderBottom: `1px solid ${colors.border}`, display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
+              <input
+                autoFocus
+                type="text"
+                placeholder="Search songs…"
+                value={pickerSearch}
+                onChange={(e) => setPickerSearch(e.target.value)}
+                style={{ flex: 1, border: `1px solid ${colors.border}`, borderRadius: 8, padding: "8px 12px", fontFamily: font.body, fontSize: 15, background: colors.surface, outline: "none" }}
+              />
+              <button onClick={closePicker} style={{ background: "none", border: "none", fontSize: 22, color: colors.textMuted, cursor: "pointer", minHeight: 44, minWidth: 44, display: "flex", alignItems: "center", justifyContent: "center" }}>×</button>
+            </div>
+            {/* Song rows */}
+            <div style={{ overflowY: "auto", flex: 1 }}>
+              {pickerSongs.length === 0 ? (
+                <div style={{ textAlign: "center", padding: 32, color: colors.textMuted, fontSize: 14 }}>
+                  {pickerSearch ? "No matches" : "All songs already added"}
+                </div>
+              ) : pickerSongs.map((song) => {
+                const checked = pickerSelected.has(song.id);
+                return (
+                  <div
+                    key={song.id}
+                    onClick={() => togglePickerSong(song.id)}
+                    style={{ padding: "13px 18px", borderBottom: `1px solid ${colors.border}`, cursor: "pointer", background: checked ? colors.accentLight : colors.surface, display: "flex", alignItems: "center", gap: 14 }}
+                  >
+                    <div style={{ width: 22, height: 22, borderRadius: 6, border: `2px solid ${checked ? colors.accent : colors.border}`, background: checked ? colors.accent : "transparent", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      {checked && <span style={{ color: "#fff", fontSize: 13, fontWeight: 700, lineHeight: 1 }}>✓</span>}
+                    </div>
+                    <div>
+                      <div style={{ fontWeight: 600, color: colors.text, fontSize: 15 }}>{song.title}</div>
+                      <div style={{ fontSize: 12, color: colors.textMuted, marginTop: 2 }}>{[song.lyricist, song.genre].filter(Boolean).join(" · ")}</div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            {/* Confirm bar */}
+            <div style={{ padding: "12px 18px", borderTop: `1px solid ${colors.border}`, flexShrink: 0 }}>
+              <button
+                onClick={confirmPickerAdd}
+                disabled={pickerSelected.size === 0}
+                style={{ width: "100%", background: pickerSelected.size > 0 ? colors.accent : colors.border, color: "#fff", border: "none", borderRadius: 8, padding: "13px", fontFamily: font.body, fontSize: 15, fontWeight: 600, cursor: pickerSelected.size > 0 ? "pointer" : "default", transition: "background 0.15s" }}
+              >
+                {pickerSelected.size === 0 ? "Select songs to add" : `Add ${pickerSelected.size} song${pickerSelected.size !== 1 ? "s" : ""}`}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* QR modal */}
+      {showQR && (
+        <div
+          onClick={() => setShowQR(false)}
+          style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.6)", zIndex: 400, display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}
+        >
+          <div onClick={(e) => e.stopPropagation()} style={{ background: colors.surface, borderRadius: 16, padding: 28, width: "100%", maxWidth: 340, textAlign: "center" }}>
+            <div style={{ fontFamily: font.display, fontSize: 18, fontWeight: 700, color: colors.text, marginBottom: 4 }}>{setlist.name}</div>
+            {(setlist.date || setlist.venue) && (
+              <div style={{ fontSize: 13, color: colors.textMuted, marginBottom: 16 }}>{[setlist.date, setlist.venue].filter(Boolean).join(" · ")}</div>
+            )}
+            <div style={{ display: "flex", justifyContent: "center", padding: "16px 0" }}>
+              <QRCodeSVG value={audienceUrl} size={200} fgColor={colors.text} bgColor={colors.surface} />
+            </div>
+            <div style={{ fontSize: 11, color: colors.textMuted, wordBreak: "break-all", lineHeight: 1.5, marginBottom: 20 }}>{audienceUrl}</div>
+            <button
+              onClick={() => setShowQR(false)}
+              style={{ background: colors.accent, color: "#fff", border: "none", borderRadius: 8, padding: "10px 32px", fontFamily: font.body, fontSize: 14, fontWeight: 600, cursor: "pointer" }}
+            >
+              Done
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── About ───
-function AboutTab({ onSignOut, localSongs, allSongs, onAddSong, onRemoveSong }) {
+function AboutTab({ user, onSignOut, localSongs, allSongs, onAddSong, onRemoveSong }) {
   const [preview, setPreview] = useState(null); // { raw, song } | { error }
   const [copiedId, setCopiedId] = useState(null);
   const fileInputRef = useState(null);
@@ -1325,8 +1736,62 @@ function AboutTab({ onSignOut, localSongs, allSongs, onAddSong, onRemoveSong }) 
         </div>
       </div>
 
-      {/* Upload song file */}
-      <div style={card}>
+      {/* Welcome card */}
+      <div style={{ ...card, background: colors.accentLight, border: `1px solid ${colors.accent}33`, textAlign: "center" }}>
+        <div style={{ fontSize: 22, marginBottom: 6 }}>👋</div>
+        <div style={{ fontFamily: font.display, fontSize: 18, fontWeight: 700, color: colors.text, marginBottom: 4 }}>
+          Welcome, {user.name}
+        </div>
+        <div style={{ fontSize: 13, color: colors.textMuted }}>
+          {user.role === "admin" ? "Admin · full access" : "Member · enjoy the songs"}
+        </div>
+      </div>
+
+      {/* Song file format + upload — admin only */}
+      {user.role === "admin" && <div style={card}>
+        <div style={sectionLabel}>Song File Format</div>
+        <p style={{ fontSize: 13, color: colors.textMuted, margin: "0 0 12px", lineHeight: 1.6 }}>
+          Each song is a <code style={{ fontFamily: font.mono, background: colors.bg, padding: "1px 5px", borderRadius: 4 }}>.md</code> file
+          in <code style={{ fontFamily: font.mono, background: colors.bg, padding: "1px 5px", borderRadius: 4 }}>src/songs/</code>.
+          Front matter sets metadata, then sections hold lyrics and notes.
+        </p>
+        <pre style={{
+          fontFamily: font.mono,
+          fontSize: 11,
+          background: colors.bg,
+          border: `1px solid ${colors.border}`,
+          borderRadius: 8,
+          padding: "12px 14px",
+          overflowX: "auto",
+          color: colors.text,
+          lineHeight: 1.6,
+          margin: 0,
+          whiteSpace: "pre",
+        }}>{`---
+id: 42
+title: Song Title
+lyricist: Poet Name
+genre: Baul
+instruments: dotara, tabla
+---
+
+[Refrain]
+T: Ami tomar kachhe thaki
+B: আমি তোমার কাছে থাকি
+E: I stay close to you
+
+[Glossary]
+kachhe | কাছে | nearby, close
+
+[Arrangement]
+Start slow, dotara solo intro.
+
+[Tags]
+Baul, Devotion, Longing`}</pre>
+      </div>}
+
+      {/* Upload song file — admin only */}
+      {user.role === "admin" && <div style={card}>
         <div style={sectionLabel}>Add Song File</div>
         <p style={{ fontSize: 13, color: colors.textMuted, margin: "0 0 14px", lineHeight: 1.55 }}>
           Upload a <code style={{ fontFamily: font.mono, background: colors.bg, padding: "1px 5px", borderRadius: 4 }}>.md</code> song
@@ -1454,10 +1919,10 @@ function AboutTab({ onSignOut, localSongs, allSongs, onAddSong, onRemoveSong }) 
             </div>
           </div>
         )}
-      </div>
+      </div>}
 
-      {/* Local songs list */}
-      {localSongs.length > 0 && (
+      {/* Local songs list — admin only */}
+      {user.role === "admin" && localSongs.length > 0 && (
         <div style={card}>
           <div style={sectionLabel}>Local Songs</div>
           <div style={{ fontSize: 12, color: colors.textMuted, marginBottom: 14, lineHeight: 1.5 }}>
@@ -1614,11 +2079,41 @@ function BottomNav({ tab, onChange }) {
   );
 }
 
+// ─── Welcome Popup ───
+function WelcomePopup({ user, onDismiss }) {
+  return (
+    <div
+      style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.5)", zIndex: 500, display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}
+    >
+      <div style={{ background: colors.surface, borderRadius: 16, padding: "28px 24px", width: "100%", maxWidth: 340, textAlign: "center", boxShadow: "0 8px 40px rgba(0,0,0,0.18)" }}>
+        <div style={{ fontFamily: font.bengali, fontSize: 36, color: colors.accent, fontWeight: 700, marginBottom: 4 }}>অচিন পাখি</div>
+        <div style={{ fontFamily: font.display, fontSize: 14, color: colors.textMuted, marginBottom: 20 }}>Songbook</div>
+        <div style={{ fontFamily: font.display, fontSize: 22, fontWeight: 700, color: colors.text, marginBottom: 8 }}>
+          Welcome, {user.name}!
+        </div>
+        <div style={{ fontSize: 14, color: colors.textMuted, lineHeight: 1.6, marginBottom: 28 }}>
+          {user.role === "admin"
+            ? "You're signed in as admin. You can browse songs, manage setlists, and upload new song files."
+            : "Browse the songbook, follow along with lyrics, and let the music guide you."}
+        </div>
+        <button
+          onClick={onDismiss}
+          style={{ width: "100%", background: colors.accent, color: "#fff", border: "none", borderRadius: 10, padding: "13px", fontFamily: font.body, fontSize: 15, fontWeight: 600, cursor: "pointer" }}
+        >
+          Let's go — don't show again
+        </button>
+      </div>
+    </div>
+  );
+}
+
 // ─── App ───
 export default function App() {
-  const [unlocked, setUnlocked] = useState(false);
+  const [user, setUser] = useState(null); // { name, role: "member"|"admin" } | null
+  const [showWelcome, setShowWelcome] = useState(false);
   const [mainTab, setMainTab] = useState("songs");
   const [selectedSong, setSelectedSong] = useState(null);
+  const [hash, setHash] = useState(window.location.hash);
   const searchState = useState("");
 
   const [localRaws, setLocalRaws] = useState(() => {
@@ -1655,8 +2150,9 @@ export default function App() {
 
   useEffect(() => {
     const handleHash = () => {
-      const hash = window.location.hash;
-      const songMatch = hash.match(/^#\/song\/(\d+)$/);
+      const h = window.location.hash;
+      setHash(h);
+      const songMatch = h.match(/^#\/song\/(\d+)$/);
       if (songMatch) {
         const song = allSongs.find((s) => s.id === Number(songMatch[1]));
         if (song) { setSelectedSong(song); return; }
@@ -1668,7 +2164,22 @@ export default function App() {
     return () => window.removeEventListener("hashchange", handleHash);
   }, [allSongs]);
 
-  if (!unlocked) return <PasswordGate onUnlock={() => setUnlocked(true)} />;
+  // Audience view bypasses the password gate
+  const audienceMatch = hash.match(/^#\/audience\/([^/]+)\/(.+)$/);
+  if (audienceMatch) {
+    const eventName = decodeURIComponent(audienceMatch[1]);
+    const ids = audienceMatch[2].split(",").map(Number);
+    const songs = ids.map((id) => SONGS.find((s) => s.id === id)).filter(Boolean);
+    return <AudienceView eventName={eventName} songs={songs} />;
+  }
+
+  if (!user) return (
+    <PasswordGate onUnlock={(u) => {
+      setUser(u);
+      const seen = localStorage.getItem(`ochin-pakhi-welcomed-${u.name.toLowerCase()}`);
+      if (!seen) setShowWelcome(true);
+    }} />
+  );
 
   if (selectedSong) {
     return (
@@ -1694,10 +2205,11 @@ export default function App() {
           searchState={searchState}
         />
       )}
-      {mainTab === "setlists" && <SetlistsTab />}
+      {mainTab === "setlists" && <SetlistsTab allSongs={allSongs} />}
       {mainTab === "about" && (
         <AboutTab
-          onSignOut={() => { setUnlocked(false); setSelectedSong(null); }}
+          user={user}
+          onSignOut={() => { setUser(null); setSelectedSong(null); }}
           localSongs={localSongs}
           allSongs={allSongs}
           onAddSong={onAddSong}
@@ -1705,6 +2217,15 @@ export default function App() {
         />
       )}
       <BottomNav tab={mainTab} onChange={setMainTab} />
+      {showWelcome && user && (
+        <WelcomePopup
+          user={user}
+          onDismiss={() => {
+            setShowWelcome(false);
+            localStorage.setItem(`ochin-pakhi-welcomed-${user.name.toLowerCase()}`, "1");
+          }}
+        />
+      )}
     </div>
   );
 }
