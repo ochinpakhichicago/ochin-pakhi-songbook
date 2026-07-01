@@ -1,7 +1,7 @@
 ---
 id: 85
 title: Guru Dohai Tomar
-titleBn:
+titleBn: গুরু দোহাই তোমার
 lyricist: Lalon
 lyricistBn: লালন
 genre: Baul / Lalongiti

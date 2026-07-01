@@ -1,7 +1,7 @@
 ---
 id: 71
 title: Khawajababa Khwajababa
-titleBn:
+titleBn: খাজাবাবা খাজাবাবা মারহাবা
 lyricist:
 lyricistBn:
 genre: Qawwali

@@ -1,7 +1,7 @@
 ---
 id: 94
 title: Kemone Chinibo Tumare
-titleBn:
+titleBn: কেমনে চিনিবো তোমারে
 lyricist: Baul Shah Abdul Karim
 lyricistBn: বাউল শাহ আবদুল করিম
 genre: Baul

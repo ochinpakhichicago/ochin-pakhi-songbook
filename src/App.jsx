@@ -465,7 +465,7 @@ function SongList({ songs, onSelect, searchState }) {
 }
 
 // ─── Song Detail ───
-function SongDetail({ song, onBack, onPlay }) {
+function SongDetail({ song, onBack, onPlay, backLabel = "All Songs" }) {
   const [tab, setTab] = useState("lyrics");
   const [activeWord, setActiveWord] = useState(null);
 
@@ -559,7 +559,7 @@ function SongDetail({ song, onBack, onPlay }) {
             gap: 4,
           }}
         >
-          ← All Songs
+          ← {backLabel}
         </button>
         <div
           style={{
@@ -1306,7 +1306,7 @@ function EmptyState({ icon, text, sub }) {
 function firstELine(song) {
   for (const sec of song.sections) {
     for (const line of sec.lines) {
-      if (line.e) return line.e;
+      if (line.en) return line.en;
     }
   }
   return null;
@@ -1351,6 +1351,7 @@ function AudienceView({ eventName, songs }) {
 
 function AudienceSongDetail({ song, eventName, onBack }) {
   const d = song.discussion;
+  const allELines = song.sections.flatMap((sec) => sec.lines.filter((l) => l.en).map((l) => l.en));
   return (
     <div style={{ minHeight: "100vh", background: colors.bg, fontFamily: font.body }}>
       <div style={{ padding: "16px 18px 14px", background: colors.surface, borderBottom: `1px solid ${colors.border}` }}>
@@ -1378,18 +1379,14 @@ function AudienceSongDetail({ song, eventName, onBack }) {
             ))}
           </div>
         )}
-        {song.sections.map((sec, si) => {
-          const eLines = sec.lines.filter((l) => l.e);
-          if (eLines.length === 0) return null;
-          return (
-            <div key={si} style={{ marginBottom: 24 }}>
-              <div style={{ fontSize: 11, fontWeight: 700, color: colors.accent, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 10 }}>{sec.label}</div>
-              {eLines.map((line, li) => (
-                <div key={li} style={{ fontSize: 15, color: colors.text, lineHeight: 1.7, marginBottom: 6 }}>{line.e}</div>
-              ))}
-            </div>
-          );
-        })}
+        {allELines.length > 0 && (
+          <div>
+            <div style={{ fontSize: 11, fontWeight: 700, color: colors.accent, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 14 }}>Translation</div>
+            {allELines.map((line, i) => (
+              <div key={i} style={{ fontSize: 15, color: colors.text, lineHeight: 1.8, marginBottom: 4 }}>{line}</div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -1524,6 +1521,7 @@ function SetlistDetail({ setlist, allSongs, onBack, onSelectSong }) {
             <div style={{ color: colors.textMuted, fontSize: 13, fontWeight: 700, minWidth: 22, textAlign: "center", flexShrink: 0 }}>{idx + 1}</div>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ fontWeight: 600, color: colors.text, fontSize: 15, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{song.title}</div>
+              {song.titleBn && <div style={{ fontFamily: font.bengali, fontSize: 13, color: colors.textMuted, marginTop: 2, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{song.titleBn}</div>}
               <div style={{ fontSize: 12, color: colors.textMuted, marginTop: 2 }}>{[song.lyricist, song.genre].filter(Boolean).join(" · ")}</div>
             </div>
             <span style={{ color: colors.textMuted, fontSize: 16, flexShrink: 0 }}>›</span>
@@ -1543,6 +1541,7 @@ function SortableSetlistSong({ song, idx, onRemove, onSelect }) {
       <div style={{ color: colors.textMuted, fontSize: 13, fontWeight: 700, minWidth: 22, textAlign: "center" }}>{idx + 1}</div>
       <div onClick={() => onSelect && onSelect(song)} style={{ flex: 1, minWidth: 0, cursor: "pointer" }}>
         <div style={{ fontWeight: 600, color: colors.text, fontSize: 15, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{song.title}</div>
+        {song.titleBn && <div style={{ fontFamily: font.bengali, fontSize: 13, color: colors.textMuted, marginTop: 2, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{song.titleBn}</div>}
         <div style={{ fontSize: 12, color: colors.textMuted, marginTop: 2 }}>{[song.lyricist, song.genre].filter(Boolean).join(" · ")}</div>
       </div>
       <button onClick={() => onRemove(song.id)} style={{ background: "none", border: "none", color: colors.textMuted, fontSize: 20, cursor: "pointer", padding: "0 4px", minHeight: 44, minWidth: 36, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>×</button>
@@ -2006,9 +2005,10 @@ Baul, Devotion, Longing`}</pre>
           href="https://ochinpakhichicago.org"
           target="_blank"
           rel="noopener noreferrer"
-          style={{ display: "inline-block", marginTop: 12, color: colors.accent, fontSize: 14, fontWeight: 500, textDecoration: "none" }}
+          style={{ display: "inline-flex", alignItems: "center", gap: 6, marginTop: 14, background: colors.accentLight, color: colors.accent, fontSize: 14, fontWeight: 600, textDecoration: "none", padding: "10px 16px", borderRadius: 8, border: `1px solid ${colors.accent}44` }}
         >
-          ochinpakhichicago.org →
+          🌐 ochinpakhichicago.org
+          <span style={{ fontSize: 12 }}>↗</span>
         </a>
       </div>
 
@@ -2119,6 +2119,7 @@ export default function App() {
   const [showWelcome, setShowWelcome] = useState(false);
   const [mainTab, setMainTab] = useState("songs");
   const [nowPlaying, setNowPlaying] = useState(null); // { videoId, title }
+  const [songSource, setSongSource] = useState("songs"); // "songs" | "setlists"
   const [selectedSong, setSelectedSong] = useState(null);
   const [hash, setHash] = useState(window.location.hash);
   const searchState = useState("");
@@ -2198,8 +2199,10 @@ export default function App() {
           onBack={() => {
             setSelectedSong(null);
             window.location.hash = "#/";
+            if (songSource === "setlists") setMainTab("setlists");
           }}
           onPlay={handlePlay}
+          backLabel={songSource === "setlists" ? "Setlist" : "All Songs"}
         />
         <MiniPlayer nowPlaying={nowPlaying} onClose={() => setNowPlaying(null)} />
       </>
@@ -2212,13 +2215,14 @@ export default function App() {
         <SongList
           songs={allSongs}
           onSelect={(s) => {
+            setSongSource("songs");
             setSelectedSong(s);
             window.location.hash = `#/song/${s.id}`;
           }}
           searchState={searchState}
         />
       )}
-      {mainTab === "setlists" && <SetlistsTab allSongs={allSongs} user={user} onSelectSong={(s) => { setSelectedSong(s); window.location.hash = `#/song/${s.id}`; }} />}
+      {mainTab === "setlists" && <SetlistsTab allSongs={allSongs} user={user} onSelectSong={(s) => { setSongSource("setlists"); setSelectedSong(s); window.location.hash = `#/song/${s.id}`; }} />}
       {mainTab === "about" && (
         <AboutTab
           user={user}

@@ -1,7 +1,7 @@
 ---
 id: 31
 title: Dhonnyo Dhonnyo Boli Tare
-titleBn:
+titleBn: ধন্য ধন্য বলি তারে
 lyricist: Lalon
 lyricistBn: লালন
 genre: Baul / Lalongiti

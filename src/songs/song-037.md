@@ -1,7 +1,7 @@
 ---
 id: 37
 title: Amar Nitai Chander Bajare
-titleBn:
+titleBn: আমার নিতাই চাঁদের বাজারে
 lyricist: Bhoba Pagla
 lyricistBn:
 genre: Baul

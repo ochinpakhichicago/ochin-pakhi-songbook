@@ -1,7 +1,7 @@
 ---
 id: 32
 title: Shob Loke Koy
-titleBn:
+titleBn: সব লোকে কয়
 lyricist: Lalon
 lyricistBn: লালন
 genre: Baul / Lalongiti

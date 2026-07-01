@@ -1,7 +1,7 @@
 ---
 id: 79
 title: Aamar Khawaja Babar Chhobi
-titleBn:
+titleBn: আমার খাজাবাবার ছবি
 lyricist: Rajjak Dewan
 lyricistBn:
 genre: Qawwali

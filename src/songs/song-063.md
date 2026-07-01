@@ -1,7 +1,7 @@
 ---
 id: 63
 title: De De Pal Tule De
-titleBn:
+titleBn: দে দে পাল তুলে দে
 lyricist: Abdur Rahman Boyati
 lyricistBn:
 genre: Baul

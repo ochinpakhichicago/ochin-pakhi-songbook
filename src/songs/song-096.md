@@ -1,7 +1,7 @@
 ---
 id: 96
 title: Dekhite Dekhite Bela
-titleBn:
+titleBn: দেখিতে দেখিতে বেলা
 lyricist: Radhashyam Das
 lyricistBn: রাধাশ্যাম দাস
 genre: Kirtan

@@ -1,7 +1,7 @@
 ---
 id: 70
 title: Dilli te Nizamuddin Aulia Elo
-titleBn:
+titleBn: দিল্লিতে নিজামুদ্দিন আউলিয়া এলো
 lyricist:
 lyricistBn:
 genre: Qawwali

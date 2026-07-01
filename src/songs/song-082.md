@@ -1,7 +1,7 @@
 ---
 id: 82
 title: Emon Manob Somaj
-titleBn:
+titleBn: এমন মানব সমাজ
 lyricist: Lalon
 lyricistBn: লালন
 genre: Baul / Lalongiti

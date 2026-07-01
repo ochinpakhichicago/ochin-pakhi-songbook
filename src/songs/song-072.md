@@ -1,7 +1,7 @@
 ---
 id: 72
 title: Bhajibo Tomar Ranga Choron
-titleBn:
+titleBn: ভজিবো তোমার রাঙা চরণ
 lyricist: Matal Rajjak
 lyricistBn:
 genre: Baul

@@ -1,7 +1,7 @@
 ---
 id: 29
 title: Jat Gelo Jat Gelo Bole
-titleBn:
+titleBn: জাত গেল জাত গেল বলে
 lyricist: Lalon
 lyricistBn: লালন
 genre: Baul / Lalongiti
