@@ -658,69 +658,6 @@ function SongDetail({ song, onBack }) {
         ))}
       </div>
 
-      {/* Active word tooltip */}
-      {activeWord && tab === "lyrics" && (
-        <div
-          style={{
-            margin: "12px 18px 0",
-            background: colors.goldLight,
-            border: `1px solid ${colors.gold}`,
-            borderRadius: 10,
-            padding: "12px 16px",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "flex-start",
-            gap: 12,
-          }}
-        >
-          <div>
-            <span style={{ fontWeight: 700, color: colors.text, fontSize: 15 }}>
-              {activeWord.word}
-            </span>
-            <span
-              style={{
-                fontFamily: font.bengali,
-                color: colors.textMuted,
-                marginLeft: 8,
-                fontSize: 15,
-              }}
-            >
-              {activeWord.bn}
-            </span>
-            <div
-              style={{
-                fontSize: 14,
-                color: colors.text,
-                marginTop: 4,
-                lineHeight: 1.45,
-              }}
-            >
-              {activeWord.meaning}
-            </div>
-          </div>
-          <button
-            onClick={() => setActiveWord(null)}
-            style={{
-              background: "none",
-              border: "none",
-              fontSize: 20,
-              color: colors.textMuted,
-              cursor: "pointer",
-              padding: 0,
-              lineHeight: 1,
-              flexShrink: 0,
-              minHeight: 44,
-              minWidth: 44,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            ×
-          </button>
-        </div>
-      )}
-
       {/* Tab content */}
       <div style={{ padding: "16px 18px 100px" }}>
         {/* ── Lyrics ── */}
@@ -1076,6 +1013,63 @@ function SongDetail({ song, onBack }) {
           </div>
         )}
       </div>
+
+      {/* Glossary definition panel — fixed above bottom nav so it's visible anywhere in the lyrics */}
+      {activeWord && tab === "lyrics" && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: 60,
+            left: 0,
+            right: 0,
+            background: colors.surface,
+            borderTop: `2px solid ${colors.gold}`,
+            boxShadow: "0 -4px 24px rgba(0,0,0,0.13)",
+            padding: "14px 18px 14px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            gap: 12,
+            zIndex: 200,
+          }}
+        >
+          <div style={{ flex: 1 }}>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 4 }}>
+              <span style={{ fontWeight: 700, color: colors.accent, fontSize: 15 }}>
+                {activeWord.word}
+              </span>
+              {activeWord.bn && (
+                <span style={{ fontFamily: font.bengali, color: colors.textMuted, fontSize: 14 }}>
+                  {activeWord.bn}
+                </span>
+              )}
+            </div>
+            <div style={{ fontSize: 14, color: colors.text, lineHeight: 1.5 }}>
+              {activeWord.meaning}
+            </div>
+          </div>
+          <button
+            onClick={() => setActiveWord(null)}
+            style={{
+              background: "none",
+              border: "none",
+              fontSize: 22,
+              color: colors.textMuted,
+              cursor: "pointer",
+              padding: 0,
+              lineHeight: 1,
+              flexShrink: 0,
+              minHeight: 44,
+              minWidth: 44,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            ×
+          </button>
+        </div>
+      )}
     </div>
   );
 }
