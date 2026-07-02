@@ -64,18 +64,18 @@ E: Death will spare no one
 [Verse 3]
 T: Gopone je beshyar bhaat khay
 B: গোপনে যে বেশ্যার ভাত খায়
-E: One who secretly eats the food of a prostitute
+E: One who secretly eats the food from a prostitute
 
 T: Tate dhormer ki khoti hoi
 B: তাতে ধর্মের কি ক্ষতি হয়
 E: What harm comes to religion from that?
 
 T: Lalon bole jaat kare koi
-B: লালন বলে জাত কারে কই
+B: লালন বলে জাত কারে কয় 
 E: Lalon asks — what do we even call caste?
 
-T: E bhromo to gelo naa
-B: এ ভ্রম তো গেলো না
+T: Se bhromo to gelo naa
+B: সে ভ্রম তো গেলো না
 E: This illusion has not gone
 
 [Glossary]

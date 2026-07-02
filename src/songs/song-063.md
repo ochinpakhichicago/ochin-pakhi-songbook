@@ -58,7 +58,7 @@ E: In my eyes, Medina
 
 [Verse 2]
 T: O nurer roshnite duniya gechhe vorey
-B: ও নূরের রশনিতে দুনিয়া গেছে ভরে
+B: ও নূরের রোশনিতে দুনিয়া গেছে ভরে
 E: With the divine light of his radiance, the world has been filled
 
 T: Se nurer baati jwole

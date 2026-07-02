@@ -16,12 +16,12 @@ B: খাজাবাবা খাজাবাবা মারহাবা ম�
 E: Khwajababa, Khwajababa, welcome, welcome
 
 T: Gyeyechhilen Nobir gunogaan
-B: গেয়েছিলেন নবীর গুণোগান
+B: গেয়েছিলেন নবীর গুণগান
 E: He sang the praises of the Prophet
 
 [Verse 1]
 T: Ekdin amar boro Pire dakiya koy Khawajare
-B: একদিন আমার বড়ো পিরে ডাকিয়া কয় খাজারে
+B: একদিন আমার বড় পিরে ডাকিয়া কয় খাজারে
 E: One day my great Pir called out to Khwaja
 
 T: Tomar bodon keno eto mlan
@@ -33,9 +33,9 @@ T: Khwajay koy Pirere tin din onahare
 B: খাজায় কয় পিরেরে তিন দিন অনাহারে
 E: Khwaja says to the Pir — three days without food
 
-T: Ruher khorak amar samadan
-B: রুহের খোরাক আমার সমাধান
-E: The nourishment of the soul is my resolution
+T: Ruher khorak amar samagan
+B: রুহের খোরাক আমার সামাগান
+E: The nourishment of the soul is my devotional music
 
 [Verse 3]
 T: Gaan bajna isker gaja, korle hoy ruho taja
@@ -114,5 +114,6 @@ Qawwali, Sufi, Khwaja, Devotion, Fana
 
 [Reference]
 Khaja Baba Khaja Baba Marhaba — Shorif | https://www.youtube.com/watch?v=tdFi165co4U
+Khaja Baba Khaja Baba - Momtaz | https://www.youtube.com/watch?v=uI4fUqvfi8E
 
 [OurRecording]

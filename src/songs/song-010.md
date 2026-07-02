@@ -63,7 +63,7 @@ B: যদি ঝড় বাদলে আঁধার রাতে দুয়
 E: If in storm and rain on a dark night they shut their doors
 
 T: Tobe bojranole
-B: তবে বজ্রনলে
+B: তবে বজ্রানলে 
 E: Then with the fire of thunder
 
 T: Apon buker paajor jwaliye niye ekla jwolo re
@@ -89,7 +89,7 @@ jhor | ঝড় | storm
 badol | বাদল | rain, monsoon
 aaNdhar | আঁধার | darkness
 duyar | দুয়ার | door, doorway
-bojranole | বজ্রনলে | with thunderfire, lightning's flame
+bojranole | বজ্রানলে | with thunderfire, lightning's flame
 paajor | পাঁজর | ribs
 jwaliye | জ্বালিয়ে | setting aflame, igniting
 jwolo | জ্বলো | burn, blaze

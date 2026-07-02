@@ -33,7 +33,7 @@ B: কিবা গৌর রূপ লম্পটে
 E: What a beauty-obsessed form Gaur has!
 
 T: Dhairyer duri dey go kete
-B: ধৈর্যের দুরি দেয় গো কেটে
+B: ধৈর্য্যের ডুরি দেয় গো কেটে
 E: He cuts through the rope of my patience
 
 T: Lojja bhoy sob jay go chute
@@ -46,8 +46,8 @@ E: Whenever I think of that form
 
 [Verse 2]
 T: Ghumer ghore dekhlam jare
-B: ঘুমের ঘরে দেখলাম যারে
-E: The one I saw in the room of sleep (in dreams)
+B: ঘুমের ঘোরে দেখলাম যারে
+E: The one I saw in my sleep
 
 T: Chetan hoye paine tare
 B: চেতন হয়ে পাই নে তারে
@@ -63,7 +63,7 @@ E: The one who revels in the nine rasas (essences of love)
 
 [Verse 3]
 T: Meghe jemon chataker e
-B: মেঘে যেমন চাতকের এ
+B: মেঘে যেমন চাতকেরে 
 E: Like the chatak bird with the rain cloud
 
 T: Dekha diye fanke fere
@@ -75,7 +75,7 @@ B: লালন বলে তাই আমারে
 E: Lalon says, that is why with me
 
 T: Korlo gaur barabari
-B: করল গৌর বারবারী
+B: করল গৌর বরাবরি 
 E: Gaur has done this again and again
 
 [Glossary]

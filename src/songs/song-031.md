@@ -20,8 +20,8 @@ B: বেঁধেছে এমন ঘর
 E: Who has built such a house
 
 T: Shunnyer upor pochhta kore
-B: শূন্যের উপর পোষ্টা করে
-E: Plastered and finished upon emptiness
+B: শূন্যের উপর পোস্তা করে
+E: Strong structure upon emptiness
 
 [Verse 1]
 T: Sobe matro ekta khuti
@@ -77,7 +77,7 @@ E: Through which door can I open my way home?
 [Glossary]
 dhonno | ধন্য | blessed, exalted — the opening word of praise
 shunnyer | শূন্যের | of emptiness, of the void — the formless ground of existence in Baul philosophy
-pochhta | পোষ্টা | plastering, rendering — finishing a surface; here the body is plastered upon the void
+pochhta | পোস্তা | makign structure — finishing a surface
 khuti | খুঁটি | pillar, post — the central support of the house; here the spine or life-force
 muladhar | মূলাধার | root chakra / root chamber — the base energy centre in yogic and Baul body-mysticism
 kuthuri | কুঠুরি | chamber, room — one of the body's mystical inner rooms

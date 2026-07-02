@@ -1,6 +1,6 @@
 ---
 id: 32
-title: Shob Loke Koy
+title: Sob Loke Koy
 titleBn: সব লোকে কয়
 lyricist: Lalon
 lyricistBn: লালন
@@ -11,7 +11,7 @@ duration:
 ---
 
 [Refrain]
-T: Shob loke koy Lalon ki jaat ei shongshare
+T: Sob loke koy Lalon ki jaat ei songsare
 B: সব লোকে কয় লালন কি জাত এই সংসারে
 E: Everyone asks — what caste is Lalon in this world?
 
@@ -23,13 +23,13 @@ T: Dekhlam na ei nojore
 B: দেখলাম না এই নজরে
 E: I have not seen it with these eyes
 
-T: Shob loke koy Lalon ki jaat ei shongshare
+T: Sob loke koy Lalon ki jaat ei songsare
 B: সব লোকে কয় লালন কি জাত এই সংসারে
 E: Everyone asks — what caste is Lalon in this world?
 
 [Verse 1]
 T: Keo mala keo tosbih gole
-B: কেউ মালা কেউ তসবিহ গলে
+B: কেউ মালা কেউ তসবি গলে
 E: Some wear a mala, some wear a tasbih around their neck
 
 T: Tai to re jaat bhinno bole
@@ -70,23 +70,23 @@ T: Loke golpo kore jotha totha
 B: লোকে গল্প করে যথা তথা
 E: People gossip about it everywhere
 
-T: Lalon bole jater fatna
-B: লালন বলে জাতের ফাঁতনা
+T: Lalon bole jater phata
+B: লালন বলে জাতের ফাতা
 E: Lalon says — the snare of caste
 
 T: Dubiyechhi saat bajare
-B: ডুবিয়েছি সাত বাজারে
-E: Has drowned me in seven marketplaces
+B: ডুবিয়েছি সাধ বাজারে
+E: Has drowned me in desire-marketplaces
 
 [Glossary]
 jaat | জাত | caste — the central question the song keeps turning over
 mala | মালা | Hindu prayer beads — garland of beads used in devotion
-tosbih | তসবিহ | Islamic prayer beads — the Muslim equivalent of a mala
+tosbih | তসবি | Islamic prayer beads — the Muslim equivalent of a mala
 poite | পৈতে | sacred thread — worn by Brahmin men as a caste marker
 bamun | বামুন | Brahmin — the priestly caste in Hinduism
 bamni | বামনি | Brahmin woman
 shunnot | সুন্নত | circumcision — Islamic rite marking a male as Muslim
-fatna | ফাঁতনা | snare, trap — Lalon's word for the trap of caste identity
+phata | ফাতা | snare, trap — Lalon's word for the trap of caste identity
 
 [Arrangement]
 Intro dotara and tabla, joined by all.

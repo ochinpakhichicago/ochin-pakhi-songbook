@@ -46,7 +46,7 @@ E: Will not push them away
 
 [Verse 2]
 T: Amir-fakir hoye ekthai
-B: আমির ফকির হয়ে একঠাই
+B: আমির ফকির হয়ে একঠাঁই
 E: The wealthy and the poor in one place
 
 T: Sobar paona pabe sobai

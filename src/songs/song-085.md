@@ -33,7 +33,7 @@ E: Lead it on the right path
 
 [Verse 1]
 T: Tumi jare haogo sodoy
-B: তুমি যারে হাও গো সদয়
+B: তুমি যারে হও গো সদয়
 E: Whoever you become gracious towards
 
 T: Se tomare sadhone paay
@@ -41,8 +41,8 @@ B: সে তোমারে সাধনে পায়
 E: They find you through their devotion
 
 T: Bibadi taar swaboshe roy
-B: বিবাদী তার স্বাবশে রয়
-E: The inner adversary remains under their own sway
+B: বিবাদী তার স্ববশে রয়
+E: The inner adversary remains under their own control
 
 T: Tomar kripate
 B: তোমার কৃপাতে
@@ -62,8 +62,8 @@ B: তেমনি যন্ত্র আমারি মন
 E: Likewise, this mind of mine is the instrument
 
 T: Bol tomar hate
-B: বল তোমার হাতে
-E: Say — it is in your hands
+B: বোল তোমার হাতে
+E: Control is in your hands
 
 [Verse 3]
 T: Jogai madhai dossu chhilo

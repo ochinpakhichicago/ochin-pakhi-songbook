@@ -34,7 +34,7 @@ B: স্রোতের ন্যায় সংসার দিন দিন 
 E: Like a current, worldly life flows away day by day
 
 T: Kon din samon asi badhibe kale
-B: কোন দিন সময় আসি বাঁধিবে কালে
+B: কোন দিন সমন আসি বাঁধিবে কালে
 E: One day death will come and bind you in its grip
 
 T: Somoy thakite apon gola hote
@@ -68,21 +68,21 @@ B: দারা সুত পরিবার তুমি কার, কে ত�
 E: Wife, son, family — whose are you, who is yours?
 
 T: Kare bhabo mon amar aponar bole
-B: কারে ভাবো মন আমার আপনার বলে
+B: কারে ভাবো মন আমার আপনার বোলে 
 E: Whom do you call your own, O mind?
 
 T: Osar bhabona bhebe bolo ki ba laabh hobe
-B: অসার ভাবনা ভেবে বলো কি বা লাভ হবে
+B: অসাড় ভাবনা ভেবে বলো কি বা লাভ হবে
 E: Tell me — what is gained by thinking empty thoughts?
 
 T: Ki phol pholibe bolo tushe paar dile?
-B: কি ফল ফলিবে বলো তুষে পার দিলে?
+B: কি ফল ফলিবে বলো তুষে পাড় দিলে?
 E: What fruit will grow if you pass only the husk?
 
 [Verse 5]
 T: Bhabero hate ese roile bose
-B: ভাবের হাতে এসে রইলে বসে
-E: Falling into the hands of worldly illusion, you just sit there
+B: ভবের হাটে এসে রইলে বসে
+E: Coming to this market of the world, you just sit there
 
 T: Kon sahose? Kar budhhibale?
 B: কোন সাহসে? কার বুদ্ধিবলে?

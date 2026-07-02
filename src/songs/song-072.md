@@ -12,7 +12,7 @@ duration:
 
 [Refrain]
 T: Shri Madhusudano Bipad Bhanjano
-B: শ্রী মধুসূদনো বিপদ ভঞ্জনো
+B: শ্রী মধুসূদনো বিপদভঞ্জন
 E: O Madhusudana, dispeller of all danger
 
 T: Brajero Brajananda Narayan Narayan
@@ -37,13 +37,13 @@ B: হরিবল হরিবল ঝরে শুধু চোখের জল
 E: Haribol, Haribol — only tears fall from these eyes
 
 T: Obiram boye jaay amar du noyon
-B: অবিরাম বয়ে যায় আমার দু নয়ন
+B: অবিরাম বয়ে যায় আমার দু-নয়ন
 E: Unceasingly, my two eyes flow on
 
 [Verse 2]
-T: Pach waqt namaz ar trishta roja
-B: পাঁচ ওয়াক্ত নামাজ আর তৃষ্টা রোজা
-E: Five-time prayer and earnest fasting
+T: Pach waqt namaz ar tirish ta roja
+B: পাঁচ ওয়াক্ত নামাজ আর ত্রিশটা রোজা
+E: Five-time prayer and thirty fastings
 
 T: Musolmane jenechhe ei tomar puja
 B: মুসলমানে জেনেছে এই তোমার পূজা
@@ -54,7 +54,7 @@ B: সপ্তায় সাত-দিন পরে গেলা তুমি
 E: Seven days of the week, you went to the church
 
 T: Khristan korichhe saai Jisu ke swaron
-B: খ্রিষ্টান করিছে সাই যিশু কে স্বরণ
+B: খ্রিষ্টান করিছে সাই যিশু কে স্মরণ 
 E: Christians remember and call upon Jesus
 
 [Verse 3]

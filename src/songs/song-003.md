@@ -16,7 +16,7 @@ B: ওরে ছেড়ে দিলে সোনার গৌর
 E: Oh, if you let go of golden Gour (Chaitanya)
 
 T: Khepa chhere dile sonar gour
-B: খেপা ছেড়ে দিলে সোনার গৌর
+B: খ্যাপা ছেড়ে দিলে সোনার গৌর
 E: O mad one, if you let go of golden Gour
 
 T: Amra aar pabo na, aar pabo na
@@ -53,8 +53,8 @@ B: রাধার প্রেমে মাতোয়ারা
 E: Intoxicated by Radha's love
 
 T: Dhulay jay bhai gora-gori
-B: ধূলায় যায় ভাই গোরা-গোরী
-E: Into the dust goes, brother, the fair couple
+B: ধূলায় যায় ভাই গড়াগড়ি 
+E: Roll into the dust
 
 T: Jete chaile jete debo na
 B: যেতে চাইলে যেতে দেব না
@@ -105,7 +105,7 @@ rakhibo | রাখিব | I will keep
 chhere | ছেড়ে | letting go, releasing
 sonar | সোনার | golden
 gour | গৌর | the fair one — refers to Chaitanya Mahaprabhu
-khepa | খেপা | mad one, ecstatic one
+khepa | খ্যাপা | mad one, ecstatic one
 bokhho | বক্ষ | chest, bosom
 bhubono mohono | ভুবন মোহন | enchanter of the universe
 mono hora | মন হরা | one who steals the mind

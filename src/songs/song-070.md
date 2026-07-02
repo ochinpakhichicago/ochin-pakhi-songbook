@@ -33,7 +33,7 @@ B: শয়নে স্বপনে দেখি
 E: In waking and in dreams I see
 
 T: Asilo ek buzurgyan
-B: আসিলো এক বুজুর্গজন
+B: আসিলো এক বুজুর্গন
 E: A blessed and holy one has arrived
 
 T: Rastar majhe kato loke
@@ -41,7 +41,7 @@ B: রাস্তার মাঝে কতো লোক
 E: So many people in the road
 
 T: Koritase sondhaan (2)
-B: করিতাছে সন্ধান (২)
+B: করিতাসে সন্ধান (২)
 E: Were all searching, searching (2)
 
 [Bridge]
@@ -59,7 +59,7 @@ B: মানতে করেছি আমি
 E: I have made a vow
 
 T: Baro pirer dorbare
-B: বারো পিরের দরবারে
+B: বড় পিরের দরবারে
 E: At the court of twelve saints
 
 T: Kemon kore dibo chador

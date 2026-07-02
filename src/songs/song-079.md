@@ -25,7 +25,7 @@ E: Come, let us go and see Khwaja's court
 
 [Verse 1]
 T: Ekdin hothato khawajaro minarai
-B: একদিন হঠাৎ খাজার মিনারাই
+B: একদিন হঠাৎ খাজার মিনারায়
 E: One day, suddenly, in Khwaja's minaret
 
 T: Khawajar protichhobi je dekha jay
