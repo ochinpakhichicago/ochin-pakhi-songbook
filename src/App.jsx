@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo, useEffect, useRef } from "react";
+import { useState, useCallback, useMemo, useEffect, useRef, useReducer } from "react";
 import { parseSong } from "./parseSong";
 import { QRCodeSVG } from "qrcode.react";
 import { DndContext, closestCenter, PointerSensor, TouchSensor, useSensor, useSensors } from "@dnd-kit/core";
@@ -21,8 +21,8 @@ const GENRES = [
   "Bhatiyali", "Jhumur", "Qawwali", "Jit-sangeet",
 ];
 
-// ─── Styles ───
-const colors = {
+// ─── Themes ───
+const lightColors = {
   bg: "#FAF6EF",
   surface: "#FFFFFF",
   surfaceHover: "#F5F0E6",
@@ -38,6 +38,42 @@ const colors = {
   green: "#5B7A52",
   greenLight: "#EDF3EB",
 };
+
+const darkColors = {
+  bg: "#1A1108",
+  surface: "#26190E",
+  surfaceHover: "#32220F",
+  border: "#4A3520",
+  text: "#F0E6D3",
+  textMuted: "#9C8468",
+  accent: "#D4724A",
+  accentLight: "#3A1F0F",
+  accentDark: "#E89070",
+  gold: "#C9A870",
+  goldLight: "#2A1C09",
+  tag: "#3A2810",
+  green: "#7DA870",
+  greenLight: "#192B15",
+};
+
+let _darkMode = localStorage.getItem("ochin-pakhi-dark") === "true";
+let _forceAppRender = null;
+
+// Proxy lets all components use `colors.X` without any refactoring —
+// values update automatically on re-render after theme switch.
+const colors = new Proxy({}, {
+  get(_, key) { return (_darkMode ? darkColors : lightColors)[key]; },
+});
+
+function toggleDarkMode() {
+  _darkMode = !_darkMode;
+  localStorage.setItem("ochin-pakhi-dark", String(_darkMode));
+  document.body.style.background = _darkMode ? darkColors.bg : lightColors.bg;
+  if (_forceAppRender) _forceAppRender();
+}
+
+// Apply saved theme immediately to avoid flash on load
+document.body.style.background = _darkMode ? darkColors.bg : lightColors.bg;
 
 const font = {
   display: "'Playfair Display', Georgia, serif",
@@ -1056,7 +1092,7 @@ function SongDetail({ song, onBack, onPlay, backLabel = "All Songs" }) {
         <div
           style={{
             position: "fixed",
-            bottom: 60,
+            bottom: "calc(60px + var(--player-bar-height, 0px))",
             left: 0,
             right: 0,
             background: colors.surface,
@@ -1067,7 +1103,8 @@ function SongDetail({ song, onBack, onPlay, backLabel = "All Songs" }) {
             justifyContent: "space-between",
             alignItems: "flex-start",
             gap: 12,
-            zIndex: 200,
+            zIndex: 201,
+            transition: "bottom 0.2s ease",
           }}
         >
           <div style={{ flex: 1 }}>
@@ -1216,10 +1253,25 @@ function VideoCard({ link, accentBorder, onPlay }) {
   );
 }
 
+const MINI_HEADER_H = 44; // px — MiniPlayer collapsed header height
+
 function MiniPlayer({ nowPlaying, onClose }) {
   const [expanded, setExpanded] = useState(true);
 
   useEffect(() => { setExpanded(true); }, [nowPlaying?.videoId]);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (!nowPlaying) {
+      root.style.removeProperty("--player-bar-height");
+      return;
+    }
+    root.style.setProperty(
+      "--player-bar-height",
+      expanded ? `calc(${MINI_HEADER_H}px + 56.25vw)` : `${MINI_HEADER_H}px`
+    );
+    return () => root.style.removeProperty("--player-bar-height");
+  }, [nowPlaying, expanded]);
 
   if (!nowPlaying) return null;
 
@@ -1687,7 +1739,7 @@ function PersonalSetlistDetail({ setlist, allSongs, onUpdate, onDelete, onBack, 
 }
 
 // ─── About ───
-function AboutTab({ user, onSignOut, localSongs, allSongs, onAddSong, onRemoveSong }) {
+function AboutTab({ user, onSignOut, localSongs, allSongs, onAddSong, onRemoveSong, onToggleDark, isDark }) {
   const [preview, setPreview] = useState(null); // { raw, song } | { error }
   const [copiedId, setCopiedId] = useState(null);
   const fileInputRef = useState(null);
@@ -1759,7 +1811,7 @@ function AboutTab({ user, onSignOut, localSongs, allSongs, onAddSong, onRemoveSo
           Songbook
         </div>
         <div style={{ fontSize: 13, color: colors.textMuted, marginTop: 4 }}>
-          {allSongs.length} songs · {localSongs.length > 0 ? `${localSongs.length} local` : "all from repo"}
+          {allSongs.length} songs · {localSongs.length > 0 ? `${localSongs.length} local` : "Bengali Folk"}
         </div>
       </div>
 
@@ -1772,6 +1824,51 @@ function AboutTab({ user, onSignOut, localSongs, allSongs, onAddSong, onRemoveSo
         <div style={{ fontSize: 13, color: colors.textMuted }}>
           {user.role === "admin" ? "Admin · full access" : "Member · enjoy the songs"}
         </div>
+      </div>
+
+      {/* Appearance */}
+      <div style={{ ...card, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div>
+          <div style={{ fontSize: 14, fontWeight: 600, color: colors.text }}>
+            {isDark ? "Dark mode" : "Light mode"}
+          </div>
+          <div style={{ fontSize: 12, color: colors.textMuted, marginTop: 2 }}>
+            {isDark ? "Switch to light" : "Switch to dark"}
+          </div>
+        </div>
+        <button
+          onClick={onToggleDark}
+          style={{
+            width: 52,
+            height: 28,
+            borderRadius: 14,
+            border: "none",
+            cursor: "pointer",
+            background: isDark ? colors.accent : colors.border,
+            position: "relative",
+            transition: "background 0.2s ease",
+            flexShrink: 0,
+          }}
+          aria-label="Toggle dark mode"
+        >
+          <span style={{
+            position: "absolute",
+            top: 3,
+            left: isDark ? 27 : 3,
+            width: 22,
+            height: 22,
+            borderRadius: "50%",
+            background: colors.surface,
+            transition: "left 0.2s ease",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 12,
+            lineHeight: 1,
+          }}>
+            {isDark ? "🌙" : "☀️"}
+          </span>
+        </button>
       </div>
 
       {/* Song file format + upload — admin only */}
@@ -2137,6 +2234,12 @@ function WelcomePopup({ user, onDismiss }) {
 
 // ─── App ───
 export default function App() {
+  const [, tick] = useReducer((n) => n + 1, 0);
+  useEffect(() => {
+    _forceAppRender = tick;
+    return () => { _forceAppRender = null; };
+  }, [tick]);
+
   const [user, setUser] = useState(null); // { name, role: "member"|"admin" } | null
   const [showWelcome, setShowWelcome] = useState(false);
   const [mainTab, setMainTab] = useState("songs");
@@ -2253,6 +2356,8 @@ export default function App() {
           allSongs={allSongs}
           onAddSong={onAddSong}
           onRemoveSong={onRemoveSong}
+          onToggleDark={toggleDarkMode}
+          isDark={_darkMode}
         />
       )}
       <BottomNav tab={mainTab} onChange={setMainTab} />
