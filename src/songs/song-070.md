@@ -2,8 +2,8 @@
 id: 70
 title: Dilli te Nizamuddin Aulia Elo
 titleBn: দিল্লিতে নিজামুদ্দিন আউলিয়া এলো
-lyricist:
-lyricistBn:
+lyricist: Lalmia
+lyricistBn: লালমিয়া
 genre: Qawwali
 key:
 instruments:
@@ -106,6 +106,6 @@ chador | চাদর | sacred cloth offered at a dargah / shrine
 Qawwali, Sufi, Nizamuddin, Devotion
 
 [Reference]
-Dilli te Nizamuddin Aulia — Golam Fakir (Hok Folk Studio) | https://www.youtube.com/watch?v=aIigoBd6cEM
+Dilli te Nizamuddin Aulia — Lal Mia | https://www.youtube.com/watch?v=1CnU57oZYHc
 
 [OurRecording]

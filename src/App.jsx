@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo, useEffect } from "react";
+import { useState, useCallback, useMemo, useEffect, useRef } from "react";
 import { parseSong } from "./parseSong";
 import { QRCodeSVG } from "qrcode.react";
 import { DndContext, closestCenter, PointerSensor, TouchSensor, useSensor, useSensors } from "@dnd-kit/core";
@@ -468,6 +468,7 @@ function SongList({ songs, onSelect, searchState }) {
 function SongDetail({ song, onBack, onPlay, backLabel = "All Songs" }) {
   const [tab, setTab] = useState("lyrics");
   const [activeWord, setActiveWord] = useState(null);
+  const ttsAudioRef = useRef(null);
 
   const tabs = [
     { key: "lyrics", label: "Lyrics" },
@@ -1082,11 +1083,15 @@ function SongDetail({ song, onBack, onPlay, backLabel = "All Songs" }) {
                   {typeof window !== "undefined" && window.speechSynthesis && (
                     <button
                       onClick={() => {
-                        window.speechSynthesis.cancel();
-                        const u = new SpeechSynthesisUtterance(activeWord.bn);
-                        u.lang = "bn-IN";
-                        u.rate = 0.85;
-                        window.speechSynthesis.speak(u);
+                        if (ttsAudioRef.current) {
+                          ttsAudioRef.current.pause();
+                          ttsAudioRef.current = null;
+                        }
+                        const text = activeWord.bn || activeWord.word;
+                        const url = `/api/tts?q=${encodeURIComponent(text)}`;
+                        const audio = new Audio(url);
+                        ttsAudioRef.current = audio;
+                        audio.play().catch(() => {});
                       }}
                       title="Hear pronunciation"
                       style={{ background: colors.accentLight, border: `1px solid ${colors.accent}44`, borderRadius: 6, padding: "2px 8px", cursor: "pointer", fontSize: 14, color: colors.accent, lineHeight: 1.4, flexShrink: 0 }}

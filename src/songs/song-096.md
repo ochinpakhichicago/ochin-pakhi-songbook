@@ -126,6 +126,6 @@ GoNsai GuruchaNd | গোঁসাই গুরুচাঁদ | Guruchand Thaku
 Kirtan, Vaishnava, Matua, Impermanence, Devotion, Guruchand
 
 [Reference]
-Dekhite Dekhite Bela — Radhashyam Das | https://www.youtube.com/watch?v=IibPNkxB9QI
+Dekhite Dekhite Bela — Bhola Das Baul | https://www.youtube.com/watch?v=IibPNkxB9QI
 
 [OurRecording]

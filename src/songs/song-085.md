@@ -112,6 +112,6 @@ Ending 3 times lao go supothe — rhythm cuts out at end of 2nd time. 3rd time a
 Baul, Lalon, Guru, Devotion, Surrender
 
 [Reference]
-Guru Dohai Tomar — Ananda Gopal Das | https://www.youtube.com/watch?v=QOlHHCCB9pQ
+Guru Dohai Tomar — Robi Das Baul | https://www.youtube.com/watch?v=QOlHHCCB9pQ
 
 [OurRecording]
