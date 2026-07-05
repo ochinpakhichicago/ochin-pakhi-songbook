@@ -15,8 +15,8 @@ T: Chal mini Assam jabo, deshe boro dukh re
 B: চল মিনি আসাম যাবো, দেশে বড়ো দুখ রে
 E: Come Mini, let us go to Assam — there is great sorrow in our homeland
 
-T: Assam deshe re Mini cha bagan huriya (ghuriya)
-B: আসাম দেশে রে মিনি চা বাগান হুরিয়া (ঘুরিয়া)
+T: Assam deshe re Mini cha bagan ghuriya 
+B: আসাম দেশে রে মিনি চা বাগান ঘুরিয়া
 E: In the land of Assam, Mini, wandering the tea gardens
 
 [Verse 2]
@@ -88,6 +88,7 @@ https://daakbangla.com/non-fiction/cha-baganer-gaan/
 Lokgeeti, Tea Garden, Assam, Migration, Exploitation, Labour, Colonial, Kali Dasgupta, Sylhet
 
 [Reference]
+Chol Mini Assam Jabo — Kali Dasgupta | https://www.youtube.com/watch?v=kJLc9gkTk4c
 Chol Mini Assam Jabo — Basudeb Das Baul | https://www.youtube.com/watch?v=XoE7p_USoXk
 
 [OurRecording]
