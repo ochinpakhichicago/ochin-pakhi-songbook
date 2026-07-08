@@ -16,7 +16,7 @@ B: গুরু দোহাই তোমার মনকে আমার
 E: Guru, I implore you — take this mind of mine
 
 T: Lao go supothe
-B: লাও গো সুপথে
+B: লও গো সুপথে
 E: Lead it on the right path
 
 T: Tomar doya bine guru charon
@@ -28,7 +28,7 @@ B: সাধব কি মতে
 E: How shall I seek in any way?
 
 T: Lao go supothe
-B: লাও গো সুপথে
+B: লও গো সুপথে
 E: Lead it on the right path
 
 [Verse 1]
@@ -84,6 +84,7 @@ E: In that very hope
 
 [Glossary]
 dohai | দোহাই | I implore you — a fervent plea or invocation
+lao | লও | take
 supothe | সুপথে | on the right path, the good road
 kripa | কৃপা | grace, divine compassion
 bibadi | বিবাদী | adversary, opponent — here the enemy within oneself
