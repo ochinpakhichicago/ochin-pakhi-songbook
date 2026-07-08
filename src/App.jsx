@@ -501,7 +501,7 @@ function SongList({ songs, onSelect, searchState }) {
 }
 
 // ─── Song Detail ───
-function SongDetail({ song, onBack, onPlay, backLabel = "All Songs" }) {
+function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs" }) {
   const [tab, setTab] = useState("lyrics");
   const [activeWord, setActiveWord] = useState(null);
   const ttsAudioRef = useRef(null);
@@ -683,6 +683,28 @@ function SongDetail({ song, onBack, onPlay, backLabel = "All Songs" }) {
         {song.instruments && (
           <div style={{ fontSize: 12, color: colors.textMuted, marginTop: 4 }}>
             {song.instruments}
+          </div>
+        )}
+        {song.tags.length > 0 && (
+          <div style={{ display: "flex", gap: 5, flexWrap: "wrap", marginTop: 8 }}>
+            {song.tags.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => onTagClick && onTagClick(tag)}
+                style={{
+                  fontSize: 11,
+                  color: colors.textMuted,
+                  background: colors.bg,
+                  border: `1px solid ${colors.border}`,
+                  padding: "2px 8px",
+                  borderRadius: 20,
+                  cursor: onTagClick ? "pointer" : "default",
+                  fontFamily: font.body,
+                }}
+              >
+                {tag}
+              </button>
+            ))}
           </div>
         )}
       </div>
@@ -2327,6 +2349,12 @@ export default function App() {
             if (songSource === "setlists") setMainTab("setlists");
           }}
           onPlay={handlePlay}
+          onTagClick={(tag) => {
+            setSelectedSong(null);
+            window.location.hash = "#/";
+            setMainTab("songs");
+            searchState[1](tag);
+          }}
           backLabel={songSource === "setlists" ? "Setlist" : "All Songs"}
         />
         <MiniPlayer nowPlaying={nowPlaying} onClose={() => setNowPlaying(null)} />
