@@ -75,7 +75,7 @@ B: আল্লাহ কি আলী কালা কি কালী
 E: Is it Allah or Ali, Kala or Kali?
 
 T: Joto sob doladoli tomari karon
-B: যতো সব দোলাদোলি তোমারি কারণ
+B: যতো সব দলাদলি তোমারি কারণ
 E: All this swinging back and forth is because of you alone
 
 [Verse 4]

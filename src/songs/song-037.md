@@ -86,8 +86,8 @@ T: Ola ros bandhbi ki kore?
 B: ওলা রস বাঁধবি কি করে?
 E: How can you contain the flowing essence?
 
-T: Abar Bhaba Paglar roser tattwo
-B: আবার ভাবা পাগলার রসের তত্ত্ব
+T: Abar Bhoba Paglar roser tattwo
+B: আবার ভবা পাগলার রসের তত্ত্ব
 E: The philosophy of rasa (divine essence) from Bhoba Pagla
 
 T: Jibe janbe ki kore?
