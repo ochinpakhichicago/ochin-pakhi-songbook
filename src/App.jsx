@@ -1633,17 +1633,23 @@ function SortableSetlistSong({ song, idx, total, onRemove, onSelect, onMoveUp, o
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: song.id });
   return (
     <div ref={setNodeRef} style={{ transform: CSS.Transform.toString(transform), transition, opacity: isDragging ? 0.4 : 1, background: isDragging ? colors.accentLight : colors.surface, borderRadius: 10, padding: "12px 14px", marginBottom: 8, border: `1px solid ${isDragging ? colors.accent : colors.border}`, display: "flex", alignItems: "center", gap: 10 }}>
-      <div {...attributes} {...listeners} style={{ color: colors.textMuted, fontSize: 18, cursor: "grab", padding: "8px 6px", flexShrink: 0, touchAction: "none", userSelect: "none", lineHeight: 1, minHeight: 44, display: "flex", alignItems: "center", letterSpacing: "-2px" }}>⠿</div>
+      <div {...attributes} {...listeners} style={{ cursor: "grab", padding: "8px 4px", flexShrink: 0, touchAction: "none", userSelect: "none", minHeight: 44, display: "flex", alignItems: "center" }}>
+        <svg width="14" height="22" viewBox="0 0 14 22" fill={colors.textMuted}>
+          <circle cx="4" cy="5" r="2.2"/><circle cx="10" cy="5" r="2.2"/>
+          <circle cx="4" cy="11" r="2.2"/><circle cx="10" cy="11" r="2.2"/>
+          <circle cx="4" cy="17" r="2.2"/><circle cx="10" cy="17" r="2.2"/>
+        </svg>
+      </div>
       <div style={{ display: "flex", flexDirection: "column", gap: 2, flexShrink: 0 }}>
         <button
           onClick={onMoveUp}
           disabled={idx === 0}
-          style={{ background: "none", border: "none", fontSize: 14, cursor: idx === 0 ? "default" : "pointer", color: idx === 0 ? colors.border : colors.textMuted, padding: "1px 4px", lineHeight: 1 }}
+          style={{ background: "none", border: "none", fontSize: 14, cursor: idx === 0 ? "default" : "pointer", color: colors.textMuted, opacity: idx === 0 ? 0.25 : 1, padding: "1px 4px", lineHeight: 1, minHeight: 22 }}
         >▲</button>
         <button
           onClick={onMoveDown}
           disabled={idx === total - 1}
-          style={{ background: "none", border: "none", fontSize: 14, cursor: idx === total - 1 ? "default" : "pointer", color: idx === total - 1 ? colors.border : colors.textMuted, padding: "1px 4px", lineHeight: 1 }}
+          style={{ background: "none", border: "none", fontSize: 14, cursor: idx === total - 1 ? "default" : "pointer", color: colors.textMuted, opacity: idx === total - 1 ? 0.25 : 1, padding: "1px 4px", lineHeight: 1, minHeight: 22 }}
         >▼</button>
       </div>
       <div style={{ color: colors.textMuted, fontSize: 13, fontWeight: 700, minWidth: 22, textAlign: "center" }}>{idx + 1}</div>
