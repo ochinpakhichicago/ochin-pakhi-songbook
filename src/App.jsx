@@ -1629,11 +1629,23 @@ function SetlistDetail({ setlist, allSongs, onBack, onSelectSong }) {
   );
 }
 
-function SortableSetlistSong({ song, idx, onRemove, onSelect }) {
+function SortableSetlistSong({ song, idx, total, onRemove, onSelect, onMoveUp, onMoveDown }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: song.id });
   return (
     <div ref={setNodeRef} style={{ transform: CSS.Transform.toString(transform), transition, opacity: isDragging ? 0.4 : 1, background: isDragging ? colors.accentLight : colors.surface, borderRadius: 10, padding: "12px 14px", marginBottom: 8, border: `1px solid ${isDragging ? colors.accent : colors.border}`, display: "flex", alignItems: "center", gap: 10 }}>
       <div {...attributes} {...listeners} style={{ color: colors.border, fontSize: 20, cursor: "grab", padding: "4px 6px", flexShrink: 0, touchAction: "none", userSelect: "none", lineHeight: 1 }}>⠿</div>
+      <div style={{ display: "flex", flexDirection: "column", gap: 2, flexShrink: 0 }}>
+        <button
+          onClick={onMoveUp}
+          disabled={idx === 0}
+          style={{ background: "none", border: "none", fontSize: 14, cursor: idx === 0 ? "default" : "pointer", color: idx === 0 ? colors.border : colors.textMuted, padding: "1px 4px", lineHeight: 1 }}
+        >▲</button>
+        <button
+          onClick={onMoveDown}
+          disabled={idx === total - 1}
+          style={{ background: "none", border: "none", fontSize: 14, cursor: idx === total - 1 ? "default" : "pointer", color: idx === total - 1 ? colors.border : colors.textMuted, padding: "1px 4px", lineHeight: 1 }}
+        >▼</button>
+      </div>
       <div style={{ color: colors.textMuted, fontSize: 13, fontWeight: 700, minWidth: 22, textAlign: "center" }}>{idx + 1}</div>
       <div onClick={() => onSelect && onSelect(song)} style={{ flex: 1, minWidth: 0, cursor: "pointer" }}>
         <div style={{ fontWeight: 600, color: colors.text, fontSize: 15, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{song.title}</div>
@@ -1654,7 +1666,10 @@ function PersonalSetlistDetail({ setlist, allSongs, onUpdate, onDelete, onBack, 
   const [pickerSelected, setPickerSelected] = useState(new Set());
 
   const songs = setlist.songIds.map((id) => allSongs.find((s) => s.id === id)).filter(Boolean);
-  const sensors = useSensors(useSensor(PointerSensor), useSensor(TouchSensor, { activationConstraint: { delay: 200, tolerance: 8 } }));
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(TouchSensor, { activationConstraint: { distance: 5 } })
+  );
 
   const handleDragEnd = ({ active, over }) => {
     if (over && active.id !== over.id) {
@@ -1711,7 +1726,16 @@ function PersonalSetlistDetail({ setlist, allSongs, onUpdate, onDelete, onBack, 
         <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
           <SortableContext items={setlist.songIds} strategy={verticalListSortingStrategy}>
             {songs.map((song, idx) => (
-              <SortableSetlistSong key={song.id} song={song} idx={idx} onRemove={(id) => onUpdate({ songIds: setlist.songIds.filter((sid) => sid !== id) })} onSelect={onSelectSong} />
+              <SortableSetlistSong
+                key={song.id}
+                song={song}
+                idx={idx}
+                total={songs.length}
+                onRemove={(id) => onUpdate({ songIds: setlist.songIds.filter((sid) => sid !== id) })}
+                onSelect={onSelectSong}
+                onMoveUp={() => onUpdate({ songIds: arrayMove(setlist.songIds, idx, idx - 1) })}
+                onMoveDown={() => onUpdate({ songIds: arrayMove(setlist.songIds, idx, idx + 1) })}
+              />
             ))}
           </SortableContext>
         </DndContext>
