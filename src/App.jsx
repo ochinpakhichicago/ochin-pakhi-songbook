@@ -1633,7 +1633,7 @@ function SortableSetlistSong({ song, idx, total, onRemove, onSelect, onMoveUp, o
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: song.id });
   return (
     <div ref={setNodeRef} style={{ transform: CSS.Transform.toString(transform), transition, opacity: isDragging ? 0.4 : 1, background: isDragging ? colors.accentLight : colors.surface, borderRadius: 10, padding: "12px 14px", marginBottom: 8, border: `1px solid ${isDragging ? colors.accent : colors.border}`, display: "flex", alignItems: "center", gap: 10 }}>
-      <div {...attributes} {...listeners} style={{ color: colors.border, fontSize: 20, cursor: "grab", padding: "8px 6px", flexShrink: 0, touchAction: "none", userSelect: "none", lineHeight: 1, minHeight: 44, display: "flex", alignItems: "center" }}>⠿</div>
+      <div {...attributes} {...listeners} style={{ color: colors.textMuted, fontSize: 18, cursor: "grab", padding: "8px 6px", flexShrink: 0, touchAction: "none", userSelect: "none", lineHeight: 1, minHeight: 44, display: "flex", alignItems: "center", letterSpacing: "-2px" }}>⠿</div>
       <div style={{ display: "flex", flexDirection: "column", gap: 2, flexShrink: 0 }}>
         <button
           onClick={onMoveUp}
