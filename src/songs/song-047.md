@@ -12,7 +12,7 @@ duration:
 
 [Refrain]
 T: Mon theke monete ore
-B: মন থেকে মনেতে ওরে
+B: মন থেকে মনেতে ওড়ে
 E: From heart to heart, O
 
 T: Gram theke shohore
@@ -62,7 +62,7 @@ B: রবির আলো জ্বালাই লালন
 E: Lalon lighting up Robi's light
 
 T: Bibhed aNdhar jobe
-B: বিভেদ অন্ধার যবে
+B: বিভেদ আঁধার যবে
 E: When the darkness of division falls
 
 T: Chharle khacha ochin pakhi
@@ -74,8 +74,8 @@ B: প্রাণের উৎসবে
 E: Is the festival of life itself
 
 [Verse 3]
-T: Dubkhi khole chhondo tule
-B: দুঃখী খোলে ছন্দ তুলে
+T: Dubki khole chhondo tule
+B: ডুবকি খোলে ছন্দ তুলে
 E: The sorrowful one opens up, raising the rhythm
 
 T: Kontho dobe chite (aha)
@@ -91,7 +91,7 @@ B: উজান তোলে সঙ্গতে সঙ্গীতে (আহা
 E: Rises against the current in companionship, in music (ah)
 
 T: Otor mormo-pagol khule agol
-B: ওতো মর্ম-পাগল খুলে আগল
+B: ও তোর মর্ম-পাগল খুলে আগল
 E: So maddened by inner feeling — the latch opens
 
 T: Dosor-khani pabe

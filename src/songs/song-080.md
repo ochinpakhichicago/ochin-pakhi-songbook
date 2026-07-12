@@ -29,11 +29,11 @@ B: যে ফুল ফোটালে সে ফুল শুকায়ে �
 E: The flower you made bloom withers away
 
 T: Ki jeno haraye pran kore hay hay
-B: কি যেনো হারায়ে প্রাণ করে হায় হায়
+B: কি যেন হারায়ে প্রাণ করে হায় হায়
 E: Something lost makes the heart cry out in anguish
 
-T: Ki cheyechhile — keno kere nahi nile
-B: কী চেয়েছিলে — কেন কেড়ে নাহি নিলে
+T: Ki je cheyechhile — keno kere nahi nile
+B: কী যে চেয়েছিলে — কেন কেড়ে নাহি নিলে
 E: What did you want — why did you not take it away from me entirely
 
 [Verse 3]
@@ -55,7 +55,7 @@ B: এসেছিলে তুমি ফোটাতে প্রেম-মু�
 E: You had come to make the love-bud bloom
 
 T: Keno aghat haniya priyatamo, sei bhul nahi bhangayile
-B: কেন আঘাত হানিয়া প্রিয়তমো, সেই ভুল নাহি ভাঙাইলে
+B: কেন আঘাত হানিয়া প্রিয়তম, সেই ভুল নাহি ভাঙাইলে
 E: Why, beloved, striking a blow, did you not break that misunderstanding open?
 
 [Glossary]

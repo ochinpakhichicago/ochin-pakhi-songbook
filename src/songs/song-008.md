@@ -29,7 +29,7 @@ B: চাঁদ লাগোয়া নদী জোয়ার ভাঁট�
 E: A river nestled against the moon — the heart with its rising tide and its ebbing
 
 T: Ponchoswarer chhilar faaNdey kaNpchhe byakulowta
-B: পঞ্চস্বরের ছিলার ফাঁদে কাঁপছে ব্যাকুলতা
+B: পঞ্চস্বরের ছিলার ফান্দে কাঁপছে ব্যাকুলতা
 E: In the snare of five strings the longing trembles
 
 T: Majhe chholat chholat chholat chholat kotha
@@ -38,11 +38,11 @@ E: And in between, the splashing splashing splashing splashing words
 
 [Verse 2]
 T: Rup rupoker mile ongo songo pele
-B: রূপ রূপোকের মিলে অঙ্গ সঙ্গ পেলে
+B: রূপ রূপকের মিলে অঙ্গ সঙ্গ পেলে
 E: Beauty meeting the beautiful one — if only the body finds company
 
 T: Nowdi khonik sagor gohin bihowlowta
-B: নদী ক্ষণিক সাগর গহিন বিহ্বলতা
+B: নদী ক্ষণিক সাগর গহিন বিহলতা
 E: The river for a moment deep as the sea — a being overwhelmed
 
 T: Majhe sharom sharom sharom sharom kotha
