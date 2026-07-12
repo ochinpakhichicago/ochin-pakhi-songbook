@@ -43,23 +43,24 @@ B: সঙ্গে নাই মোর বৈষ্ণবী
 E: But my Vaishnavite companion is not with me
 
 [Glossary]
-sadher | সাধের | beloved, cherished — from "saadh" (longing, desire); "sadher laau" = the gourd I longed for; the word elevates the humble vegetable into an object of deep attachment
-laau | লাউ | bottle gourd — the humble wax gourd / lauki; here it is both a literal vegetable and a comic-devotional metaphor; the entire life of the singer has been shaped by this one gourd
-boiragi | বৈরাগী | renunciant, one who has renounced worldly life — "bairagya" = detachment, renunciation; the irony is complete: the gourd has led the singer not away from attachment but toward a different kind of total devotion
-aaga | আগা | top, tip, leading end — the beginning of the gourd; "aaga" and "doga" (tender young shoot) together suggest the singer ate the whole plant from tip to shoot
-dugdugi | ডুগডুগি | a small two-headed drum — the gourd shell can be dried and used as a resonating body for instruments; when the gourd is eaten and hollowed, it becomes music; the body consumed becomes the instrument of song
-modhu | মধু | honey, sweetness — the inner sweetness of the gourd that the singer cannot explain to others; anyone who has tasted it knows
-jadu | যাদু | magic, spell — "jane go jadu" = this sweetness is known only to those under its spell; a Baul idea: only the initiated understands the inner taste
-songer songi | সঙ্গের সঙ্গী | companion of the journey — "songo" = company; "songi" = companion; the gourd is not food but a fellow traveller
-Goya | গোয়া | Goa — a place of pilgrimage associated with Vaishnavism; the singer travels all the sacred places
-Kaashi | কাশী | Kashi (Varanasi) — the holiest of Hindu pilgrimage sites; the singer reaches the most sacred place in the world, yet still lacks the essential companion
-boishnobi | বৈষ্ণবী | a female Vaishnava devotee — one who follows the path of devotion to Vishnu/Krishna; possibly the singer's spiritual companion or partner in devotion; her absence from the pilgrimage is the song's punchline
+sadher | সাধের | beloved, cherished, longed-for — from "saadh" (deep longing, desire); the word elevates what it touches into an object of total devotion
+laau | লাউ | the bottle gourd — and by direct extension: the ektara (iktara), the one-stringed instrument whose resonating body is made from a dried gourd shell; the song operates on both levels simultaneously; the gourd IS the instrument; the key esoteric layer is that the single string of the ektara represents the spine — the vertical axis of the body — and by extension the moral uprightness and integrity of the player's character; to hold the ektara is to hold your spine straight; "sadher laau" = the beloved ektara, the beloved spine, the beloved moral path
+ektara / iktara | একতারা / ইকতারা | the one-stringed instrument — made from a dried gourd body with a single string passing through a bamboo neck; the instrument of the Baul; its single string is the distillation of all music into one note, one path, one truth; the string as spine: the Baul's one-pointedness, their moral straightness, their refusal of the many-stringed complexity of worldly life
+boiragi | বৈরাগী | renunciant, wandering ascetic — one who has given up worldly attachments; the ektara has made the singer a boiragi — not in spite of its sweetness but because of it; to be seized by the one-string truth is to be released from everything else
+aaga doga | আগা ডগা | top and tender tip — the singer consumed the gourd entirely, from root-end to new shoot; surrender without remainder; the whole plant was taken in; in the ektara reading: the instrument was fully internalised — body, string, and sound — nothing held back
+dugdugi | ডুগডুগি | a small double-headed hand drum — also made with a gourd resonator; the gourd-body gives birth to multiple instruments; after the ektara, even the drum; the same material yields different forms of music; the one gourd (one body, one spine) contains the possibility of all musical expression
+modhu | মধু | honey, sweetness — the inner taste of the ektara-path that cannot be explained to those outside it; the initiatory sweetness that, once tasted, makes renunciation feel like gain rather than loss
+jadu | যাদু | magic, spell, enchantment — "jane go jadu" = only those under this spell know it; the Baul's standard claim: the inner knowledge is experiential and cannot be transmitted by argument
+songer songi | সঙ্গের সঙ্গী | companion of the way — the ektara held as a travel companion; the Baul's instrument is not an accessory but a fellow wanderer; it holds the player's spine as the player holds its neck
+Goya | গোয়া | Goa — a major Vaishnava pilgrimage site; the singer travels the full circuit of sacred places with only the ektara
+Kaashi | কাশী | Kashi (Varanasi) — the holiest of all pilgrimage destinations; even here, at the centre of the sacred world, what is missing is not the place but the companion
+boishnobi | বৈষ্ণবী | a female Vaishnava devotee — in Baul tradition, the spiritual partner of the male practitioner; her absence at the end is the song's turn: the ektara (one string, one spine, the path of uprightness) can take you to every sacred place, but the companion — the other who shares the path — has not come; and this is both the joke and the teaching
 
 [Arrangement]
 Go into 4 for the last 5x "Sadher laau". Last 2 times Subho in upper octave.
 
 [Discussion.Summary]
-A comic-devotional folk song of deceptive simplicity. A humble bottle gourd has made the singer a renunciant: it was eaten (top to tip), its dried shell was made into a dugdugi drum, it became a travel companion, and the singer went on pilgrimage to Goa and Kashi — all on account of the gourd. The humour is layered. On the surface: a man obsessed with a vegetable. Beneath the surface: the song traces the classic arc of Baul devotion — encountering something of inexplicable sweetness (modhu), being captured by it (jadu), taking it as your companion, and wandering the world in its name. The "boishnobi" (Vaishnavite companion) who is missing at the end gives the song its final punch: of all the sacred places in the world, the singer has everything except the companion he truly needs. The gourd replaces religion, pilgrimage, and even human company — and this is both the joke and the teaching.
+A folk song of comic surface and esoteric depth. "Sadher laau" — the beloved gourd — is also the ektara, the one-stringed instrument whose body is made from a dried gourd shell. And the single string of the ektara represents the spine: the vertical axis of the body, the symbol of moral uprightness, the straightness of character that the Baul path demands. To play the ektara is to hold the spine. To love the ektara is to love the path of moral integrity and one-pointedness. This is the hidden meaning beneath the cheerful story of a man obsessed with a vegetable. The singer consumed the gourd entirely (aaga-doga = top to tip) — surrendered fully to the path, nothing withheld. From the same gourd body, more instruments were made (the dugdugi drum) — the one spine, the one truth, yields multiple expressions of music. The ektara then becomes a travel companion on pilgrimage to Goa and Kashi. And yet at every sacred place, what is missing is the boishnobi — the female companion of the Baul pair. The one-stringed path of uprightness can take you across the whole sacred geography of Bengal and beyond, but the companion, the other who shares the one-string truth, has not arrived. The song holds the joke and the teaching in the same hand.
 
 [Discussion.Lyricist]
 
@@ -68,8 +69,8 @@ A comic-devotional folk song of deceptive simplicity. A humble bottle gourd has 
 [Discussion.KeyAspects]
 
 [Tags]
-Lokgeeti, Humour, Devotion, Renunciation, Pilgrimage, Folk, Gourd, Companion
+Lokgeeti, Humour, Devotion, Renunciation, Pilgrimage, Folk, Ektara, Spine, Moral Character, Baul, Companion
 
 [Reference]
-
+Sadher Lau | Runa Laila | https://www.youtube.com/watch?v=fbgJI2h9wFs&t=6s
 [OurRecording]
