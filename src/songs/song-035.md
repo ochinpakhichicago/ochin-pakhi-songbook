@@ -103,5 +103,6 @@ A compressed Lalon teaching-song: the right time for practice exists, it is brie
 Baul, Lalon, Time, Practice, Sadhana, Tantric, Tidal Body, Mohajog, Conjunction, Fish, Farming, Season, Right Moment
 
 [Reference]
+Somoy Gele - Farida Parveen | https://www.youtube.com/watch?v=FqQh5-opwxY
 
 [OurRecording]

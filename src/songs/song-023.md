@@ -11,9 +11,9 @@ duration:
 ---
 
 [Refrain]
-T: Tumi amar sokar belar sur
-B: তুমি আমার শোকের বেলার সুর
-E: You are the melody of my hour of grief
+T: Tumi amar sokal belar sur
+B: তুমি আমার সকাল বেলার সুর
+E: You are the melody of my morning
 
 T: Hridoy olos udas kora
 B: হৃদয় অলস উদাস করা
@@ -63,7 +63,7 @@ B: তুমি ইন্দ্র সভার মৌন বীণা নীর
 E: You are the silent vina, the quiet anklet of Indra's court
 
 [Glossary]
-sokar belar sur | শোকের বেলার সুর | the melody of the hour of grief — "shok" = grief, mourning; "bela" = time of day, hour; "sur" = melody, musical note; you are not the melody of joy or celebration but the specific melody that belongs to sorrow; a piece of music that fits only the grieving hour
+sokal belar sur | সকাল বেলার সুর | the melody of the morning; "sokal" = morning; "bela" = time of day, hour; "sur" = melody, musical note; you are not the melody of joy or celebration but the specific melody that belongs to sorrow; a piece of music that fits only the grieving hour
 hridoy olos udas | হৃদয় অলস উদাস | making the heart languid and hollow — "olos" = languid, heavy with inertia, unable to move; "udas" = melancholic, hollow, detached; not depression but a tender heaviness; the beloved's presence induces this state — not despair but a stilled, suspended grief
 oshru bharatur | অশ্রু ভরাতুর | heavy with tears — "oshru" = tears; "bharatur" = filled to overflow, heavy with; the music (or the beloved) is saturated with tears; not weeping but brimming
 bhorer tara | ভোরের তারা | the morning star — the star (planet Venus) that shines in the east just before dawn and then disappears when the sun rises; a thing of singular cold beauty that belongs to the transitional moment; its appearance signals both the beauty of pre-dawn and the approaching loss of night; it is always already leaving
@@ -97,5 +97,5 @@ A Nazrulgeeti of sustained melancholy beauty — a portrait of the beloved as th
 Nazrulgeeti, Nazrul, Grief, Melancholy, Morning Star, Dawn, Moon, Fallen Flower, Silence, Beloved, Sorrow, Tenderness
 
 [Reference]
-
+Tumi amar sokal belar sur - Dhiren Basu | https://www.youtube.com/watch?v=KUKMRev591E
 [OurRecording]

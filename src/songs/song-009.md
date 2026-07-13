@@ -102,5 +102,5 @@ Direct companion to the Baul songs in this book: Khachar Vitor Ochin Pakhi (#14)
 Rabindrasangeet, Tagore, Moner Manush, Inner Beloved, Search, Inward, Song, Vision, Baul Connection, Soul, Two Eyes
 
 [Reference]
-
+Amar Praner Manush - Dohar | https://www.youtube.com/watch?v=zfwyuiOsOO8
 [OurRecording]

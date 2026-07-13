@@ -85,5 +85,5 @@ A Lalon song of compressed, urgent instruction: without the human, the seeker lo
 Baul, Lalon, Sahaj Manush, Golden Human, Human Guru, Devotion, Liberation, Lotus, Dodder Vine, Form
 
 [Reference]
-
+Manush chhara khyepa - Chandana Majumdar | https://www.youtube.com/watch?v=m89sOEhJR7g
 [OurRecording]

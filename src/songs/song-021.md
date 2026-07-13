@@ -93,5 +93,6 @@ Satyajit Ray (1921–1992) — film director, writer, composer, and artist. Comp
 Lokgeeti, Satyajit Ray, Social Commentary, Paradox, Injustice, Farmer, Laborer, Diamond, Golden Harvest, World, Bewilderment
 
 [Reference]
+Kotoi Rongo - Amar Pal | https://www.youtube.com/watch?v=KqtYlIJIz2s&t=6s
 
 [OurRecording]

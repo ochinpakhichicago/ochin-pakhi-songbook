@@ -28,7 +28,7 @@ B: এক রক্ত বুকের তলে
 E: Under one blood in the chest
 
 T: Ek she naarir taan
-B: এক সে নারীর টান
+B: এক সে নাড়ির টান
 E: One woman's pull — one mother's call
 
 [Verse 2]
@@ -49,8 +49,12 @@ B: একই দেশের মাটিতে পাই
 E: In the same country's soil we find our rest
 
 T: Keo gore keo shmashan e thanyi
-B: কেউ গোরে কেউ শ্মশানে থানি
+B: কেউ গোরে কেউ শ্মশানে ঠাঁই
 E: Some in the grave, some in the cremation ground — the same earth holds us
+
+T: Ek bhasha te maa ke daki ek sure gaai gaan
+B: এক ভাষাতে মা’কে ডাকি, এক সুরে গাই গান।। 
+E: We call our mom in the same language and we sing in the same tune
 
 [Glossary]
 eki brinte duti kusum | একই বৃন্তে দুটি কুসুম | two flowers on one stem — "brinte" = on the stalk/stem; "duti" = two; "kusum" = flower; two flowers that share a single stem; they are distinct (separate flowers, different in name and form) but inseparable in their root; this is the image that carries the entire song
@@ -83,5 +87,5 @@ Kazi Nazrul Islam (1899–1976) — the "rebel poet" (bidrohi kabi) of Bengali l
 Nazrulgeeti, Nazrul, Hindu-Muslim Unity, Communal Harmony, Two Flowers, One Stem, Mother, Sun and Moon, Grave, Cremation, Same Earth, Anti-Communal
 
 [Reference]
-
+Mora eki brinte - Kalyani Kazi | https://www.youtube.com/watch?v=pBoLr4CwSQU
 [OurRecording]

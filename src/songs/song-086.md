@@ -121,5 +121,7 @@ This song and Khachar Vitor Ochin Pakhi (#14) form a pair. Song #14 asks: throug
 Baul, Lalon, Ochin Pakhi, Breath, Prana, Nine Doors, Guru, Siraj Sai, Recognition, Meditation, Nostril, Companion to Song 14
 
 [Reference]
+Chirodin Pushlam - Mansur dada | https://www.youtube.com/watch?v=s_FD6rlmQtw
+Chirodin Pushlam - Nur baba | https://www.youtube.com/watch?v=HreCHckB82c
 
 [OurRecording]

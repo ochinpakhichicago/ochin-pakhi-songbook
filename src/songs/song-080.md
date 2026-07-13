@@ -88,5 +88,6 @@ A Nazrul song of exquisite ambivalence — addressed to a beloved who touched wi
 Nazrulgeeti, Nazrul, Love, Longing, Divine, Krishna, Flute, Separation, Ambivalence, Rasa
 
 [Reference]
+Surey o Banir - Firoza Begum | https://www.youtube.com/watch?v=bVH30muswdw
 
 [OurRecording]
