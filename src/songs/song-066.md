@@ -54,7 +54,7 @@ B: (তুমি) বিনে খতে গোলাম হইলে
 E: You became a slave without reason — without earning it
 
 T: Gaiter taka diya re
-B: গায়ের তাকা দিয়া রে
+B: গাঁইটের টাকা দিয়া রে
 E: Giving away the money from your body's labour
 
 [Verse 3]

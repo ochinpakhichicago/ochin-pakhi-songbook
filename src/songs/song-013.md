@@ -35,8 +35,8 @@ E: I took the gourd as my companion
 
 [Verse 3]
 T: Ami Goya gelam, Kaashi go gelam
-B: আমি গোয়া গেলাম, কাশী গো গেলাম
-E: I went to Goa, I went to Kashi
+B: আমি গয়া গেলাম, কাশী গো গেলাম
+E: I went to Goya, I went to Kashi
 
 T: Songe nai mor boishnobi
 B: সঙ্গে নাই মোর বৈষ্ণবী
@@ -52,7 +52,7 @@ dugdugi | ডুগডুগি | a small double-headed hand drum — also made 
 modhu | মধু | honey, sweetness — the inner taste of the ektara-path that cannot be explained to those outside it; the initiatory sweetness that, once tasted, makes renunciation feel like gain rather than loss
 jadu | যাদু | magic, spell, enchantment — "jane go jadu" = only those under this spell know it; the Baul's standard claim: the inner knowledge is experiential and cannot be transmitted by argument
 songer songi | সঙ্গের সঙ্গী | companion of the way — the ektara held as a travel companion; the Baul's instrument is not an accessory but a fellow wanderer; it holds the player's spine as the player holds its neck
-Goya | গোয়া | Goa — a major Vaishnava pilgrimage site; the singer travels the full circuit of sacred places with only the ektara
+Goya | গয়া | Goya — a major Vaishnava pilgrimage site; the singer travels the full circuit of sacred places with only the ektara
 Kaashi | কাশী | Kashi (Varanasi) — the holiest of all pilgrimage destinations; even here, at the centre of the sacred world, what is missing is not the place but the companion
 boishnobi | বৈষ্ণবী | a female Vaishnava devotee — in Baul tradition, the spiritual partner of the male practitioner; her absence at the end is the song's turn: the ektara (one string, one spine, the path of uprightness) can take you to every sacred place, but the companion — the other who shares the path — has not come; and this is both the joke and the teaching
 

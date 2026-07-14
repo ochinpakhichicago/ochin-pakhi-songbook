@@ -12,16 +12,16 @@ duration:
 
 [Refrain]
 T: Ami kotoi rongo dekhi duniyay
-B: আমি কতই রং দেখি দুনিয়ায়
-E: How many colors — how many dramas — I see in this world
+B: আমি কতই রঙ্গ দেখি দুনিয়ায়
+E: How many strange things — how many dramas — I see in this world
 
 T: O bhai re o bhai
 B: ও ভাই রে ও ভাই
 E: O brother, O brother
 
 T: Kotoi rongo dekhi duniyay
-B: কতই রং দেখি দুনিয়ায়
-E: How many colors I see in this world
+B: কতই রঙ্গ দেখি দুনিয়ায়
+E: How many strange things I see in this world
 
 [Verse 1]
 T: Ami jei dike te chai
@@ -66,7 +66,7 @@ B: কানাকড়ি নাই, ও তার কানাকড়ি �
 E: Not a farthing — not even a farthing to their name
 
 [Glossary]
-kotoi rongo | কতই রং | how many colors — "rongo/rang" = color, shade; but also "spectacle, drama, tamasha"; the double meaning is intentional; the world's injustices are presented as a colorful parade of dramas — amazing, bewildering, and meaningless
+kotoi rongo | কতই রঙ্গ | how many strange things — "rongo/rang" = strange things; but also "spectacle, drama, tamasha"; the double meaning is intentional; the world's injustices are presented as a colorful parade of dramas — amazing, bewildering, and meaningless
 duniyay | দুনিয়ায় | in the world — "duniya" = world (Persian-Arabic origin, common in Bengali folk speech); the everyday world of human affairs, not the cosmic
 obak bone jai | অবাক বনে যাই | I become struck dumb with astonishment — "obak" = astonished, speechless; "bone jai" = become; the astonishment is not joyful but disorienting — the world makes no sense; the observer is stunned into silence
 ortho kono khuje nahi pai | অর্থ কোনো খুঁজে নাহি পাই | I cannot find any meaning — "ortho" = meaning, reason, sense; "nahi pai" = cannot get/find; the injustice of the world refuses coherent explanation; not nihilism but the honest bewilderment of a fair witness

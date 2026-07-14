@@ -29,7 +29,7 @@ B: যাইতে ছিলাম বন্ধুর বাড়ি
 E: I was on my way to the friend's house
 
 T: Moddhyo pothe theklo gaari
-B: মধ্যপথে থেকলো গাড়ি
+B: মধ্যপথে ঠেকলো গাড়ি
 E: Midway on the road the car got stuck
 
 T: Upay budhdhi mile na

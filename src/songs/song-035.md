@@ -46,7 +46,7 @@ B: অসময়ে কৃষি করে
 E: Farming out of season
 
 T: Michha-michhi khete more
-B: মিছামিছি খেতে মরে
+B: মিছামিছি খেটে মরে
 E: Dying uselessly in the field
 
 T: Gachh jodio hoy bijer jore
@@ -71,7 +71,7 @@ B: লালন বলে তাহার সময়
 E: Lalon says: at that moment
 
 T: Dondow roy na tate
-B: দণ্ডও রয় না তাতে
+B: দণ্ড রয় না তাতে
 E: Not even an instant remains — it passes
 
 [Glossary]

@@ -50,15 +50,15 @@ B: যারে বলো আপন আপন
 E: Those you call your own, your very own
 
 T: Apon to tor keho nai (mon mon re)
-B: আপন তো তোর কেহো নাই (মন মন রে)
+B: আপন তো তোর কেহ নাই (মন মন রে)
 E: Truly your own — there is no one (O my mind, my mind)
 
 T: Stri putro dara suto
 B: স্ত্রী পুত্র দারা সুত
 E: Wife and son, spouse and child
 
-T: Chhokh bujilei keno nai to
-B: চোখ বুজিলেই কেনো নাই তো
+T: Chhokh bujilei keho nai to
+B: চোখ বুজিলেই কেহ নাই তো
 E: The moment your eyes close, where have they gone?
 
 T: Sob chhere tor jete hobe

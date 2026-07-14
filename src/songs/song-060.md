@@ -20,9 +20,9 @@ B: মানুষ ভজলে সোনার মানুষ হবি
 E: Worship the human and you will become the golden human
 
 [Verse 1]
-T: Didole mrinale, shonar manush ujole
-B: দীড়লে মৃণালে, সোনার মানুষ উজলে
-E: When standing firm in the lotus stalk, the golden human shines bright
+T: Dwidole mrinale, shonar manush ujole
+B: দ্বিদলে মৃণালে, সোনার মানুষ উজলে
+E: In the two-petaled lotus (within), the golden human shines bright
 
 T: Manush gurur nishttha hole jaante parbi
 B: মানুষ গুরুর নিষ্ঠা হলে জানতে পারবি

@@ -50,7 +50,7 @@ B: কি বলবো পড়শির কথা,
 E: What can I say of this neighbour
 
 T: Hostho pada skondho matha naire,
-B: হস্তো পদ স্কন্ধ মাথা নাইরে,
+B: হস্ত পদ স্কন্ধ মাথা নাইরে,
 E: No hands, no feet, no shoulders, no head
 
 T: Khonik thake shunnyer upor

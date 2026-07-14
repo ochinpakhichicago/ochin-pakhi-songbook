@@ -36,9 +36,9 @@ T: Roj du bela kusum phuler mala gethechho
 B: রোজ দু বেলা কুসুম ফুলের মালা গেঁথেছো
 E: Every day, twice over, you wove flower garlands
 
-T: O tomar sathe mala shukaye gelo
-B: ও তোমার সাথে মালা শুকায়ে গেলো
-E: And with you the garland has withered
+T: O tomar gatha mala shukaye gelo
+B: ও তোমার গাঁথা মালা শুকায়ে গেলো
+E: And the garland that you prepared has withered
 
 T: (Boli) Kar gole porabi Raai?
 B: (বলি) কার গলে পরাবি রাই?
@@ -71,16 +71,16 @@ B: পাগল বিশ্বনাথ কয় চরণকমলে
 E: The mad Biswanath says, at the lotus feet
 
 T: (Boli) Raag korona ogo Radhe Kutilar Chhawle
-B: (বলি) রাগ করো না ওগো রাধে কুটিলার ছাওলে
-E: (I say) Do not be angry, O Radhe — Kutila is watching
+B: (বলি) রাগ করো না ওগো রাধে কুটিলার ছলে
+E: (I say) Do not be angry, O Radhe by Kutila's trick
 
 T: O abar gondogole kina bole?
 B: ও আবার গণ্ডগোলে কি না বলে?
 E: Is there trouble again — what is she saying now?
 
 T: Boli akalete kina khaay
-B: বলি একালেতে কি না খায়
-E: I say — in this age, what isn't consumed by gossip?
+B: বলি আকালেতে কি না খায়
+E: I say — in the age of scarcity, what isn't consumed?
 
 [Glossary]
 obhimane | অভিমানে | in wounded pride — the specific Bengali emotion of hurt that causes withdrawal and silence; not rage but a dignified, grief-laden turning away; Krishna goes to Mathura not in anger but in obhimaan — feeling himself unvalued or wronged
@@ -97,9 +97,9 @@ sada kule kali | সাদা কুলে কালি | a black mark on a whit
 ekul okul dukul | একূল ওকূল দুকূল | this shore, that shore, both shores — "ekul" = this bank (this world, worldly reputation); "okul" = that bank (the next world, spiritual standing); "dukul" = both banks; Radha has lost both — her worldly reputation and her other-worldly refuge; she has nowhere to stand
 kon kule darabi | কোন কূলে দাঁড়াবি | on which shore will you stand — the devastating question; no shore left; both banks lost; she cannot go back to the family, she cannot follow Krishna; where does she stand?
 Pagol Biswanath | পাগল বিশ্বনাথ | the mad Biswanath — the composer's signature; Biswanath Gosai names himself "pagol" (mad, divinely intoxicated) in the tradition of Baul and Vaishnava poets who sign themselves as fools of love; "koy choronkomole" = says, at the lotus feet = the humble speaking posture of the devotee
-Kutilar Chhawle | কুটিলার ছাওলে | in Kutila's shadow — "Kutila" (the cunning one) is Ayan's sister in the Vaishnava narrative; she watches Radha's every move and reports back, creating obstacles; "chhawl" = shadow, shade, the space of influence; the mad poet's warning: don't show your anger while Kutila is lurking
+Kutilar Chhawle | কুটিলার ছলে | in Kutila's trick — "Kutila" (the cunning one) is Ayan's sister in the Vaishnava narrative; she watches Radha's every move and reports back, creating obstacles; "chhawl" = trick; the mad poet's warning: don't show your anger while Kutila is planning some trick
 gondogole | গণ্ডগোলে | trouble, commotion, mess — "gondogol" = disorder, scandal, interference; the question is sardonic: is Kutila stirring up trouble again? Of course she is.
-akalete kina khaay | একালেতে কি না খায় | in this age what is not consumed — a wry, street-level observation; "akal" = this age, these days; "khaay" = is consumed, eaten; in these times everything gets swallowed by scandal and gossip; nothing is safe from being made into a drama
+akalete kina khaay | আকালেতে কি না খায় | in the age of scarcity, what isn't consumed — a wry, street-level observation; "akal" = the age of scarcity, these days; "khaay" = is consumed, eaten; in these times everything gets swallowed by scandal and gossip; nothing is safe from being made into a drama
 
 [Arrangement]
 

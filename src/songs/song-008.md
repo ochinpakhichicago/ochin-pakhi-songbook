@@ -42,7 +42,7 @@ B: রূপ রূপকের মিলে অঙ্গ সঙ্গ পেল
 E: Beauty meeting the beautiful one — if only the body finds company
 
 T: Nowdi khonik sagor gohin bihowlowta
-B: নদী ক্ষণিক সাগর গহিন বিহলতা
+B: নদী ক্ষণিক সাগর গহীন বিহলতা
 E: The river for a moment deep as the sea — a being overwhelmed
 
 T: Majhe sharom sharom sharom sharom kotha
@@ -54,8 +54,8 @@ T: Emon maya-nowdir kachhe nupur chhondey nache
 B: এমন মায়া-নদীর কাছে নুপুর ছন্দে নাচে
 E: Near such a river of longing, the anklet dances to its own rhythm
 
-T: Asa jaowar bissorowne katha kothokawta
-B: আসা যাওয়ার বিস্মরণে কথা কথকতা
+T: Asa jaowar bissorowne gatha kothokawta
+B: আসা যাওয়ার বিস্মরণে গাঁথা কথকতা
 E: In the forgetting of coming and going, words become storytelling
 
 T: Majhe sujon sujon sujon sujon byatha

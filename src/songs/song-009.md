@@ -20,7 +20,7 @@ B: তাই হেরি তাই সকল খানে
 E: And so I see them — I see them in every place
 
 T: Ache se nayontarai alok dharai
-B: আছে সে নয়নতারাই আলোক ধারায়
+B: আছে সে নয়নতারায় আলোক ধারায়
 E: They are in the stream of light that flows through the pupil
 
 T: Tai na harai
@@ -66,7 +66,7 @@ B: তোরা আয় রে ধেয়ে, দেখ রে চেয়�
 E: Come running — look here, look into my heart
 
 T: Ore dekh re amar dui noyane
-B: ওরে দেখ রে আমার দুই নয়নে
+B: ওরে দেখ রে আমার দুই নয়ানে
 E: Look into my two eyes
 
 [Glossary]
@@ -84,7 +84,7 @@ kangal bese | কাঙাল বেশে | dressed as a beggar — "kangal" = 
 dware dware | দ্বারে দ্বারে | door to door — every external threshold; temples, shrines, teachers, techniques; going outward from one door to the next; the image of the soul searching the entire external world
 dekha mele na | দেখা মেলে না | cannot be found — "dekha" = sight, meeting; "mele na" = does not come; the beloved's face does not appear through external search; the method is wrong, not the intensity
 amar buke | আমার বুকে | in my heart — "buk" = chest, heart; the instruction to the outward-searching seeker: come here, stop going door to door, look in this chest; the one who has found the beloved can show the seeker
-dui noyane | দুই নয়নে | in my two eyes — the final instruction; the beloved who has been found is visible in the eyes of the finder; come look into my eyes and you will see them there; the eyes of the realized person carry the beloved's presence
+dui noyane | দুই নয়ানে | in my two eyes — the final instruction; the beloved who has been found is visible in the eyes of the finder; come look into my eyes and you will see them there; the eyes of the realized person carry the beloved's presence
 
 [Arrangement]
 
