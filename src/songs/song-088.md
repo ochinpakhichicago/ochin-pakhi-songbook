@@ -47,19 +47,19 @@ E: Come down, come down and eat, O kokila
 
 [Verse 3]
 T: Keu jeno na dekhe tomaay
-B: কেউ যেনো না দেখে তোমায়
+B: কেউ যেন না দেখে তোমায়
 E: May no one see you
 
 T: (Tumi) Aaral dia boio
 B: (তুমি) আড়াল দিয়া বইও
 E: Sit hidden, behind cover
 
-T: Para porshira gaali dile
-B: পাড়া পড়শিরা গালি দিলে
+T: Para porshi gaali dile
+B: পাড়া পড়শি গালি দিলে
 E: When the neighbors scold and abuse
 
-T: Gaan dia bujaio re kokila
-B: গান দিয়া বুঝাইও রে কোকিলা
+T: Gaan gaia bujaio re kokila
+B: গান গাইয়া বুঝাইও রে কোকিলা
 E: Calm them with song, O kokila
 
 [Verse 4]
@@ -104,7 +104,7 @@ bondhuyar kotha | বন্ধুয়ার কথা | words of the beloved f
 aam jaam | আম জাম | mango and jamun — the two fruits of the Bengali summer; when they ripen, the kokila's season has come; the invitation to descend from the upper branches and eat freely; enjoyment as part of the path
 naicha naicha | নাইচা নাইচা | come down, come down — dialectal form; the bird is being invited down from the heights to enjoy what is ripe and available; do not hover; descend and eat
 aaral dia boio | আড়াল দিয়া বইও | sit in hiding, sit behind cover — "aaral" = concealment, a screen; the divine song is not for all ears; the bird must sing from cover, in the manner of all true things that are known only to those who listen
-para porshira gaali | পাড়া পড়শিরা গালি | the scolds of neighbors — the community that judges what it cannot understand; those who hear the divine intoxication as madness and respond with abuse; the same neighbors as in every Baul song's world
+para porshi gaali | পাড়া পড়শি গালি | the scolds of neighbors — the community that judges what it cannot understand; those who hear the divine intoxication as madness and respond with abuse; the same neighbors as in every Baul song's world
 gaan dia bujaio | গান দিয়া বুঝাইও | soothe with song, make them understand through music — "bujhano" = to make someone understand, to pacify; the answer to neighborhood scorn is never argument; only song can explain what song is
 maan | মান | sulking with hurt pride — specifically "obhimaan"; the particular Bengali emotion of wounded love that causes withdrawal; when the beloved sulks, the kokila is asked not to argue or cajole but to weep
 chokher jol pheliyo | চোখের জল ফেলিও | shed tears — literally: let the water of the eyes fall; tears as the only adequate response to the beloved's hurt; the kokila is asked to match the beloved's sorrow with its own; music and tears as the same language

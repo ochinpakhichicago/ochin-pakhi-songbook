@@ -88,7 +88,7 @@ monchuri | মনচুরি | mind-theft, stealing the mind
 rup | রূপ | form, beauty, appearance
 lampote | লম্পটে | one addicted to beauty, beauty-obsessed
 dhairyer | ধৈর্যের | of patience
-duri | দুরি | rope, cord
+duri | ডুরি | rope, cord
 lojja | লজ্জা | shame, modesty
 bhoy | ভয় | fear
 ghumer ghore | ঘুমের ঘরে | in the room of sleep — in dreams
@@ -99,7 +99,7 @@ rasbihari | রসবিহারী | one who revels in rasa, the playful divin
 chatak | চাতক | a mythical bird that only drinks falling rainwater — symbol of intense longing
 meghe | মেঘে | in the cloud
 fanke | ফাঁকে | in the gap, slipping away
-barabari | বারবারী | again and again, repeatedly
+barabari | বরাবরি | again and again, repeatedly
 
 [Arrangement]
 Subho solo with light dotara plucking, then he slips into rhythm.

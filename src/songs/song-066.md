@@ -25,15 +25,15 @@ E: My broken boat
 
 [Verse 1]
 T: Venna kashther nouka khani
-B: বেণ্না কাঠের নৌকা খানি
+B: ভেন্না কাষ্ঠের নৌকা খানি
 E: A boat made of soft venna wood
 
 T: Majh khane tar bura
 B: মাঝ খানে তার বুড়া
 E: Rotting through at the middle
 
-T: (Noukar) agar thaika pashay gele
-B: (নৌকার) আগর থাইকা পাশায় গেলে
+T: (Noukar) agar thaika pachhay gele
+B: (নৌকার) আগার থাইকা পাছায় গেলে
 E: If it shifts from the prow to the side
 
 T: Golui jabe khoiya re
@@ -42,11 +42,11 @@ E: The prow will be lost and gone
 
 [Verse 2]
 T: Dikkha shikkha na hoite
-B: দিক্ষা শিক্ষা না হইতে
+B: দীক্ষা শিক্ষা না হইতে
 E: Before education or proper learning
 
-T: Age korsho biya
-B: আগে করশো বিয়া
+T: Age korso biya
+B: আগে করসো বিয়া
 E: You rushed into marriage first
 
 T: (Tumi) bine khote golam hoile
@@ -59,7 +59,7 @@ E: Giving away the money from your body's labour
 
 [Verse 3]
 T: Bideshe bipake jaro
-B: বিদেশে বিপাকে যারো
+B: বিদেশে বিপাকে যারও
 E: Those who go abroad into trouble and hardship
 
 T: Beta mara jay
