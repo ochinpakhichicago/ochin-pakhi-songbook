@@ -1,6 +1,6 @@
 ---
 id: 33
-title: Din Furailo
+title: Din Phurailo
 titleBn: দিন ফুরাইলো
 lyricist: Lalon
 lyricistBn: লালন
@@ -11,7 +11,7 @@ duration:
 ---
 
 [Refrain]
-T: Din furailo, hori hori bolo,
+T: Din phurailo, hori hori bolo,
 B: দিন ফুরাইলো, হরি হরি বলো,
 E: The day is done — say Hari, say Hari
 
@@ -95,7 +95,7 @@ B: নাই নাই রে।
 E: None, none at all
 
 [Glossary]
-din furailo | দিন ফুরাইলো | the day is done — the day of human life is over; an urgent alarm: time has run out
+din phurailo | দিন ফুরাইলো | the day is done — the day of human life is over; an urgent alarm: time has run out
 hori hori bolo | হরি হরি বলো | say Hari, say Hari — the call to take the divine name at all moments and especially at the moment of death; Hari is an epithet of Vishnu/Krishna
 manob jonom | মানব জনম | human birth — the precious human life, now spent and gone
 gelo furaiya | গেলো ফুরাইয়া | it is gone, spent, exhausted — the life that could have been used for devotion has run out
