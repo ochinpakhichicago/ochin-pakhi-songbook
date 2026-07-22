@@ -70,7 +70,7 @@ T: Tar bhitore pore robi ore Manir Sarkar
 B: তার ভিতরে পড়ে রবি ওরে মনির সরকার 
 E: Manir Sarkar will be left alone there
 
-T: Kiser stri putro kiser ishto-mitra
+T: Kiser stri putro kiser ishto mitra
 B: কিসের স্ত্রী পুত্র কিসের ইষ্টমিত্র 
 E: Who is wife or son? who is relatives and friends?
 
@@ -100,8 +100,9 @@ khondo khondo | খণ্ড খণ্ড | broken to pieces — repetition for 
 bichhana | বিছানা |  bed
 balish | বালিশ | pillow
 ghor ondhokar | ঘোর অন্ধকার | absolute darkness
-ishto-mitra | ইষ্টমিত্র | relatives and friends
+ishto mitra | ইষ্টমিত্র | relatives and friends
 dam | দম | breath
+
 [Arrangement]
 
 [Discussion.Summary]
