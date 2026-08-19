@@ -2,8 +2,8 @@
 id: 98
 title: Kichhudin Mone Mone Ghorer Kone
 titleBn: কিছুদিন মনে মনে ঘরের কোণে
-lyricist: Nabani Das Baul
-lyricistBn: নবনী দাস বাউল
+lyricist: Nabani Das Khaypa Baul
+lyricistBn: নবনী দাস খ্যাপা বাউল
 genre: Baul
 key:
 instruments:
@@ -95,7 +95,7 @@ utor / sotor | উতর / সতর | dialectal Baul-Bengali, likely উত্�
 oroshik | অরসিক | one without "rosh" (aesthetic-emotional sensibility) — a person incapable of appreciating or understanding deep love, from whom the secret must be kept
 
 [Arrangement]
-A classic Baul song of concealed devotion by Nabani Das Baul (father of Purna Das Baul, a foundational figure of the modern Bengal Baul tradition). Text cross-checked against a published lyrics source; the "utor/sotor" line carries some dialectal ambiguity even in that source.
+A classic Baul song of concealed devotion by Nabani Das Khaypa Baul (father of Purna Das Baul, a foundational figure of the modern Bengal Baul tradition). Text cross-checked against a published lyrics source; the "utor/sotor" line carries some dialectal ambiguity even in that source.
 
 [Discussion.Summary]
 

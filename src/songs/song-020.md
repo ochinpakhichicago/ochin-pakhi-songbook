@@ -81,6 +81,7 @@ ghater bari | ঘাটের বাড়ি | the dwelling by the ghat, the st
 jhilmil pani | ঝিলমিল পানি | water that glimmers and shimmers
 
 [Arrangement]
+Dotara starts, then dramatic cello entry, then Subho with Nate doing 2 hits, 2 hits, then accordion enters with Sam on a G chord and chimes.
 
 [Discussion.Summary]
 
