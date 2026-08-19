@@ -1,7 +1,7 @@
 ---
 id: 23
-title: Tumi Amar Sokar Belar Sur
-titleBn: তুমি আমার শোকের বেলার সুর
+title: Tumi Amar Sokal Belar Sur
+titleBn: তুমি আমার সকাল বেলার সুর
 lyricist: Nazrul
 lyricistBn: নজরুল
 genre: Nazrulgeeti
