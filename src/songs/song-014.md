@@ -13,62 +13,62 @@ duration:
 [Verse 1]
 T: Khachar vitor, ochin pakhi komne ashe jai!
 B: খাঁচার ভিতর অচিন পাখি কমনে আসে যায়!
-E: In which direction does the mysterious bird come and go within the cage!
+E: Inside the cage is an unknown bird. Which direction does it come and go?
 
 T: Tare dhorte paarle mono beri, ditam pakhir paay
 B: তারে ধরতে পারলে মনবেড়ি, দিতাম পাখির পায়
-E: If I could catch it, I would put mind-shackles on the bird's feet
+E: If I could, I would catch it, and chain my mind to its feet
 
 [Verse 2]
 T: Aat kuturi, noi doroja ata
 B: আট কুঠুরি, নয় দরজা আঁটা
-E: Eight chambers, nine doors shut tight
+E: There are eight chambers and nine closed doors
 
 T: Moddhe moddhe jharka kata
 B: মধ্যে মধ্যে ঝরকা কাটা
-E: With windows cut in between
+E: Which are beautifully carved windows
 
 T: Taar upore sodor kotha
 B: তার উপরে সদর কোঠা
-E: Above that, the main hall
+E: Above them sits the headquarters —
 
 T: Aina mohol tay
 B: আয়না মহল তায়
-E: And the palace of mirrors there
+E: A palace of mirrors there
 
 [Verse 3]
-T: Kopaler fer, noile ki aar?
+T: Kopaler pher, noile ki aar?
 B: কপালের ফের, নইলে কি আর?
-E: Such is fate — what else could explain it?
+E: It must be fate's plan - what else could explain
 
 T: Pakhitir emon byabohar?
 B: পাখিটির এমন ব্যবহার?
-E: Such is the nature of this bird?
+E: Such behavior of this bird?
 
 T: Khacha venge pakhi amar
 B: খাঁচা ভেঙে পাখি আমার
-E: Breaking the cage, my bird
+E: For someday it will break free of its cage
 
 T: Kon bone palay!
 B: কোন বনে পালায়!
-E: To which forest does it flee!
+E: And fly away to some faraway place
 
 [Verse 4]
 T: Mon tui roili khachar aashe
 B: মন তুই রইলি খাঁচার আশে
-E: O mind, you stayed clinging to the hope of the cage
+E: Oh mind, you have put all your hopes into this cage
 
 T: Khacha je tor kacha basher
 B: খাঁচা যে তোর কাঁচা বাঁশের
-E: But the cage is made of raw bamboo
+E: But the cage is just made of green bamboo
 
-T: Kondin khacha podrbe khoshe
+T: Kondin khacha porbe khoshe
 B: কোনদিন খাঁচা পড়বে খসে
-E: One day the cage will fall apart and crumble
+E: And one day it is bound to fall and break apart
 
 T: Lalon keNde koy
 B: লালন কেঁদে কয়
-E: Lalon says, weeping
+E: Lalon says this, weeping
 
 [Glossary]
 ochin pakhi | অচিন পাখি | the mysterious bird — "ochin" = unknown, unrecognised; specifically: the breath, the prana; the breath comes and goes within the body without the seeker ever knowing from where it comes or where it goes; it is the most intimate thing in the body and the most unknown; also the name of this band

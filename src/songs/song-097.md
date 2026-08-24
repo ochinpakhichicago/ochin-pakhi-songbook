@@ -58,9 +58,9 @@ B: তাদের কোটি জন্মের পিপাসা যায�
 E: The thirst that lasted through 100 million rebirths will go away by drinking one drop of that lake's water
 
 [Verse 3]
-T: Baganer choudike bera achhe asmane khara, o tar mele na go ra
-B: বাগানের চৌদিকে বেড়া, আছে আসমানে খাড়া, ও তার মেলে না গো রা
-E: All around the garden is a fence, it's vertically up, no one's voice cannot be heard
+T: Baganer choudike bera achhe asmane khara, o tar mele na gora
+B: বাগানের চৌদিকে বেড়া, আছে আসমানে খাড়া, ও তার মেলে না গোড়া
+E: All around the garden is a fence, it's vertically up, the other end cannot be found
 
 T: Sethay Bhrama o Visnu achhen khara
 B: সেথায় ব্রহ্মা ও বিষ্ণু আছেন খাড়া
