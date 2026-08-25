@@ -10,77 +10,73 @@ instruments:
 duration:
 ---
 
-[Refrain]
+[Verse 1]
 T: Barir kachhe aarshinagar
 B: বাড়ির কাছে আরশিনগর
-E: Near my house lies the Mirror City
+E: Close to my house is the City of Mirrors
 
 T: Setha porshi bosot kore
 B: সেথা পড়শি বসত করে
-E: Where my neighbour lives
+E: Where my neighbor lives
 
 T: (Ek ghor) porshi bosot kore,
 B: (এক ঘর) পড়শি বসত করে,
-E: (One home) where my neighbour dwells
+E: (One house) where my neighbor lives
 
 T: Aami ekdino na dekhilam tare.
 B: আমি একদিন না দেখিলাম তারে।
-E: And I have not seen them even for a single day
+E: I have not seen her even once
 
-[Verse 1]
+[Verse 2]
 T: Geram bere ogadh pani,
-B: গ্রাম বেড়ে অগাধ পানি,
-E: Around the village swells fathomless water
+B: গেরাম বেড়ে অগাধ পানি,
+E: Surrounding her village is boundless water
 
 T: Nai kinara nai tarani pare.
 B: নাই কিনারা নাই তরণী পারে।
-E: No shore, no boat can cross it
+E: Without shore nor even a boat to cross
 
 T: Bancha kori dekhbo tare
 B: বাঞ্ছা করি দেখবো তারে
-E: I long and yearn to see them
+E: I wish to go see my neighbor
 
 T: Kemne shetha jaire?
 B: কেমনে সেথা যাইরে?
-E: But how to get there?
+E: But how can I possibly reach her?
 
-[Verse 2]
+[Verse 3]
 T: Ki bolbo porshiro kotha,
 B: কি বলবো পড়শির কথা,
-E: What can I say of this neighbour
+E: What can I say about my neighbor, 
 
 T: Hostho pada skondho matha naire,
 B: হস্ত পদ স্কন্ধ মাথা নাইরে,
-E: No hands, no feet, no shoulders, no head
+E: she has no hands, no feet, no shoulders, no head,
 
 T: Khonik thake shunnyer upor
 B: ক্ষণিক থাকে শূন্যের উপর
-E: For a moment they rest upon the void
+E: Sometimes she floats above the void
 
 T: (O se) khonik vashe neere.
 B: (ও সে) ক্ষণিক ভাসে নীরে।
-E: And for a moment they float upon the water
+E: Sometimes she stands upon the water
 
-[Verse 3]
+[Verse 4]
 T: Porshi jodi amay chhuto
 B: পড়শি যদি আমায় ছুঁতো
-E: If only the neighbour would touch me
+E: If the neighbor would touch me even just once,
 
 T: Jom jatona shokol jeto dure.
 B: যম যাতনা সকল যেতো দূরে।
-E: All the torments of death would go far away
+E: In an instant all my suffering would disappear 
 
 T: Shey aar Lalon ek khane roy
 B: সে আর লালন এক খানে রয়
-E: The neighbour and Lalon dwell in the same place
+E: She and Lalon are in the same place
 
 T: (Tobu) lokkho jojon faNk re
 B: (তবু) লক্ষ যোজন ফাঁক রে
-E: Yet a hundred thousand leagues lie between them
-
-T: Aami ekdino na dekhilam tare.
-B: আমি একদিনো না দেখিলাম তারে।
-E: And I have not seen them even for a single day
+E: And yet there are a thousand miles between them
 
 [Glossary]
 aarshinagar | আরশিনগর | the Mirror City — "aarshi" = mirror; a city made of mirrors; the inner realm where the divine dwells, so close yet unseen because one cannot look within
