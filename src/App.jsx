@@ -2153,10 +2153,10 @@ Baul, Devotion, Longing`}</pre>
       <div style={card}>
         <div style={sectionLabel}>About</div>
         <p style={{ fontSize: 14, color: colors.text, lineHeight: 1.65, margin: 0 }}>
-          Ochin Pakhi is a Chicago-based Bengali folk music ensemble performing Baul,
-          Rabindrasangeet, and other traditions of Bengal. {user.role === "guest"
-            ? "You're viewing a guest selection of our songbook."
-            : "This songbook is a private rehearsal tool for band members."}
+          Ochin Pakhi is a Chicago-based Bengali folk music ensemble performing Baul, Fakiri, Bhatiyali, Jhumur, 
+          Rabindrasangeet, Nazrulgeeti and other traditional folk music or lokgeeti of Bengal. {user.role === "guest"
+            ? "You're viewing a guest version of our songbook."
+            : "This songbook is a rehearsal tool for band members."}
         </p>
         <a
           href="https://ochinpakhichicago.org"
@@ -2259,7 +2259,7 @@ function WelcomePopup({ user, onDismiss }) {
             ? "You're signed in as admin. You can browse songs, manage setlists, and upload new song files."
             : user.role === "guest"
             ? "You're browsing as a guest. Explore the lyrics and recordings we've shared."
-            : "Browse the songbook, follow along with lyrics, and let the music guide you."}
+            : "Browse the songbook, follow along with lyrics, and let the lyrics with translation guide you."}
         </div>
         <button
           onClick={onDismiss}
