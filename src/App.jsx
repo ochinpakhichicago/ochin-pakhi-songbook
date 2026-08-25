@@ -1429,9 +1429,7 @@ function firstELine(song) {
   return null;
 }
 
-function AudienceView({ eventName, songs }) {
-  const [selected, setSelected] = useState(null);
-  if (selected) return <AudienceSongDetail song={selected} eventName={eventName} onBack={() => setSelected(null)} />;
+function AudienceView({ eventName, songs, onSelect }) {
   return (
     <div style={{ minHeight: "100vh", background: colors.bg, fontFamily: font.body }}>
       <div style={{ padding: "24px 18px 16px", background: colors.surface, borderBottom: `1px solid ${colors.border}`, textAlign: "center" }}>
@@ -1444,7 +1442,7 @@ function AudienceView({ eventName, songs }) {
           return (
             <div
               key={song.id}
-              onClick={() => setSelected(song)}
+              onClick={() => onSelect(song)}
               style={{ background: colors.surface, borderRadius: 10, padding: "14px 16px", marginBottom: 10, border: `1px solid ${colors.border}`, cursor: "pointer", display: "flex", alignItems: "flex-start", gap: 14 }}
             >
               <div style={{ fontFamily: font.display, fontSize: 20, fontWeight: 700, color: colors.accent, minWidth: 28, paddingTop: 2 }}>{idx + 1}</div>
@@ -1461,49 +1459,6 @@ function AudienceView({ eventName, songs }) {
             </div>
           );
         })}
-      </div>
-    </div>
-  );
-}
-
-function AudienceSongDetail({ song, eventName, onBack }) {
-  const d = song.discussion;
-  const allELines = song.sections.flatMap((sec) => sec.lines.filter((l) => l.en).map((l) => l.en));
-  return (
-    <div style={{ minHeight: "100vh", background: colors.bg, fontFamily: font.body }}>
-      <div style={{ padding: "16px 18px 14px", background: colors.surface, borderBottom: `1px solid ${colors.border}` }}>
-        <button onClick={onBack} style={{ background: "none", border: "none", color: colors.accent, fontFamily: font.body, fontSize: 14, cursor: "pointer", padding: "4px 0", fontWeight: 500, marginBottom: 10 }}>
-          ← {eventName}
-        </button>
-        <div style={{ fontFamily: font.display, fontSize: 22, fontWeight: 700, color: colors.text }}>{song.title}</div>
-        {song.titleBn && <div style={{ fontFamily: font.bengali, color: colors.textMuted, fontSize: 16, marginTop: 4 }}>{song.titleBn}</div>}
-        {song.lyricist && <div style={{ fontSize: 13, color: colors.textMuted, marginTop: 6 }}>{[song.lyricist, song.genre].filter(Boolean).join(" · ")}</div>}
-      </div>
-      <div style={{ padding: "16px 18px 40px" }}>
-        {d.summary && (
-          <div style={{ background: colors.surface, borderRadius: 10, padding: "14px 16px", marginBottom: 20, border: `1px solid ${colors.border}` }}>
-            <div style={{ fontStyle: "italic", color: colors.textMuted, lineHeight: 1.65, fontSize: 14 }}>{d.summary}</div>
-          </div>
-        )}
-        {d.talkingPoints.length > 0 && (
-          <div style={{ marginBottom: 24 }}>
-            <div style={{ fontSize: 11, fontWeight: 700, color: colors.accent, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 10 }}>Points of interest</div>
-            {d.talkingPoints.map((pt, i) => (
-              <div key={i} style={{ display: "flex", gap: 10, fontSize: 14, color: colors.textMuted, lineHeight: 1.55, marginBottom: 8 }}>
-                <span style={{ color: colors.gold, flexShrink: 0 }}>•</span>
-                <span>{pt}</span>
-              </div>
-            ))}
-          </div>
-        )}
-        {allELines.length > 0 && (
-          <div>
-            <div style={{ fontSize: 11, fontWeight: 700, color: colors.accent, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 14 }}>Translation</div>
-            {allELines.map((line, i) => (
-              <div key={i} style={{ fontSize: 15, color: colors.text, lineHeight: 1.8, marginBottom: 4 }}>{line}</div>
-            ))}
-          </div>
-        )}
       </div>
     </div>
   );
@@ -2382,13 +2337,29 @@ export default function App() {
     return () => window.removeEventListener("hashchange", handleHash);
   }, [allSongs]);
 
-  // Audience view bypasses the password gate
+  const handlePlay = (videoId, title) => setNowPlaying({ videoId, title });
+
+  // Audience view (QR) bypasses the password gate — same restricted song view as guest login
   const audienceMatch = hash.match(/^#\/audience\/([^/]+)\/(.+)$/);
   if (audienceMatch) {
     const eventName = decodeURIComponent(audienceMatch[1]);
     const ids = audienceMatch[2].split(",").map(Number);
     const songs = ids.map((id) => SONGS.find((s) => s.id === id)).filter(Boolean);
-    return <AudienceView eventName={eventName} songs={songs} />;
+    if (selectedSong) {
+      return (
+        <>
+          <SongDetail
+            song={selectedSong}
+            role="guest"
+            onBack={() => setSelectedSong(null)}
+            onPlay={handlePlay}
+            backLabel={eventName}
+          />
+          <MiniPlayer nowPlaying={nowPlaying} onClose={() => setNowPlaying(null)} />
+        </>
+      );
+    }
+    return <AudienceView eventName={eventName} songs={songs} onSelect={setSelectedSong} />;
   }
 
   if (!user) return (
@@ -2398,8 +2369,6 @@ export default function App() {
       if (!seen) setShowWelcome(true);
     }} />
   );
-
-  const handlePlay = (videoId, title) => setNowPlaying({ videoId, title });
 
   if (selectedSong) {
     return (

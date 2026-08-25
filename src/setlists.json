@@ -16,6 +16,14 @@
     "guestVisible": true
   },
   {
+    "id": "GW-august-29-2026",
+    "name": "GaanMela Workshop",
+    "date": "August 29, 2026",
+    "venue": " Indian Boundary Park",
+    "songIds": [14, 34, 32],
+    "guestVisible": false
+  },
+  {
     "id": "GG-august-30-2026",
     "name": "Show at Global Gardens",
     "date": "August 30, 2026",
