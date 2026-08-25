@@ -1,6 +1,6 @@
 ---
 id: 14
-title: Khachar Vitor Ochin Pakhi
+title: Khachar Bhitor Ochin Pakhi
 titleBn: খাঁচার ভিতর অচিন পাখি
 lyricist: Lalon
 lyricistBn: লালন
@@ -11,7 +11,7 @@ duration:
 ---
 
 [Verse 1]
-T: Khachar vitor, ochin pakhi komne ashe jai!
+T: Khachar bhitor, ochin pakhi komne ashe jai!
 B: খাঁচার ভিতর অচিন পাখি কমনে আসে যায়!
 E: Inside the cage is an unknown bird. Which direction does it come and go?
 

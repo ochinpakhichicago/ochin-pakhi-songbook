@@ -4,20 +4,23 @@
     "name": "Kalapriya South Asian Mela",
     "date": "July 11, 2026",
     "venue": "Kalapriya",
-    "songIds": [3, 78, 37, 85, 71, 79, 63, 70, 72, 32, 82, 10]
+    "songIds": [3, 78, 37, 85, 71, 79, 63, 70, 72, 32, 82, 10],
+    "guestVisible": false
   },
   {
     "id": "JSP-august-28-2026",
     "name": "Banyan Roots Podcast Celebration",
     "date": "August 28, 2026",
     "venue": "Jarvis Square Pottery",
-    "songIds": [86, 31, 91, 67, 97, 79, 85, 96]
+    "songIds": [86, 31, 91, 67, 97, 79, 85, 92],
+    "guestVisible": true
   },
   {
     "id": "GG-august-30-2026",
     "name": "Show at Global Gardens",
     "date": "August 30, 2026",
     "venue": " Global Gardens",
-    "songIds": [86, 31, 91, 67, 97, 79, 85, 96, 78, 48, 32, 98, 94, 24, 75, 64, 7, 9, 93, 3, 26, 13]
+    "songIds": [86, 31, 91, 67, 97, 79, 85, 96, 78, 48, 32, 98, 94, 24, 75, 64, 7, 9, 93, 3, 26, 13],
+    "guestVisible": false
   }
 ]

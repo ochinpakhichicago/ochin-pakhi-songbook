@@ -221,6 +221,25 @@ function PasswordGate({ onUnlock }) {
         >
           Enter
         </button>
+        <button
+          onClick={() => onUnlock({ name: "Guest", role: "guest" })}
+          style={{
+            width: "100%",
+            padding: "13px 0",
+            marginTop: 10,
+            background: "none",
+            color: colors.accent,
+            border: `1.5px solid ${colors.border}`,
+            borderRadius: 10,
+            fontSize: 15,
+            fontWeight: 600,
+            fontFamily: font.body,
+            cursor: "pointer",
+            minHeight: 44,
+          }}
+        >
+          Continue as Guest
+        </button>
       </div>
     </div>
   );
@@ -501,12 +520,12 @@ function SongList({ songs, onSelect, searchState }) {
 }
 
 // ─── Song Detail ───
-function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs" }) {
+function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs", role = "member" }) {
   const [tab, setTab] = useState("lyrics");
   const [activeWord, setActiveWord] = useState(null);
   const ttsAudioRef = useRef(null);
 
-  const tabs = [
+  const allTabs = [
     { key: "lyrics", label: "Lyrics" },
     { key: "glossary", label: "Glossary" },
     { key: "notes", label: "Arrangement" },
@@ -514,6 +533,8 @@ function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs" 
     { key: "ours", label: "Our Recording" },
     { key: "discussion", label: "Discussion" },
   ];
+  const guestTabKeys = new Set(["lyrics", "glossary", "ours"]);
+  const tabs = role === "guest" ? allTabs.filter((t) => guestTabKeys.has(t.key)) : allTabs;
 
   const wordLookup = useMemo(() => {
     const map = {};
@@ -1530,7 +1551,8 @@ function SetlistCard({ sl, onClick }) {
 }
 
 function SetlistsTab({ allSongs, user, onSelectSong }) {
-  const [mySetlists, setMySetlists] = useState(() => loadPersonalSetlists(user.name));
+  const isGuest = user.role === "guest";
+  const [mySetlists, setMySetlists] = useState(() => isGuest ? [] : loadPersonalSetlists(user.name));
   const [activeId, setActiveId] = useState(null);
   const [activeIsPersonal, setActiveIsPersonal] = useState(false);
 
@@ -1545,6 +1567,8 @@ function SetlistsTab({ allSongs, user, onSelectSong }) {
 
   const openBand = (id) => { setActiveId(id); setActiveIsPersonal(false); };
   const openMy = (id) => { setActiveId(id); setActiveIsPersonal(true); };
+
+  const bandSetlists = isGuest ? STATIC_SETLISTS.filter((sl) => sl.guestVisible) : STATIC_SETLISTS;
 
   if (activeId) {
     if (activeIsPersonal) {
@@ -1561,9 +1585,9 @@ function SetlistsTab({ allSongs, user, onSelectSong }) {
         />
       );
     } else {
-      const sl = STATIC_SETLISTS.find((s) => s.id === activeId);
+      const sl = bandSetlists.find((s) => s.id === activeId);
       if (!sl) { setActiveId(null); return null; }
-      return <SetlistDetail setlist={sl} allSongs={allSongs} onBack={() => setActiveId(null)} onSelectSong={onSelectSong} />;
+      return <SetlistDetail setlist={sl} allSongs={allSongs} onBack={() => setActiveId(null)} onSelectSong={onSelectSong} role={user.role} />;
     }
   }
 
@@ -1573,25 +1597,31 @@ function SetlistsTab({ allSongs, user, onSelectSong }) {
         <span style={{ fontFamily: font.display, fontSize: 20, fontWeight: 700, color: colors.text }}>Setlists</span>
       </div>
       <div style={{ padding: "16px 18px 0" }}>
-        {STATIC_SETLISTS.length > 0 && (
+        {bandSetlists.length > 0 ? (
           <>
             <div style={{ fontSize: 11, fontWeight: 700, color: colors.textMuted, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 10 }}>Band</div>
-            {STATIC_SETLISTS.map((sl) => <SetlistCard key={sl.id} sl={sl} onClick={() => openBand(sl.id)} />)}
+            {bandSetlists.map((sl) => <SetlistCard key={sl.id} sl={sl} onClick={() => openBand(sl.id)} />)}
+          </>
+        ) : isGuest && (
+          <div style={{ textAlign: "center", padding: "24px 0 8px", color: colors.textMuted, fontSize: 14 }}>No setlists shared yet.</div>
+        )}
+        {!isGuest && (
+          <>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: bandSetlists.length > 0 ? 20 : 0, marginBottom: 10 }}>
+              <div style={{ fontSize: 11, fontWeight: 700, color: colors.textMuted, letterSpacing: "0.08em", textTransform: "uppercase" }}>My Setlists</div>
+              <button onClick={createSetlist} style={{ background: colors.accent, color: "#fff", border: "none", borderRadius: 8, padding: "6px 14px", fontFamily: font.body, fontSize: 13, fontWeight: 600, cursor: "pointer" }}>+ New</button>
+            </div>
+            {mySetlists.length === 0 ? (
+              <div style={{ textAlign: "center", padding: "24px 0 8px", color: colors.textMuted, fontSize: 14 }}>No personal setlists yet — tap "+ New" to create one.</div>
+            ) : mySetlists.map((sl) => <SetlistCard key={sl.id} sl={sl} onClick={() => openMy(sl.id)} />)}
           </>
         )}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: STATIC_SETLISTS.length > 0 ? 20 : 0, marginBottom: 10 }}>
-          <div style={{ fontSize: 11, fontWeight: 700, color: colors.textMuted, letterSpacing: "0.08em", textTransform: "uppercase" }}>My Setlists</div>
-          <button onClick={createSetlist} style={{ background: colors.accent, color: "#fff", border: "none", borderRadius: 8, padding: "6px 14px", fontFamily: font.body, fontSize: 13, fontWeight: 600, cursor: "pointer" }}>+ New</button>
-        </div>
-        {mySetlists.length === 0 ? (
-          <div style={{ textAlign: "center", padding: "24px 0 8px", color: colors.textMuted, fontSize: 14 }}>No personal setlists yet — tap "+ New" to create one.</div>
-        ) : mySetlists.map((sl) => <SetlistCard key={sl.id} sl={sl} onClick={() => openMy(sl.id)} />)}
       </div>
     </div>
   );
 }
 
-function SetlistDetail({ setlist, allSongs, onBack, onSelectSong }) {
+function SetlistDetail({ setlist, allSongs, onBack, onSelectSong, role = "member" }) {
   const [showQR, setShowQR] = useState(false);
   const songs = setlist.songIds.map((id) => allSongs.find((s) => s.id === id)).filter(Boolean);
 
@@ -1604,7 +1634,7 @@ function SetlistDetail({ setlist, allSongs, onBack, onSelectSong }) {
           <div style={{ fontSize: 13, color: colors.textMuted, marginTop: 4 }}>{[setlist.date, setlist.venue].filter(Boolean).join(" · ")}</div>
         )}
       </div>
-      {songs.length > 0 && (
+      {songs.length > 0 && role !== "guest" && (
         <div style={{ padding: "14px 18px 0" }}>
           <button onClick={() => setShowQR(true)} style={{ width: "100%", background: colors.accent, color: "#fff", border: "none", borderRadius: 8, padding: "13px", fontFamily: font.body, fontSize: 15, fontWeight: 600, cursor: "pointer" }}>Share with Audience (QR)</button>
         </div>
@@ -1874,7 +1904,7 @@ function AboutTab({ user, onSignOut, localSongs, allSongs, onAddSong, onRemoveSo
           Welcome, {user.name}
         </div>
         <div style={{ fontSize: 13, color: colors.textMuted }}>
-          {user.role === "admin" ? "Admin · full access" : "Member · enjoy the songs"}
+          {user.role === "admin" ? "Admin · full access" : user.role === "guest" ? "Guest · enjoy the songs" : "Member · enjoy the songs"}
         </div>
       </div>
 
@@ -2169,8 +2199,9 @@ Baul, Devotion, Longing`}</pre>
         <div style={sectionLabel}>About</div>
         <p style={{ fontSize: 14, color: colors.text, lineHeight: 1.65, margin: 0 }}>
           Ochin Pakhi is a Chicago-based Bengali folk music ensemble performing Baul,
-          Rabindrasangeet, and other traditions of Bengal. This songbook is a private
-          rehearsal tool for band members.
+          Rabindrasangeet, and other traditions of Bengal. {user.role === "guest"
+            ? "You're viewing a guest selection of our songbook."
+            : "This songbook is a private rehearsal tool for band members."}
         </p>
         <a
           href="https://ochinpakhichicago.org"
@@ -2271,6 +2302,8 @@ function WelcomePopup({ user, onDismiss }) {
         <div style={{ fontSize: 14, color: colors.textMuted, lineHeight: 1.6, marginBottom: 28 }}>
           {user.role === "admin"
             ? "You're signed in as admin. You can browse songs, manage setlists, and upload new song files."
+            : user.role === "guest"
+            ? "You're browsing as a guest. Explore the lyrics and recordings we've shared."
             : "Browse the songbook, follow along with lyrics, and let the music guide you."}
         </div>
         <button
@@ -2373,6 +2406,7 @@ export default function App() {
       <>
         <SongDetail
           song={selectedSong}
+          role={user.role}
           onBack={() => {
             setSelectedSong(null);
             window.location.hash = "#/";
