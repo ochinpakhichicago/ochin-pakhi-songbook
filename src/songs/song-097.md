@@ -127,7 +127,14 @@ Shree Guru Nitai | শ্রী গুরু নিতাই | Sri Guru Nityanan
 Gour Hori, Hori bol | গৌর হরি, হরি বল | invoking Chaitanya (Gauranga) and Hari/Krishna — "Hori bol" is the congregational call-and-response chant of Krishna's name
 
 [Arrangement]
-Lyricist attribution (Ananta Gosai) is inferred from the closing bhanita line "GoNsai bole shon Anantare" and a secondary source describing this pad as being from "the collection of Ananta Gosai" — not independently verified against a primary source. Please correct if the band knows the actual composer.
+Subhos starts slow with fills from Tzip and Lu
+1st Interlude tzip flute then switch to majira dakita dakita
+setha jabi jodi sokam nodi - 2nd time Stop 
+par hobi in 4
+breakdown
+par hobi in 3 again back to chorus
+mon cholo jay bhromone x3 
+3rd time, rhythm ends on Bhromone 
 
 [Discussion.Summary]
 
