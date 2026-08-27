@@ -1,7 +1,7 @@
 ---
 id: 97
-title: Mon Cholo Jaai Bhromone
-titleBn: মন চলো যাই ভ্রমণে
+title: Amar Mon Cholo Jaai Bhromone
+titleBn: আমার মন চলো যাই ভ্রমণে
 lyricist: Ananta Gosai
 lyricistBn: অনন্ত গোঁসাই
 genre: Baul / Kirtan
