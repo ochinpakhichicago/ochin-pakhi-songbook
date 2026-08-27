@@ -21,6 +21,9 @@ const GENRES = [
   "Bhatiyali", "Jhumur", "Qawwali", "Jit-sangeet",
 ];
 
+// Flip to true to let guests see the "Our Recording" tab. Off for now — recordings are member/admin only.
+const GUEST_CAN_SEE_OUR_RECORDING = false;
+
 // ─── Themes ───
 const lightColors = {
   bg: "#FAF6EF",
@@ -533,7 +536,7 @@ function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs",
     { key: "ours", label: "Our Recording" },
     { key: "discussion", label: "Discussion" },
   ];
-  const guestTabKeys = new Set(["lyrics", "glossary", "ours"]);
+  const guestTabKeys = new Set(["lyrics", "glossary", ...(GUEST_CAN_SEE_OUR_RECORDING ? ["ours"] : [])]);
   const tabs = role === "guest" ? allTabs.filter((t) => guestTabKeys.has(t.key)) : allTabs;
 
   const wordLookup = useMemo(() => {
