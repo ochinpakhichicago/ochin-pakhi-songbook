@@ -1,6 +1,6 @@
 ---
 id: 79
-title: Aamar Khawaja Babar Chhobi
+title: Aamar Khawajababar Chhobi
 titleBn: আমার খাজাবাবার ছবি
 lyricist: Rajjak Dewan
 lyricistBn:
@@ -11,9 +11,9 @@ duration:
 ---
 
 [Refrain]
-T: Aamar Khawaja babar chhobi
-B: আমার খাজা বাবার ছবি
-E: My Khwaja Baba's image
+T: Aamar Khawajababar chhobi
+B: আমার খাজাবাবার ছবি
+E: My KhwajaBaba's image
 
 T: Dekhay nij minare
 B: দেখায় নিজ মিনারে
@@ -75,6 +75,7 @@ B: এ গান গাইবো আমি জীবন ভরে
 E: I will sing this song for the rest of my life
 
 [Glossary]
+Khawajababa | খাজাবাবা | Khwaja Moinuddin Chishti was a famous 12th-century Sufi saint who introduced and established the Chishti spiritual order in the Indian subcontinent
 minare | মিনারে | minaret — tower of a mosque or dargah
 olia | ওলিয়া | Sufi saint, friend of God
 dargah / dorbar | দরবার | court, shrine, or gathering place of a saint
