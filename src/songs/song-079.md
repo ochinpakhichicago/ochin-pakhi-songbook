@@ -1,6 +1,6 @@
 ---
 id: 79
-title: Aamar Khawajababar Chhobi
+title: Aamar Khwajababar Chhobi
 titleBn: আমার খাজাবাবার ছবি
 lyricist: Rajjak Dewan
 lyricistBn:
@@ -11,7 +11,7 @@ duration:
 ---
 
 [Refrain]
-T: Aamar Khawajababar chhobi
+T: Aamar Khwajababar chhobi
 B: আমার খাজাবাবার ছবি
 E: My KhwajaBaba's image
 
@@ -19,16 +19,16 @@ T: Dekhay nij minare
 B: দেখায় নিজ মিনারে
 E: Appears in his own minaret
 
-T: Cholo dekhi jai Khawajar dorbare
+T: Cholo dekhi jai Khwajaro dorbare
 B: চলো দেখি যাই খাজার দরবারে
 E: Come, let us go and see Khwaja's court
 
 [Verse 1]
-T: Ekdin hothato khawajaro minarai
+T: Ekdin hothato Khwajaro minarai
 B: একদিন হঠাৎ খাজার মিনারায়
 E: One day, suddenly, in Khwaja's minaret
 
-T: Khawajar protichhobi je dekha jay
+T: Khwajar protichhobi je dekha jay
 B: খাজার প্রতিচ্ছবি যে দেখা যায়
 E: Khwaja's own reflection could be seen
 
@@ -36,7 +36,7 @@ T: Koto bhokto ase sei jaygay
 B: কতো ভক্ত আসে সেই জায়গায়
 E: So many devotees come to that place
 
-T: Khawajar protichhobi dekhar ashe
+T: Khwajar protichhobi dekhar ashe
 B: খাজার প্রতিচ্ছবি দেখার আশে
 E: With the hope of seeing Khwaja's image
 
@@ -58,7 +58,7 @@ B: তার প্রমাণ দেখাইলো আজমিরে
 E: And proved it in Ajmer
 
 [Verse 3]
-T: Aamar khawajar chobir dui pashe
+T: Aamar khwajar chobir dui pashe
 B: আমার খাজার ছবির দুই পাশে
 E: On both sides of my Khwaja's image
 
@@ -75,7 +75,7 @@ B: এ গান গাইবো আমি জীবন ভরে
 E: I will sing this song for the rest of my life
 
 [Glossary]
-Khawajababa | খাজাবাবা | Khwaja Moinuddin Chishti was a famous 12th-century Sufi saint who introduced and established the Chishti spiritual order in the Indian subcontinent
+Khwajababa | খাজাবাবা | Khwaja Moinuddin Chishti was a famous 12th-century Sufi saint who introduced and established the Chishti spiritual order in the Indian subcontinent
 minare | মিনারে | minaret — tower of a mosque or dargah
 olia | ওলিয়া | Sufi saint, friend of God
 dargah / dorbar | দরবার | court, shrine, or gathering place of a saint
