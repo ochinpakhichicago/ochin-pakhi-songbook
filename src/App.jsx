@@ -24,6 +24,9 @@ const GENRES = [
 // Flip to true to let guests see the "Our Recording" tab. Off for now — recordings are member/admin only.
 const GUEST_CAN_SEE_OUR_RECORDING = false;
 
+const FEEDBACK_EMAIL = "ochin.pakhi.band@gmail.com";
+const FEEDBACK_SUBJECT = "Re: Ochin Pakhi App Feedback";
+
 // ─── Themes ───
 const lightColors = {
   bg: "#FAF6EF",
@@ -1462,6 +1465,7 @@ function AudienceView({ eventName, songs, onSelect }) {
             </div>
           );
         })}
+        <FeedbackSection />
       </div>
     </div>
   );
@@ -1774,6 +1778,63 @@ function PersonalSetlistDetail({ setlist, allSongs, onUpdate, onDelete, onBack, 
         </div>
       )}
       {showQR && <QRModal setlist={setlist} onClose={() => setShowQR(false)} />}
+    </div>
+  );
+}
+
+// ─── Feedback ───
+function FeedbackSection() {
+  const [message, setMessage] = useState("");
+  const canSend = message.trim().length > 0;
+  const mailtoHref = `mailto:${FEEDBACK_EMAIL}?subject=${encodeURIComponent(FEEDBACK_SUBJECT)}&body=${encodeURIComponent(message)}`;
+
+  return (
+    <div style={{ background: colors.surface, border: `1px solid ${colors.border}`, borderRadius: 12, padding: "18px 20px", marginBottom: 14 }}>
+      <div style={{ fontSize: 11, fontWeight: 700, color: colors.accent, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 12 }}>Feedback</div>
+      <p style={{ fontSize: 13, color: colors.textMuted, margin: "0 0 12px", lineHeight: 1.55 }}>
+        Spotted something off, or have an idea for the app? Let us know.
+      </p>
+      <textarea
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        placeholder="Your feedback…"
+        rows={4}
+        style={{
+          width: "100%",
+          boxSizing: "border-box",
+          padding: "11px 14px",
+          fontSize: 14,
+          border: `1px solid ${colors.border}`,
+          borderRadius: 8,
+          outline: "none",
+          fontFamily: font.body,
+          background: colors.bg,
+          color: colors.text,
+          resize: "vertical",
+          marginBottom: 12,
+        }}
+      />
+      <a
+        href={canSend ? mailtoHref : undefined}
+        style={{
+          display: "block",
+          textAlign: "center",
+          width: "100%",
+          boxSizing: "border-box",
+          padding: "12px 0",
+          background: canSend ? colors.accent : colors.border,
+          color: "#fff",
+          borderRadius: 8,
+          fontFamily: font.body,
+          fontSize: 14,
+          fontWeight: 600,
+          textDecoration: "none",
+          cursor: canSend ? "pointer" : "default",
+          pointerEvents: canSend ? "auto" : "none",
+        }}
+      >
+        Send Feedback
+      </a>
     </div>
   );
 }
@@ -2171,6 +2232,8 @@ Baul, Devotion, Longing`}</pre>
           <span style={{ fontSize: 12 }}>↗</span>
         </a>
       </div>
+
+      <FeedbackSection />
 
       <button
         onClick={onSignOut}
