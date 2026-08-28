@@ -526,10 +526,18 @@ function SongList({ songs, onSelect, searchState }) {
 }
 
 // ─── Song Detail ───
-function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs", role = "member" }) {
+function getNextSong(current, siblings) {
+  if (!current || !siblings || siblings.length === 0) return null;
+  const idx = siblings.findIndex((s) => s.id === current.id);
+  if (idx === -1 || idx === siblings.length - 1) return null;
+  return siblings[idx + 1];
+}
+
+function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs", role = "member", siblingSongs, onNext }) {
   const [tab, setTab] = useState("lyrics");
   const [activeWord, setActiveWord] = useState(null);
   const ttsAudioRef = useRef(null);
+  const nextSong = useMemo(() => getNextSong(song, siblingSongs), [song, siblingSongs]);
 
   const allTabs = [
     { key: "lyrics", label: "Lyrics" },
@@ -606,25 +614,50 @@ function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs",
           borderBottom: `1px solid ${colors.border}`,
         }}
       >
-        <button
-          onClick={onBack}
-          style={{
-            background: "none",
-            border: "none",
-            color: colors.accent,
-            fontFamily: font.body,
-            fontSize: 14,
-            cursor: "pointer",
-            padding: "4px 0",
-            fontWeight: 500,
-            minHeight: 44,
-            display: "flex",
-            alignItems: "center",
-            gap: 4,
-          }}
-        >
-          ← {backLabel}
-        </button>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+          <button
+            onClick={onBack}
+            style={{
+              background: "none",
+              border: "none",
+              color: colors.accent,
+              fontFamily: font.body,
+              fontSize: 14,
+              cursor: "pointer",
+              padding: "4px 0",
+              fontWeight: 500,
+              minHeight: 44,
+              display: "flex",
+              alignItems: "center",
+              gap: 4,
+            }}
+          >
+            ← {backLabel}
+          </button>
+          {nextSong && (
+            <button
+              onClick={() => onNext && onNext(nextSong)}
+              style={{
+                background: "none",
+                border: "none",
+                color: colors.accent,
+                fontFamily: font.body,
+                fontSize: 14,
+                cursor: "pointer",
+                padding: "4px 0",
+                fontWeight: 500,
+                minHeight: 44,
+                display: "flex",
+                alignItems: "center",
+                gap: 4,
+                maxWidth: "45%",
+                minWidth: 0,
+              }}
+            >
+              <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>Next Song</span> →
+            </button>
+          )}
+        </div>
         <div
           style={{
             display: "flex",
@@ -1512,44 +1545,41 @@ function SetlistCard({ sl, onClick }) {
   );
 }
 
-function SetlistsTab({ allSongs, user, onSelectSong }) {
+function SetlistsTab({ allSongs, user, onSelectSong, activeId, activeIsPersonal, onOpenSetlist, onCloseSetlist }) {
   const isGuest = user.role === "guest";
   const [mySetlists, setMySetlists] = useState(() => isGuest ? [] : loadPersonalSetlists(user.name));
-  const [activeId, setActiveId] = useState(null);
-  const [activeIsPersonal, setActiveIsPersonal] = useState(false);
 
   const saveMy = (updated) => { setMySetlists(updated); savePersonalSetlists(user.name, updated); };
   const createSetlist = () => {
     const sl = { id: Date.now().toString(), name: "My Setlist", date: "", venue: "", songIds: [] };
     const updated = [...mySetlists, sl];
     saveMy(updated);
-    setActiveId(sl.id);
-    setActiveIsPersonal(true);
+    onOpenSetlist(sl.id, true);
   };
 
-  const openBand = (id) => { setActiveId(id); setActiveIsPersonal(false); };
-  const openMy = (id) => { setActiveId(id); setActiveIsPersonal(true); };
+  const openBand = (id) => onOpenSetlist(id, false);
+  const openMy = (id) => onOpenSetlist(id, true);
 
   const bandSetlists = isGuest ? STATIC_SETLISTS.filter((sl) => sl.guestVisible) : STATIC_SETLISTS;
 
   if (activeId) {
     if (activeIsPersonal) {
       const sl = mySetlists.find((s) => s.id === activeId);
-      if (!sl) { setActiveId(null); return null; }
+      if (!sl) { onCloseSetlist(); return null; }
       return (
         <PersonalSetlistDetail
           setlist={sl}
           allSongs={allSongs}
           onUpdate={(patch) => saveMy(mySetlists.map((s) => s.id === activeId ? { ...s, ...patch } : s))}
-          onDelete={() => { saveMy(mySetlists.filter((s) => s.id !== activeId)); setActiveId(null); }}
-          onBack={() => setActiveId(null)}
+          onDelete={() => { saveMy(mySetlists.filter((s) => s.id !== activeId)); onCloseSetlist(); }}
+          onBack={onCloseSetlist}
           onSelectSong={onSelectSong}
         />
       );
     } else {
       const sl = bandSetlists.find((s) => s.id === activeId);
-      if (!sl) { setActiveId(null); return null; }
-      return <SetlistDetail setlist={sl} allSongs={allSongs} onBack={() => setActiveId(null)} onSelectSong={onSelectSong} role={user.role} />;
+      if (!sl) { onCloseSetlist(); return null; }
+      return <SetlistDetail setlist={sl} allSongs={allSongs} onBack={onCloseSetlist} onSelectSong={onSelectSong} role={user.role} />;
     }
   }
 
@@ -1605,7 +1635,7 @@ function SetlistDetail({ setlist, allSongs, onBack, onSelectSong, role = "member
         {songs.length === 0 ? (
           <div style={{ textAlign: "center", padding: "40px 0", color: colors.textMuted, fontSize: 14 }}>No songs in this setlist yet.</div>
         ) : songs.map((song, idx) => (
-          <div key={song.id} onClick={() => onSelectSong && onSelectSong(song)} style={{ background: colors.surface, borderRadius: 10, padding: "12px 14px", marginBottom: 8, border: `1px solid ${colors.border}`, display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}>
+          <div key={song.id} onClick={() => onSelectSong && onSelectSong(song, songs)} style={{ background: colors.surface, borderRadius: 10, padding: "12px 14px", marginBottom: 8, border: `1px solid ${colors.border}`, display: "flex", alignItems: "center", gap: 10, cursor: "pointer" }}>
             <div style={{ color: colors.textMuted, fontSize: 13, fontWeight: 700, minWidth: 22, textAlign: "center", flexShrink: 0 }}>{idx + 1}</div>
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ fontWeight: 600, color: colors.text, fontSize: 15, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{song.title}</div>
@@ -1730,7 +1760,7 @@ function PersonalSetlistDetail({ setlist, allSongs, onUpdate, onDelete, onBack, 
                 idx={idx}
                 total={songs.length}
                 onRemove={(id) => onUpdate({ songIds: setlist.songIds.filter((sid) => sid !== id) })}
-                onSelect={onSelectSong}
+                onSelect={(s) => onSelectSong && onSelectSong(s, songs)}
                 onMoveUp={() => onUpdate({ songIds: arrayMove(setlist.songIds, idx, idx - 1) })}
                 onMoveDown={() => onUpdate({ songIds: arrayMove(setlist.songIds, idx, idx + 1) })}
               />
@@ -2352,6 +2382,9 @@ export default function App() {
   const [nowPlaying, setNowPlaying] = useState(null); // { videoId, title }
   const [songSource, setSongSource] = useState("songs"); // "songs" | "setlists"
   const [selectedSong, setSelectedSong] = useState(null);
+  const [songSiblings, setSongSiblings] = useState(null); // ordered song list for Next Song navigation
+  const [activeSetlistId, setActiveSetlistId] = useState(null);
+  const [activeSetlistIsPersonal, setActiveSetlistIsPersonal] = useState(false);
   const [hash, setHash] = useState(window.location.hash);
   const searchState = useState("");
 
@@ -2420,12 +2453,14 @@ export default function App() {
             onBack={() => setSelectedSong(null)}
             onPlay={handlePlay}
             backLabel={eventName}
+            siblingSongs={songSiblings}
+            onNext={(next) => setSelectedSong(next)}
           />
           <MiniPlayer nowPlaying={nowPlaying} onClose={() => setNowPlaying(null)} />
         </>
       );
     }
-    return <AudienceView eventName={eventName} songs={songs} onSelect={setSelectedSong} />;
+    return <AudienceView eventName={eventName} songs={songs} onSelect={(s) => { setSongSiblings(songs); setSelectedSong(s); }} />;
   }
 
   if (!user) return (
@@ -2455,6 +2490,8 @@ export default function App() {
             searchState[1](tag);
           }}
           backLabel={songSource === "setlists" ? "Setlist" : "All Songs"}
+          siblingSongs={songSiblings}
+          onNext={(next) => { setSelectedSong(next); window.location.hash = `#/song/${next.id}`; }}
         />
         <MiniPlayer nowPlaying={nowPlaying} onClose={() => setNowPlaying(null)} />
       </>
@@ -2468,17 +2505,28 @@ export default function App() {
           songs={allSongs}
           onSelect={(s) => {
             setSongSource("songs");
+            setSongSiblings(null);
             setSelectedSong(s);
             window.location.hash = `#/song/${s.id}`;
           }}
           searchState={searchState}
         />
       )}
-      {mainTab === "setlists" && <SetlistsTab allSongs={allSongs} user={user} onSelectSong={(s) => { setSongSource("setlists"); setSelectedSong(s); window.location.hash = `#/song/${s.id}`; }} />}
+      {mainTab === "setlists" && (
+        <SetlistsTab
+          allSongs={allSongs}
+          user={user}
+          activeId={activeSetlistId}
+          activeIsPersonal={activeSetlistIsPersonal}
+          onOpenSetlist={(id, isPersonal) => { setActiveSetlistId(id); setActiveSetlistIsPersonal(isPersonal); }}
+          onCloseSetlist={() => setActiveSetlistId(null)}
+          onSelectSong={(s, siblings) => { setSongSource("setlists"); setSongSiblings(siblings || null); setSelectedSong(s); window.location.hash = `#/song/${s.id}`; }}
+        />
+      )}
       {mainTab === "about" && (
         <AboutTab
           user={user}
-          onSignOut={() => { setUser(null); setSelectedSong(null); }}
+          onSignOut={() => { setUser(null); setSelectedSong(null); setActiveSetlistId(null); setActiveSetlistIsPersonal(false); }}
           localSongs={localSongs}
           allSongs={allSongs}
           onAddSong={onAddSong}
