@@ -540,7 +540,7 @@ function getPrevSong(current, siblings) {
   return siblings[idx - 1];
 }
 
-function PrintableLyricsSheet({ song }) {
+function PrintableLyricsSheet({ song, fontScale = 1 }) {
   const verses = song.sections
     .map((sec) => sec.lines.map((l) => l.trans).filter(Boolean))
     .filter((lines) => lines.length > 0);
@@ -580,10 +580,17 @@ function PrintableLyricsSheet({ song }) {
             background: #B35A38;
             margin: 20px auto 26px;
           }
+          .print-sheet .print-verses {
+            column-count: 2;
+            column-gap: 32px;
+            column-rule: 1px solid #00000018;
+          }
           .print-sheet .print-verse {
             margin-bottom: 26px;
-            font-size: 14.5px;
+            font-size: ${14.5 * fontScale}px;
             line-height: 1.55;
+            break-inside: avoid;
+            page-break-inside: avoid;
           }
           .print-sheet .print-verse div {
             white-space: pre-wrap;
@@ -593,11 +600,13 @@ function PrintableLyricsSheet({ song }) {
       <div className="print-title">{song.title}</div>
       <div className="print-byline">{song.lyricist}</div>
       <div className="print-rule" />
-      {verses.map((lines, i) => (
-        <div className="print-verse" key={i}>
-          {lines.map((line, j) => <div key={j}>{line}</div>)}
-        </div>
-      ))}
+      <div className="print-verses">
+        {verses.map((lines, i) => (
+          <div className="print-verse" key={i}>
+            {lines.map((line, j) => <div key={j}>{line}</div>)}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -608,6 +617,17 @@ function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs",
   const ttsAudioRef = useRef(null);
   const nextSong = useMemo(() => getNextSong(song, siblingSongs), [song, siblingSongs]);
   const prevSong = useMemo(() => getPrevSong(song, siblingSongs), [song, siblingSongs]);
+  const [fontScale, setFontScale] = useState(() => {
+    const saved = Number(localStorage.getItem("ochin-pakhi-lyrics-font-scale"));
+    return saved >= 0.8 && saved <= 1.6 ? saved : 1;
+  });
+  const adjustFontScale = (delta) => {
+    setFontScale((prev) => {
+      const next = Math.min(1.6, Math.max(0.8, Math.round((prev + delta) * 100) / 100));
+      localStorage.setItem("ochin-pakhi-lyrics-font-scale", String(next));
+      return next;
+    });
+  };
 
   const allTabs = [
     { key: "lyrics", label: "Lyrics" },
@@ -935,24 +955,67 @@ function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs",
         {/* ── Lyrics ── */}
         {tab === "lyrics" && (
           <div>
-            <div
-              style={{
-                fontSize: 12,
-                color: colors.textMuted,
-                marginBottom: 16,
-                fontStyle: "italic",
-              }}
-            >
-              Tap{" "}
-              <span
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
+              <div
                 style={{
-                  borderBottom: `2px dotted ${colors.gold}`,
-                  padding: "0 2px",
+                  flex: 1,
+                  fontSize: 12,
+                  color: colors.textMuted,
+                  fontStyle: "italic",
                 }}
               >
-                highlighted words
-              </span>{" "}
-              to see meanings
+                Tap{" "}
+                <span
+                  style={{
+                    borderBottom: `2px dotted ${colors.gold}`,
+                    padding: "0 2px",
+                  }}
+                >
+                  highlighted words
+                </span>{" "}
+                to see meanings
+              </div>
+              <div style={{ display: "flex", alignItems: "center", gap: 2, flexShrink: 0 }}>
+                <button
+                  onClick={() => adjustFontScale(-0.1)}
+                  disabled={fontScale <= 0.8}
+                  title="Decrease text size"
+                  style={{
+                    background: "none",
+                    border: `1px solid ${colors.border}`,
+                    color: fontScale <= 0.8 ? colors.textMuted : colors.accent,
+                    opacity: fontScale <= 0.8 ? 0.4 : 1,
+                    borderRadius: "6px 0 0 6px",
+                    fontSize: 12,
+                    fontWeight: 700,
+                    padding: "6px 9px",
+                    cursor: fontScale <= 0.8 ? "default" : "pointer",
+                    minHeight: 32,
+                  }}
+                >
+                  A−
+                </button>
+                <button
+                  onClick={() => adjustFontScale(0.1)}
+                  disabled={fontScale >= 1.6}
+                  title="Increase text size"
+                  style={{
+                    background: "none",
+                    border: `1px solid ${colors.border}`,
+                    borderLeft: "none",
+                    color: fontScale >= 1.6 ? colors.textMuted : colors.accent,
+                    opacity: fontScale >= 1.6 ? 0.4 : 1,
+                    borderRadius: "0 6px 6px 0",
+                    fontSize: 14,
+                    fontWeight: 700,
+                    padding: "6px 9px",
+                    cursor: fontScale >= 1.6 ? "default" : "pointer",
+                    minHeight: 32,
+                  }}
+                >
+                  A+
+                </button>
+              </div>
             </div>
             {song.sections.map((sec, si) => (
               <div key={si} style={{ marginBottom: 28 }}>
@@ -972,7 +1035,7 @@ function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs",
                   <div key={li} style={{ marginBottom: 16 }}>
                     <div
                       style={{
-                        fontSize: 16,
+                        fontSize: 16 * fontScale,
                         color: colors.text,
                         fontWeight: 500,
                         lineHeight: 1.5,
@@ -984,7 +1047,7 @@ function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs",
                       <div
                         style={{
                           fontFamily: font.bengali,
-                          fontSize: 15,
+                          fontSize: 15 * fontScale,
                           color: colors.textMuted,
                           lineHeight: 1.6,
                           marginTop: 1,
@@ -996,7 +1059,7 @@ function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs",
                     {line.en && (
                       <div
                         style={{
-                          fontSize: 13,
+                          fontSize: 13 * fontScale,
                           color: colors.accent,
                           fontStyle: "italic",
                           lineHeight: 1.45,
@@ -1364,7 +1427,7 @@ function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs",
           </button>
         </div>
       )}
-      {role !== "guest" && <PrintableLyricsSheet song={song} />}
+      {role !== "guest" && <PrintableLyricsSheet song={song} fontScale={fontScale} />}
     </div>
   );
 }
