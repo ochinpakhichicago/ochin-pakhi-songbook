@@ -533,11 +533,19 @@ function getNextSong(current, siblings) {
   return siblings[idx + 1];
 }
 
-function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs", role = "member", siblingSongs, onNext }) {
+function getPrevSong(current, siblings) {
+  if (!current || !siblings || siblings.length === 0) return null;
+  const idx = siblings.findIndex((s) => s.id === current.id);
+  if (idx <= 0) return null;
+  return siblings[idx - 1];
+}
+
+function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs", role = "member", siblingSongs, onNext, onPrev }) {
   const [tab, setTab] = useState("lyrics");
   const [activeWord, setActiveWord] = useState(null);
   const ttsAudioRef = useRef(null);
   const nextSong = useMemo(() => getNextSong(song, siblingSongs), [song, siblingSongs]);
+  const prevSong = useMemo(() => getPrevSong(song, siblingSongs), [song, siblingSongs]);
 
   const allTabs = [
     { key: "lyrics", label: "Lyrics" },
@@ -614,50 +622,75 @@ function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs",
           borderBottom: `1px solid ${colors.border}`,
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
-          <button
-            onClick={onBack}
-            style={{
-              background: "none",
-              border: "none",
-              color: colors.accent,
-              fontFamily: font.body,
-              fontSize: 14,
-              cursor: "pointer",
-              padding: "4px 0",
-              fontWeight: 500,
-              minHeight: 44,
-              display: "flex",
-              alignItems: "center",
-              gap: 4,
-            }}
-          >
-            ← {backLabel}
-          </button>
-          {nextSong && (
-            <button
-              onClick={() => onNext && onNext(nextSong)}
-              style={{
-                background: "none",
-                border: "none",
-                color: colors.accent,
-                fontFamily: font.body,
-                fontSize: 14,
-                cursor: "pointer",
-                padding: "4px 0",
-                fontWeight: 500,
-                minHeight: 44,
-                display: "flex",
-                alignItems: "center",
-                gap: 4,
-                maxWidth: "45%",
-                minWidth: 0,
-              }}
-            >
-              <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>Next Song</span> →
-            </button>
-          )}
-        </div>
+        <button
+          onClick={onBack}
+          style={{
+            background: "none",
+            border: "none",
+            color: colors.accent,
+            fontFamily: font.body,
+            fontSize: 14,
+            cursor: "pointer",
+            padding: "4px 0",
+            fontWeight: 500,
+            minHeight: 44,
+            display: "flex",
+            alignItems: "center",
+            gap: 4,
+          }}
+        >
+          ← {backLabel}
+        </button>
+        {(prevSong || nextSong) && (
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, marginTop: 2 }}>
+            {prevSong ? (
+              <button
+                onClick={() => onPrev && onPrev(prevSong)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: colors.accent,
+                  fontFamily: font.body,
+                  fontSize: 14,
+                  cursor: "pointer",
+                  padding: "4px 0",
+                  fontWeight: 500,
+                  minHeight: 44,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 4,
+                  maxWidth: "48%",
+                  minWidth: 0,
+                }}
+              >
+                ← <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>Previous</span>
+              </button>
+            ) : <span />}
+            {nextSong && (
+              <button
+                onClick={() => onNext && onNext(nextSong)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: colors.accent,
+                  fontFamily: font.body,
+                  fontSize: 14,
+                  cursor: "pointer",
+                  padding: "4px 0",
+                  fontWeight: 500,
+                  minHeight: 44,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 4,
+                  maxWidth: "48%",
+                  minWidth: 0,
+                }}
+              >
+                <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>Next Song</span> →
+              </button>
+            )}
+          </div>
+        )}
         <div
           style={{
             display: "flex",
@@ -2455,6 +2488,7 @@ export default function App() {
             backLabel={eventName}
             siblingSongs={songSiblings}
             onNext={(next) => setSelectedSong(next)}
+            onPrev={(prev) => setSelectedSong(prev)}
           />
           <MiniPlayer nowPlaying={nowPlaying} onClose={() => setNowPlaying(null)} />
         </>
@@ -2492,6 +2526,7 @@ export default function App() {
           backLabel={songSource === "setlists" ? "Setlist" : "All Songs"}
           siblingSongs={songSiblings}
           onNext={(next) => { setSelectedSong(next); window.location.hash = `#/song/${next.id}`; }}
+          onPrev={(prev) => { setSelectedSong(prev); window.location.hash = `#/song/${prev.id}`; }}
         />
         <MiniPlayer nowPlaying={nowPlaying} onClose={() => setNowPlaying(null)} />
       </>
