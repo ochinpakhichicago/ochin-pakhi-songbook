@@ -663,7 +663,7 @@ function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs",
                   minWidth: 0,
                 }}
               >
-                ← <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>Previous</span>
+                ← <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>Previous Song</span>
               </button>
             ) : <span />}
             {nextSong && (
