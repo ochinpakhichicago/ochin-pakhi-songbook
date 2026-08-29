@@ -540,6 +540,68 @@ function getPrevSong(current, siblings) {
   return siblings[idx - 1];
 }
 
+function PrintableLyricsSheet({ song }) {
+  const verses = song.sections
+    .map((sec) => sec.lines.map((l) => l.trans).filter(Boolean))
+    .filter((lines) => lines.length > 0);
+
+  return (
+    <div className="print-sheet">
+      <style>{`
+        .print-sheet { display: none; }
+        @media print {
+          @page { margin: 0.75in; }
+          body * { visibility: hidden; }
+          .print-sheet, .print-sheet * { visibility: visible; }
+          .print-sheet {
+            display: block;
+            position: fixed;
+            inset: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            color: #262019;
+          }
+          .print-sheet .print-title {
+            font-size: 24px;
+            font-weight: 700;
+            text-align: center;
+          }
+          .print-sheet .print-byline {
+            text-align: center;
+            font-family: -apple-system, "Segoe UI", sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #6b5c46;
+            margin-top: 6px;
+          }
+          .print-sheet .print-rule {
+            width: 46px;
+            height: 2px;
+            background: #B35A38;
+            margin: 20px auto 26px;
+          }
+          .print-sheet .print-verse {
+            margin-bottom: 26px;
+            font-size: 14.5px;
+            line-height: 1.55;
+          }
+          .print-sheet .print-verse div {
+            white-space: pre-wrap;
+          }
+        }
+      `}</style>
+      <div className="print-title">{song.title}</div>
+      <div className="print-byline">{song.lyricist}</div>
+      <div className="print-rule" />
+      {verses.map((lines, i) => (
+        <div className="print-verse" key={i}>
+          {lines.map((line, j) => <div key={j}>{line}</div>)}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs", role = "member", siblingSongs, onNext, onPrev }) {
   const [tab, setTab] = useState("lyrics");
   const [activeWord, setActiveWord] = useState(null);
@@ -771,6 +833,28 @@ function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs",
             <span style={{ fontSize: 11, color: colors.textMuted }}>
               {song.duration}
             </span>
+          )}
+          {role !== "guest" && (
+            <button
+              onClick={() => window.print()}
+              style={{
+                fontSize: 11,
+                fontWeight: 700,
+                color: "#fff",
+                background: colors.accent,
+                border: "none",
+                padding: "4px 11px 4px 9px",
+                borderRadius: 20,
+                display: "flex",
+                alignItems: "center",
+                gap: 5,
+                cursor: "pointer",
+                marginLeft: "auto",
+                fontFamily: font.body,
+              }}
+            >
+              ⬇ Export PDF
+            </button>
           )}
         </div>
         {song.instruments && (
@@ -1280,6 +1364,7 @@ function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs",
           </button>
         </div>
       )}
+      {role !== "guest" && <PrintableLyricsSheet song={song} />}
     </div>
   );
 }
