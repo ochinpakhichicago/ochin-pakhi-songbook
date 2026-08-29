@@ -551,12 +551,9 @@ function PrintableLyricsSheet({ song, fontScale = 1 }) {
         .print-sheet { display: none; }
         @media print {
           @page { margin: 0.75in; }
-          body * { visibility: hidden; }
-          .print-sheet, .print-sheet * { visibility: visible; }
+          .no-print { display: none !important; }
           .print-sheet {
             display: block;
-            position: fixed;
-            inset: 0;
             font-family: Georgia, "Times New Roman", serif;
             color: #262019;
           }
@@ -689,7 +686,9 @@ function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs",
     d.summary || d.lyricistNote || d.talkingPoints.length || d.keyAspects.length;
 
   return (
+    <>
     <div
+      className="no-print"
       style={{
         minHeight: "100vh",
         background: colors.bg,
@@ -1427,8 +1426,9 @@ function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs",
           </button>
         </div>
       )}
-      {role !== "guest" && <PrintableLyricsSheet song={song} fontScale={fontScale} />}
     </div>
+    {role !== "guest" && <PrintableLyricsSheet song={song} fontScale={fontScale} />}
+    </>
   );
 }
 
@@ -1540,6 +1540,7 @@ function MiniPlayer({ nowPlaying, onClose }) {
 
   return (
     <div
+      className="no-print"
       style={{
         position: "fixed",
         bottom: 60,
