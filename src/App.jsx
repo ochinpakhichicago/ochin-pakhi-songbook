@@ -540,10 +540,27 @@ function getPrevSong(current, siblings) {
   return siblings[idx - 1];
 }
 
+function splitVersesIntoColumns(verses) {
+  const totalLines = verses.reduce((sum, v) => sum + v.length, 0);
+  let running = 0;
+  let bestIndex = verses.length;
+  let bestDiff = Infinity;
+  for (let i = 0; i <= verses.length; i++) {
+    const diff = Math.abs(running - (totalLines - running));
+    if (diff < bestDiff) {
+      bestDiff = diff;
+      bestIndex = i;
+    }
+    if (i < verses.length) running += verses[i].length;
+  }
+  return [verses.slice(0, bestIndex), verses.slice(bestIndex)];
+}
+
 function PrintableLyricsSheet({ song, fontScale = 1 }) {
   const verses = song.sections
     .map((sec) => sec.lines.map((l) => l.trans).filter(Boolean))
     .filter((lines) => lines.length > 0);
+  const [col1, col2] = splitVersesIntoColumns(verses);
 
   return (
     <div className="print-sheet">
@@ -577,10 +594,17 @@ function PrintableLyricsSheet({ song, fontScale = 1 }) {
             background: #B35A38;
             margin: 20px auto 26px;
           }
-          .print-sheet .print-verses {
-            column-count: 2;
-            column-gap: 32px;
-            column-rule: 1px solid #00000018;
+          .print-sheet .print-columns {
+            display: flex;
+            gap: 32px;
+          }
+          .print-sheet .print-column {
+            flex: 1;
+            min-width: 0;
+          }
+          .print-sheet .print-column + .print-column {
+            border-left: 1px solid #00000018;
+            padding-left: 32px;
           }
           .print-sheet .print-verse {
             margin-bottom: 26px;
@@ -597,12 +621,23 @@ function PrintableLyricsSheet({ song, fontScale = 1 }) {
       <div className="print-title">{song.title}</div>
       <div className="print-byline">{song.lyricist}</div>
       <div className="print-rule" />
-      <div className="print-verses">
-        {verses.map((lines, i) => (
-          <div className="print-verse" key={i}>
-            {lines.map((line, j) => <div key={j}>{line}</div>)}
+      <div className="print-columns">
+        <div className="print-column">
+          {col1.map((lines, i) => (
+            <div className="print-verse" key={i}>
+              {lines.map((line, j) => <div key={j}>{line}</div>)}
+            </div>
+          ))}
+        </div>
+        {col2.length > 0 && (
+          <div className="print-column">
+            {col2.map((lines, i) => (
+              <div className="print-verse" key={i}>
+                {lines.map((line, j) => <div key={j}>{line}</div>)}
+              </div>
+            ))}
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
