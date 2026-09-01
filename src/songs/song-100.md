@@ -32,9 +32,9 @@ T: Age to janina bonder piriter jala
 B: আগে তো জানিনা বন্দের পিরীতের জ্বালা
 E: Before, I never knew the burning pain of my beloved's love
 
-T: Jeno iter bhataay diya koyla-agun jalaise
-B: যেন ইটের ভাটায় দিয়া কয়লা- আগুন জ্বালাইসে
-E: as if coal had been thrown into a brick kiln and set ablaze
+T: Hay go iter bhataay koyla diya agun jalaise
+B: হায় গো, ইটের ভাটায় কয়লা দিয়া আগুন জ্বালাইসে
+E: alas! the coal had been thrown into a brick kiln and set ablaze
 
 T: Dewana banaise
 B: দেওয়ানা বানাইসে
@@ -49,9 +49,9 @@ T: Bichchheder onole pure kaliza angar
 B: বিচ্ছেদের অনলে পুড়ে কলিজা আঙ্গার
 E: In the fire of separation, my heart has burned to charcoal
 
-T: Pran bonder piriter amar - pagol korese
-B: প্রাণ বন্দের পিরীতের আমার - পাগল করেসে
-E: My beloved's love has driven my very life mad
+T: Hay go, pran bonder piriter amar - pagol korese
+B: হায় গো, প্রাণ বন্দের পিরীতের আমার - পাগল করেসে
+E: Alas! my beloved's love has driven my very life mad
 
 T: Dewana banaise
 B: দেওয়ানা বানাইসে
@@ -66,9 +66,9 @@ T: Bhulite parina amar mone jare chay
 B: ভুলিতে পারিনা আমার মনে যারে চায়
 E: I cannot forget the one my heart longs for
 
-T: Kulnasha piriter neshay kul o man geche
-B: কুলনাশা পিড়িতের নেশায় কুল ও মান গেছে
-E: In the intoxication of this honor-destroying love, I have lost family and reputation
+T: Hay go, kulnasha piriter neshay kul o man geche
+B: হায় গো, কুলনাশা পিড়িতের নেশায় কুল ও মান গেছে
+E: Alas! in the intoxication of this honor-destroying love, I have lost family and reputation
 
 T: Dewana banaise
 B: দেওয়ানা বানাইসে
