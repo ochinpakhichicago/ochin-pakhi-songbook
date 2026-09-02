@@ -29,7 +29,7 @@ B: বসে ভাবি নিরালা
 E: I sit alone and think
 
 T: Age to janina bonder piriter jala
-B: আগে তো জানিনা বন্দের পিরীতের জ্বালা
+B: আগে তো জানিনা বন্দের পিরিতের জ্বালা
 E: Before, I never knew the burning pain of my beloved's love
 
 T: Hay go iter bhataay koyla diya agun jalaise
@@ -50,7 +50,7 @@ B: বিচ্ছেদের অনলে পুড়ে কলিজা আ�
 E: In the fire of separation, my heart has burned to charcoal
 
 T: Hay go, pran bonder piriter amar - pagol korese
-B: হায় গো, প্রাণ বন্দের পিরীতের আমার - পাগল করেসে
+B: হায় গো, প্রাণ বন্দের পিরিতের আমার - পাগল করেসে
 E: Alas! my beloved's love has driven my very life mad
 
 T: Dewana banaise
@@ -67,7 +67,7 @@ B: ভুলিতে পারিনা আমার মনে যারে চ
 E: I cannot forget the one my heart longs for
 
 T: Hay go, kulnasha piriter neshay kul o man geche
-B: হায় গো, কুলনাশা পিড়িতের নেশায় কুল ও মান গেছে
+B: হায় গো, কুলনাশা পিরিতের নেশায় কুল ও মান গেছে
 E: Alas! in the intoxication of this honor-destroying love, I have lost family and reputation
 
 T: Dewana banaise
