@@ -1,7 +1,7 @@
 ---
 id: 99
-title: Mon Chhara Ki Moner Manush Hoy
-titleBn: মন ছাড়া কি মনের মানুষ বয়
+title: Mon Chhara Ki Moner Manush Roy
+titleBn: মন ছাড়া কি মনের মানুষ রয়
 lyricist: Matan Chand Gosai
 lyricistBn: মাতান চাঁদ গোঁসাই
 genre: Baul
@@ -11,13 +11,13 @@ duration:
 ---
 
 [Refrain]
-T: Mon chhara ki moner manush boy
-B: মন ছাড়া কি মনের মানুষ বয়
+T: Mon chhara ki moner manush roy
+B: মন ছাড়া কি মনের মানুষ রয়
 E: Without the mind, can the Man of the Heart ever appear?
 
-T: Je jemon banchha kore tar kachhe se uday hoy
-B: যে যেমন বাঞ্ছা করে তার কাছে সে উদয় হয়
-E: As one desires, so does He rise up before them
+T: Je ja mone banchha kore tar kachhe se uday hoy
+B: যে যা মনে বাঞ্ছা করে তার কাছে সে উদয় হয়
+E: As one desires in their mind, so does He rise up before them
 
 [Verse 1]
 T: Moner manush monohara

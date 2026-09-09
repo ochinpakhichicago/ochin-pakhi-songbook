@@ -41,8 +41,8 @@ B: ও.. ও বাঁশি
 E: O... O Flute,
 
 T: baner taane taane, aiso amar pane,
-B: বনের তানে তানে, আইসো আমার পানে,
-E: through melody after melody of the forest, come toward me,
+B: বানের তানে তানে, আইসো আমার পানে,
+E: through melody after melody of the high tide, come toward me,
 
 T: modhu lagaio mone , mojio paner gune, asio
 B: মধু লাগাইয়ো মনে, মজিয়ো পানের গুণে, আসিও

@@ -47,11 +47,11 @@ E: Ta na na... (rhythmic vocables)
 
 [Verse 3]
 T: Gachher jowar asile o gachh kato kaushale
-B: গাছের যৌবন আসিলে ও গাছ কত কৌশলে
-E: When the tree comes into its prime, oh, with what great skill it must be tended
+B: গাছের জোয়ার আসিলে ও গাছ কাটো কৌশলে
+E: When the tree comes into its prime, oh, you need to cut it carefully
 
 T: Tonar dori chhire jeno poro na tole
-B: টানার দড়ি ছিঁড়ে যেন পড়ো না তলে
+B: টোনার দড়ি ছিঁড়ে যেন পড়ো না তলে
 E: Take care the pulling-rope doesn't snap and send you falling below
 
 T: mone re poro na tole
