@@ -1,7 +1,7 @@
 ---
 id: 91
 title: Emon Manob Jonom R Ki Hobe
-titleBn: এমন মানব জনম র কি হবে
+titleBn: এমন মানব জনম আর কি হবে
 lyricist: Lalon
 lyricistBn: লালন
 genre: Baul / Lalongiti
