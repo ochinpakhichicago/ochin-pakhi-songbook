@@ -30,5 +30,22 @@
     "venue": " Global Gardens",
     "songIds": [86, 31, 91, 67, 97, 79, 85, 96, 78, 48, 32, 98, 94, 24, 75, 64, 7, 9, 93, 3, 26, 13],
     "guestVisible": false
+  },
+    {
+    "id": "LL-October-25-2026",
+    "name": "Lincolnshire Library",
+    "date": "October 25, 2026",
+    "venue": " Lincolnshire Library",
+    "songIds": [94, 97, 33, 86, 7, 31, 48, 35, 92, 75],
+    "guestVisible": false
+  },
+  {
+    "id": "UofC-October-25-2026",
+    "name": "Kheyal at UChicago",
+    "date": "October 25, 2026",
+    "venue": "UChicago",
+    "songIds": [94, 97, 67, 46, 60, 86, 7, 31, 3, 32],
+    "guestVisible": false
   }
+
 ]
