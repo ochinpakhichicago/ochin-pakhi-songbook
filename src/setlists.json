@@ -46,6 +46,14 @@
     "venue": "UChicago",
     "songIds": [94, 97, 67, 46, 60, 86, 7, 31, 3, 32],
     "guestVisible": false
+  },
+   {
+    "id": "GaanMela-Nov-6-2026",
+    "name": "GaanMela UCRP",
+    "date": "Nov 6, 2026",
+    "venue": "UChicago",
+    "songIds": [7, 14, 94, 82, 67, 33, 92, 35, 97, 70, 32],
+    "guestVisible": false
   }
 
 ]
