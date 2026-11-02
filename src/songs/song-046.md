@@ -1,7 +1,7 @@
 ---
 id: 46
-title: Ei Je Tomar Prem
-titleBn: এই যে তোমার প্রেম
+title: Ei To Tomar Prem
+titleBn: এই তো তোমার প্রেম
 lyricist: Rabindranath Tagore
 lyricistBn: রবীন্দ্রনাথ ঠাকুর
 genre: Rabindra Sangeet
@@ -11,8 +11,8 @@ duration:
 ---
 
 [Refrain]
-T: Ei je tomar prem, ogo hridoyohorono,
-B: এই যে তোমার প্রেম, ওগো হৃদয়হরণ,
+T: Ei to tomar prem, ogo hridoyohorono,
+B: এই তো তোমার প্রেম, ওগো হৃদয়হরণ,
 E: This, your love, O stealer of my heart,
 
 T: Ei-je paatay aalo naache sonar borono.
