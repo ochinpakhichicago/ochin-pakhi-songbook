@@ -4,7 +4,7 @@ title: Sob Loke Koy
 titleBn: সব লোকে কয়
 lyricist: Lalon
 lyricistBn: লালন
-genre: Baul / Lalongiti
+genre: Baul / Lalongeeti
 key:
 instruments: dotara, tabla, dhol, accordion, cello
 duration:
@@ -87,6 +87,9 @@ bamun | বামুন | Brahmin — the priestly caste in Hinduism
 bamni | বামনি | Brahmin woman
 shunnot | সুন্নত | circumcision — Islamic rite marking a male as Muslim
 phata | ফাতা | snare, trap — Lalon's word for the trap of caste identity
+
+[Interludes]
+dotara, cello, accordion
 
 [Arrangement]
 Intro dotara and tabla, joined by all.

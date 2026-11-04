@@ -86,6 +86,8 @@ joubaneri jhar | যৌবনেরই ঝড় | a storm of youth — youthful
 pesha ghuchano | পেশা ঘুচানো | giving up a habit or occupation — here, the habit of hoarding and collecting
 uriye deoar nesha | উড়িয়ে দেবার নেশা | an intoxication for scattering, releasing, and giving away freely
 
+[Interludes]
+
 [Arrangement]
 Raga Baul. Prakriti Parjay.
 

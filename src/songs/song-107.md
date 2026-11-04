@@ -45,6 +45,8 @@ T: Joydhoni shuniye jabo e mor nibedon.
 B: জয়ধ্বনি শুনিয়ে যাব এ মোর নিবেদন॥
 E: And offer you my humble jubilation?
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

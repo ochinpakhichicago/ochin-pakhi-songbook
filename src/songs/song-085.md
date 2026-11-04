@@ -4,7 +4,7 @@ title: Guru Dohai Tomar
 titleBn: গুরু দোহাই তোমার
 lyricist: Lalon
 lyricistBn: লালন
-genre: Baul / Lalongiti
+genre: Baul / Lalongeeti
 key:
 instruments: khamok, flute
 duration:
@@ -92,6 +92,8 @@ jontro | যন্ত্র | instrument — here the mind is compared to a musi
 jontri | যন্ত্রী | musician, the one who plays the instrument
 Jogai Madhai | জগাই মাধাই | two legendary sinners in Vaishnava tradition who were redeemed by Nityananda's grace — invoked here as proof that no one is beyond redemption
 odhin | অধীন | helpless, subservient — Lalon's humble self-description
+
+[Interludes]
 
 [Arrangement]
 Khamok.

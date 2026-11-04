@@ -4,7 +4,7 @@ title: Ami Opar Hoye
 titleBn: আমি ওপার হয়ে
 lyricist: Lalon
 lyricistBn: লালন
-genre: Baul / Lalongiti
+genre: Baul / Lalongeeti
 key:
 instruments:
 duration:
@@ -86,6 +86,8 @@ awgowtir goti | অগতির গতি | passage for the helpless — "agati"
 awkhyati | অখ্যাতি | blame, ill-repute — Lalon boldly turns the argument: if you don't help the helpless, the stain falls on your own name
 okuler powti | অকূলের পতি | Lord of the shoreless sea — "akul" = without shore, boundless; the divine as master of the infinite ocean, the only one capable of rescue
 fokir Lalon | ফকির লালন | Fakir Lalon — Lalon's self-signature; "fakir" = wandering mendicant, the lowest and most dependent; he signs as the one with the least claim and the greatest need
+
+[Interludes]
 
 [Arrangement]
 Cello drone. Dotara intro. Subho enters. On 4 chord accordion enters.

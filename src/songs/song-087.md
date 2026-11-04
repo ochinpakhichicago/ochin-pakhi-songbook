@@ -101,6 +101,8 @@ biha | বিহা | wedding, marriage — a dialect form of "biye"
 boch chura | বৌচ চূড়া | a hair-knot or topknot, a woman's hairstyle
 badula | বাদুলা | likely an owl, considered an omen of ill fortune in folk belief; the line warns against bringing bad luck onto another's household
 
+[Interludes]
+
 [Arrangement]
 A Santal-region folk song by Sunil Mahato, popularized by Shilajit. Gained wider recognition after being featured, without the artists' knowledge, in the 2023 film "Joram" starring Manoj Bajpayee.
 

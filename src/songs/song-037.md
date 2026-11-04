@@ -102,6 +102,8 @@ mahajon | মহাজন | moneylender / merchant — here used as a metaphor f
 chilla | চিল্লা | forty days of spiritual retreat in Sufi tradition; referenced as "forty" in verse 1
 ros | রস | juice, essence, rasa — the divine bliss that flows from devotion
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

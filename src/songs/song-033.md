@@ -4,7 +4,7 @@ title: Din Phurailo
 titleBn: দিন ফুরাইলো
 lyricist: Lalon
 lyricistBn: লালন
-genre: Baul / Lalongiti / Akheri Chetan
+genre: Baul / Lalongeeti / Akheri Chetan
 key:
 instruments:
 duration:
@@ -109,6 +109,9 @@ bhola mon | ভোলা মন | the forgetful mind — the mind that forgets i
 ocheton | অচেতন | unconscious, unaware — spiritually asleep; not awake to the truth of impermanence and the urgency of devotion
 kandari | কাণ্ডারি | helmsman, navigator — the one who steers the boat; the Guru as guide across the ocean of existence
 guru | গুরু | the spiritual teacher — in Baul tradition, the living Guru is indispensable; without a guide there is no path across
+
+[Interludes]
+accordion/cello, khamok
 
 [Arrangement]
 Start: Molly groovy start with tabla and Subho. Sam enters with tabla rhythm. Dhol entrance in "Ki kajo". Khamok entrance in "Jabar belay".

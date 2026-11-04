@@ -82,6 +82,8 @@ shawtodal | শতদল | the "hundred-petaled lotus" — an image of the heart
 rupe rawshe tolomolo | রূপে-রসে টলমল | trembling, swaying unsteadily in form and essence — overwhelmed with emotion
 podotole ronjite | পদতলে রঞ্জিতে | coloring the ground at the feet — an act of humble devotion, offering words like flowers strewn at the beloved's feet
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

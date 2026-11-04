@@ -4,7 +4,7 @@ title: Sohoj Manush
 titleBn: সহজ মানুষ
 lyricist: Lalon
 lyricistBn: লালন
-genre: Baul / Lalongiti
+genre: Baul / Lalongeeti
 key:
 instruments:
 duration:
@@ -90,6 +90,8 @@ salatul merajun | সালাতুল মেরাজুন | prayer is the mi
 namaj | নামাজ | Islamic daily prayer — Lalon as a Baul saint transcends religious boundaries; he cites the inner meaning of namaz as an instance of the same universal inner practice
 bishshashi | বিশ্বাসী | the faithful, the true believers — not a sectarian term for Lalon; it means sincere seekers of any tradition who truly see and hear
 e bhubone | এ ভুবনে | in this world — not elsewhere, not after death; the world as it is right now is where the treasure lies
+
+[Interludes]
 
 [Arrangement]
 

@@ -114,6 +114,8 @@ pothik | পথিক | the wayfarer, traveler — here a wise fellow-seeker off
 jogsadhona | যোগসাধনা | yogic spiritual practice and discipline
 biroho | বিরহ | the pain of separation and longing, viraha
 
+[Interludes]
+
 [Arrangement]
 Slow Bhenge mor chorus and one antara
 Talk about Tagore’s influence from baul Lucia leads speed up.

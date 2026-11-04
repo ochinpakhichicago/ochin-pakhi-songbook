@@ -45,6 +45,8 @@ T: Ami jeno na roi dure, ei diyo mor maan.
 B: আমি যেন না রই দূরে, এই দিয়ো মোর মান ॥
 E: Do not shun me—grant me this honor.
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

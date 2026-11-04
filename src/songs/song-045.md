@@ -119,6 +119,8 @@ praan bina | প্রাণ বীণা | the "veena of life" — life's vital
 khamar bhora | খামার ভরা | filling the granary — a symbol of collective agricultural prosperity
 sonar kamona | সোনার কামনা | golden aspiration — a bright, hopeful wish for the future
 
+[Interludes]
+
 [Arrangement]
 Composed 1954. Part of Salil Chowdhury's collection of mass-awakening songs ("Jagoroner Gaan").
 

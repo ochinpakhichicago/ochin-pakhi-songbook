@@ -4,7 +4,7 @@ title: Khachar Bhitor Ochin Pakhi
 titleBn: খাঁচার ভিতর অচিন পাখি
 lyricist: Lalon
 lyricistBn: লালন
-genre: Baul / Lalongiti
+genre: Baul / Lalongeeti
 key:
 instruments:
 duration:
@@ -83,6 +83,9 @@ kopaler fer | কপালের ফের | the turning of fate — "kopal" = f
 kacha basher | কাঁচা বাঁশের | of raw bamboo — unfinished, green, impermanent; the cage of the body is not built to last; it will one day rot and fall; this is not a threat but a release
 podrbe khoshe | পড়বে খসে | will fall apart — "khoshe" = falling loose, crumbling away; the decay of the body that liberates the bird; death as the opening of the cage
 Lalon keNde koy | লালন কেঁদে কয় | Lalon says, weeping — Lalon's signature with "keNde" (weeping); not grief for death but the grief of the seeker who cannot catch the bird in this lifetime; tears as the ultimate honest response
+
+[Interludes]
+group, flute, violin
 
 [Arrangement]
 Violin intro, Tzip ends the intro. Rhythm comes in with "tare dhorte". At "Aat kuthuri" — no harmonies. "Kopaler pher" — Lucia: light harmonies. "Mon tui roili" — slightly more harmonies, keeping it minimal. Last verse — all together. First interlude: all together. Second interlude: Sam. Third interlude: Violin. Breaks after "pakhir pay". Out: 3x, percussion ends on the final beat of "o-chin", Subho goes high on the 2nd time, Subho will have the last word. Tabla and manjira.

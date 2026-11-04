@@ -95,6 +95,8 @@ sudhar moto | সুধার মতো | like nectar/ambrosia — describing ho
 bodonkhani molin hole | বদনখানি মলিন হলে | if your face should turn pale/sorrowful — imagining the homeland's suffering
 noyonjole bhasi | নয়নজলে ভাসি | I float/drown in tears — the poet's grief at the thought of the homeland's sorrow
 
+[Interludes]
+
 [Arrangement]
 Written 1905, set to a tune adapted from Baul singer Gagan Harkara's "Ami Kothay Pabo Tare." The first ten lines (through "modhur haasi") form the national anthem of Bangladesh.
 

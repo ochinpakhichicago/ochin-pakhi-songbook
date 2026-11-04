@@ -4,7 +4,7 @@ title: Tomar Ghore Bosot Kore
 titleBn: তোমার ঘরে বসত করে
 lyricist: Lalon
 lyricistBn: লালন
-genre: Baul / Lalongiti
+genre: Baul / Lalongeeti
 key:
 instruments:
 duration:
@@ -92,6 +92,8 @@ rosh | রস | juice, nectar, rasa — in Baul philosophy, the divine essence o
 matal | মাতাল | drunk, intoxicated — overcome by the divine rasa; spiritual ecstasy that loosens the grip on the reins of the self
 lagam | লাগাম | reins, bridle — the means of controlling a horse; here the instrument of control over the body and the senses; who holds the reins of this body-horse?
 kun jona | কোন জনা | which one — the haunting refrain; Lalon never names the dwellers, leaving the question open for the seeker to discover within
+
+[Interludes]
 
 [Arrangement]
 

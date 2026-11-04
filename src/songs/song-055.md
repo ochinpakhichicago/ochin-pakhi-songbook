@@ -73,6 +73,8 @@ durbalero bawl | দুর্বলেরও বল | the strength even the weak
 shokti mere bnaacha | শক্তি মেরে বাঁচা | surviving after killing off another's strength — a rhetorical challenge, arguing the oppressor's own survival depends on the oppressed
 bojha bhaari hole tori dube | বোঝা ভারি হলে তরী ডোবে | if the burden grows too heavy, the boat sinks — a warning that unchecked oppression brings its own downfall
 
+[Interludes]
+
 [Arrangement]
 Swadesh Parjay. Composed 1905–1911, written in response to the Partition of Bengal.
 

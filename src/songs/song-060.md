@@ -4,7 +4,7 @@ title: Manush Bhojle
 titleBn: মানুষ ভজলে
 lyricist: Lalon
 lyricistBn: লালন
-genre: Baul / Lalongiti
+genre: Baul / Lalongeeti
 key:
 instruments:
 duration:
@@ -68,6 +68,8 @@ murao matha | মুড়াও মাথা | bow the head — the act of comp
 shunyokaar | শূন্যকার | void-making, rendering everything empty — without the human, existence becomes void; the human is the only substance that makes substance out of the void; echoes both Buddhist sunyata and the Baul's practical insistence: the divine is here, in this person
 manush aakar | মানুষ আকার | the form of the human — "aakar" = form, shape, embodiment; the specific bodily form of the human; not the idea of humanity but the actual form standing before you; this is what must be worshipped
 tworbi | তরবি | you will cross over — "tarna" = to cross a river, to pass over to the far shore; liberation understood as crossing the river; worship the human form and you will make it across
+
+[Interludes]
 
 [Arrangement]
 Nate flute intro. Tabla. Lucia and Tzip sing in A with harmonies.

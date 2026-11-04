@@ -95,6 +95,8 @@ jirno jati | জীর্ণ জাতি | a worn-out, decayed nation — descr
 rokto kamole gatha malyokhani | রক্ত কমলে গাঁথা মাল্যখানি | a garland threaded with a lotus of blood — martyrdom transfigured into a triumphant, sacred offering
 Bijoy Lokkhi | বিজয়লক্ষ্মী | the goddess of victory, personifying triumph itself
 
+[Interludes]
+
 [Arrangement]
 Tune composed by Krishna Chandra Dey. A classic anti-colonial freedom-movement song, revived widely during Bangladesh's July 2024 student uprising.
 

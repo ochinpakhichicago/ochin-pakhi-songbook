@@ -83,6 +83,8 @@ sharom | শরম | shyness, modesty, bashful reticence — the emotion between
 maya-nodi | মায়া-নদী | the river of longing — "maya" = affection, attachment, illusion; the river is made of feeling rather than water
 kothokawta | কথকতা | storytelling, the art of telling — the classical tradition of narrative-song; words becoming their own art form in the forgetting of time
 
+[Interludes]
+
 [Arrangement]
 Just Subho and drone. Harmony enters the second time through. Rhythm added on second pass of the refrain. Flute interlude after refrain. Dotara interlude with Sundarban rhythm after Verse 1.
 

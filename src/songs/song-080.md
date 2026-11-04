@@ -73,6 +73,8 @@ ras-ananda | রস-আনন্দ | the joy of rasa — "rasa" = aesthetic/dev
 prem-mukul | প্রেম-মুকুল | the love-bud — the unopened flower of love; the beloved came to help it bloom (fotate) but left before it could fully open
 bhul bhangayile | ভুল ভাঙাইলে | to break open the misunderstanding — "bhul" = mistake, misunderstanding; "bhangano" = to break, shatter; the speaker's final insight: the blow (aghat) was perhaps exactly what was needed to shatter the false understanding — but it was not followed through; the wound was struck without the healing
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

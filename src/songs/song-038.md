@@ -80,6 +80,8 @@ pagoler songe pagol howa | পাগলের সঙ্গে পাগল হ�
 torase | তরাসে | in awe, in trepidation — even Lalon himself trembles to speak these names
 Choite, Nite, Odwoi | চৈতে, নিতে, অদ্বৈ | Chaitanya, Nityananda, and Advaita Acharya — the central trinity of Gaudiya Vaishnavism
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

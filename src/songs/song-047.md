@@ -136,6 +136,8 @@ agol | আগল | the latch, the bolt — what keeps the cage shut; when feelin
 dosor | দোসর | companion, partner — not any companion but the one who matches you, who accompanies you; the word suggests reciprocity and exact fit
 bhangle | ভাঙলে | when [it] breaks — in Verse 1 the cage is "released" (chharle), a deliberate letting-go; in Verse 3 it "breaks" (bhangle), a shattering from within; the progression from gentle release to rupture
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

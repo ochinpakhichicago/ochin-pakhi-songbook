@@ -91,6 +91,8 @@ nutan pather barta | নূতন পথের বার্তা | the message/
 pureete | পুরীতে | in the realm, abode, or city — the unknown destination the traveller wonders about
 prabhat | প্রভাত | dawn — the turning of night into morning, the hoped-for resolution
 
+[Interludes]
+
 [Arrangement]
 Raga: Mallar | Taal: Jhampak | Composed: 12 September 1914, Surul (Puja Parjay). Notation by Dinendranath Tagore.
 

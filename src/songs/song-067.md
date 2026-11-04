@@ -107,6 +107,9 @@ Siraj Sai | সিরাজ সাঁই | Lalon's own spiritual guru, frequentl
 Lalon kana | লালন কানা | "Lalon the blind" — Lalon Fakir's self-referential signature within his songs
 swarup | স্বরূপ | one's true, essential form or nature, as opposed to outward appearance
 
+[Interludes]
+cello, violin
+
 [Arrangement]
 Lu on ektara
 

@@ -103,6 +103,9 @@ ghor ondhokar | ঘোর অন্ধকার | absolute darkness
 ishto mitra | ইষ্টমিত্র | relatives and friends
 dam | দম | breath
 
+[Interludes]
+dotara, cello, violin
+
 [Arrangement]
 
 [Discussion.Summary]

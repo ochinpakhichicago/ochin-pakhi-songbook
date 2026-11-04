@@ -90,6 +90,8 @@ biroho bidhur | বিরহ বিধুর | stricken, overwhelmed with the gr
 pothero kaNta | পথের কাঁটা | a thorn upon the path — an obstacle or hindrance one refuses to become
 bor magha | বর মাগা | asking for a boon or blessing
 
+[Interludes]
+
 [Arrangement]
 Published title is "Poth Cholite Jodi Chokite" (Nazrul Sangeet Sangroho #2183, Gul-Bagicha collection, Bahar-Mishra raga, Kaharba tal). Transliterated here from the wording as given, which varies slightly from the published text.
 

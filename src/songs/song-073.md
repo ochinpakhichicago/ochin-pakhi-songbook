@@ -71,6 +71,8 @@ moulana | মৌলানা | master, teacher — an honorific, here addressing
 Shams-e-Tabrez | শামস-এ-তাবরেজ | Shams Tabrizi, Rumi's spiritual mentor and the object of his profound devotion, central to Rumi's poetry
 qalandar | কলন্দর | a wandering, non-conformist Sufi mystic or dervish, associated with ecstatic, unconventional devotion
 
+[Interludes]
+
 [Arrangement]
 A Persian ghazal attributed to Rumi, from the Deewan-e-Shams Tabrezi, widely performed as a Sufi qawwali. Not a Bengali song — the "B:" lines are a phonetic Bengali-script rendering of the Persian pronunciation (for singers reading Bengali script), not a Bengali translation; the "E:" lines carry the actual meaning.
 

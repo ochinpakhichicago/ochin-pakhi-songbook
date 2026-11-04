@@ -115,6 +115,8 @@ Matal Rajjak | মাতাল রাজ্জাক | the drunkard Rajjak — D
 gele maraa | গেলে মারা | gone and dead — "maraa" = dead; the composer asks the kokila to come and find him even after death; the bird outlives the singer; the song itself is the composer's presence after he is gone
 amar kachhe koio | আমার কাছে কইও | come and tell me — "koio" = say, tell (dialectal); the last request: when I am dead, come to where I am and tell me if you found the friend; a request that crosses the boundary of death
 
+[Interludes]
+
 [Arrangement]
 Dotara and Subho start. Khol, tabla and manjira. Goes very briefly into 4.
 

@@ -56,6 +56,8 @@ Goya | গয়া | Goya — a major Vaishnava pilgrimage site; the singer tra
 Kaashi | কাশী | Kashi (Varanasi) — the holiest of all pilgrimage destinations; even here, at the centre of the sacred world, what is missing is not the place but the companion
 boishnobi | বৈষ্ণবী | a female Vaishnava devotee — in Baul tradition, the spiritual partner of the male practitioner; her absence at the end is the song's turn: the ektara (one string, one spine, the path of uprightness) can take you to every sacred place, but the companion — the other who shares the path — has not come; and this is both the joke and the teaching
 
+[Interludes]
+
 [Arrangement]
 Go into 4 for the last 5x "Sadher laau". Last 2 times Subho in upper octave.
 

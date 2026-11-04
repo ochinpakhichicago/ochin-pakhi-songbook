@@ -64,6 +64,8 @@ bishwodhaatar jogyoshala | বিশ্বধাতার যজ্ঞশাল�
 atmohomer bonhi | আত্মহোমের বহ্নি | the fire of self-sacrifice — atmohom, offering the self as an oblation
 jiban aahuti deoa | জীবন আহুতি দেওয়া | offering one's life as an oblation — a Vedic sacrificial term applied here to devoted service
 
+[Interludes]
+
 [Arrangement]
 Raga Mishra Kedara, Taal Teora. Composed 19 September 1926, Nuremberg, Germany. Puja Parjay.
 

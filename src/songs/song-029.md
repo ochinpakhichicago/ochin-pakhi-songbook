@@ -4,7 +4,7 @@ title: Jat Gelo Jat Gelo Bole
 titleBn: জাত গেল জাত গেল বলে
 lyricist: Lalon
 lyricistBn: লালন
-genre: Baul / Lalongiti
+genre: Baul / Lalongeeti
 key:
 instruments: banjo, dotara, accordion, cello
 duration:
@@ -90,6 +90,8 @@ suchi | শুচি | ritually pure, clean
 Jom | যম | Yama — the Hindu god of death; no caste exempts you from him
 beshya | বেশ্যা | prostitute — Lalon uses this to challenge who is truly "impure"
 bhromo | ভ্রম | illusion, delusion — here, the delusion that caste is real
+
+[Interludes]
 
 [Arrangement]
 European trio full phrase.

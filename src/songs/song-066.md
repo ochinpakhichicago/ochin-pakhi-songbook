@@ -89,6 +89,8 @@ beta mara jay | বেটা মারা যায় | a son is lost — "beta
 para-porshi na janiye | পাড়া-পড়শী না জানিয়ে | without the neighbors knowing — the community does not hear; no funeral, no announcement, no mourning visible to the world; the disappearance is private
 jane taro may | জানে তারো মায় | only his mother knows — "may" = mother; the final, most devastating detail: of all the people in the world, only the mother carries the knowledge of the loss; a grief that has no public face
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

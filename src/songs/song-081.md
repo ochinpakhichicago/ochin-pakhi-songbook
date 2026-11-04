@@ -77,6 +77,8 @@ baaNk | বাঁক | a bend or turn in the road
 daay thyakano | দায় ঠেকানো | running into trouble or difficulty
 bhebe na kulano | ভেবে না কুলানো | unable to fathom something no matter how much one thinks
 
+[Interludes]
+
 [Arrangement]
 Dotara riff with light flute (bansuri?) improvisation. After the accordion solo, stay sparse and low-volume until "Kon baaNke," then build to a hot tempo and hold it until "Konkhane." Tabla drops out before the last chorus on the tihai, then nate and sam land one by one, then dotara while voices go round four times, ending together.
 

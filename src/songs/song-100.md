@@ -86,6 +86,8 @@ kulnasha piriter nesha | কুলনাশা পিরীতের নেশ�
 kul o man | কুল ও মান | family honor and reputation, dignity — sacrificed to the intoxication of love
 baul | বাউল | the wandering mystic-singer tradition; here also Shah Abdul Karim's own bhanita signature within the song
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

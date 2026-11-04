@@ -97,6 +97,8 @@ kul, kolonko | কুল, কলঙ্ক | family honor/lineage, and the scanda
 angeri mala | অঙ্গেরই মালা | a garland worn on the body — embracing scandal itself as an ornament of pride, a hallmark of Baul/Vaishnav-Sahajiya devotion transcending social shame
 kopal | কপাল | forehead — idiomatically, "destiny" or "fate" in Bengali
 
+[Interludes]
+
 [Arrangement]
 Traditional Bengali folk song; its opening verse echoes a song by Baul musician Shah Abdul Karim. Featured on Sahana Bajpaie's 2016 album "Mon Bandhibi Kemone."
 

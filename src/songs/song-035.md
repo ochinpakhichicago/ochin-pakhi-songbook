@@ -4,7 +4,7 @@ title: Somoy Gele Sadhon
 titleBn: সময় গেলে সাধন
 lyricist: Lalon
 lyricistBn: লালন
-genre: Baul / Lalongiti
+genre: Baul / Lalongeeti
 key:
 instruments:
 duration:
@@ -87,6 +87,9 @@ Omabossay purnima hoy | অমাবস্যায় পূর্ণিমা 
 Mohajog | মহাযোগ | the great conjunction — "maha" = great; "yog/yoga" = conjunction, union, alignment; the astronomical/bodily moment when opposing forces align; in external astrology, a rare planetary conjunction; in Baul physiology, the brief window when the body's inner tides equalize and practice can penetrate; the most auspicious moment
 se dine udoy | সে দিনে উদয় | on that day it rises — the Mohajog rises, appears; a window opens; but it does not stay open
 dondow roy na tate | দণ্ডও রয় না তাতে | not even an instant remains — "dondo/danda" = a unit of time (24 minutes in Sanskrit measure); but here: not even a moment; the Mohajog-window is so brief that even a danda cannot be wasted; the practice must begin the instant the conjunction appears; this is why "somoy gele sadhon hobe na" — miss it by a breath and it is gone
+
+[Interludes]
+feels
 
 [Arrangement]
 

@@ -74,6 +74,8 @@ T: Danrabo tomari sammukhe.
 B: দাঁড়াব তোমারি সম্মুখে।
 E: I shall stand before you, face to face.
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

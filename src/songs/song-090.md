@@ -91,6 +91,8 @@ atMa rupe ghote ghote | আত্মারূপে ঘটে ঘটে | the Se
 gyaan aNkhi phota | জ্ঞান আঁখি ফোটা | the "eye of wisdom" opening — spiritual insight, awakening
 Radheshyam | রাধেশ্যাম | the poet's own bhanita signature — Radheshyam Das
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

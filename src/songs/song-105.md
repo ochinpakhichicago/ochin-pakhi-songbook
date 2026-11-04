@@ -61,6 +61,8 @@ T: Bina-kajer dak porechhe keno je ta kei ba jane.
 B: বিনা-কাজের ডাক পড়েছে কেন যে তা কেই বা জানে।
 E: A simple call to rest, no work or worry — this sudden departure, now who can say why?
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

@@ -86,6 +86,8 @@ dekha mele na | দেখা মেলে না | cannot be found — "dekha" =
 amar buke | আমার বুকে | in my heart — "buk" = chest, heart; the instruction to the outward-searching seeker: come here, stop going door to door, look in this chest; the one who has found the beloved can show the seeker
 dui noyane | দুই নয়ানে | in my two eyes — the final instruction; the beloved who has been found is visible in the eyes of the finder; come look into my eyes and you will see them there; the eyes of the realized person carry the beloved's presence
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

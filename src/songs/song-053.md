@@ -66,6 +66,8 @@ sotyo hauk | সত্য হউক | "may it be true" — a prayer for truthful
 baangalir praan mon | বাঙালির প্রাণ মন | the Bengali's very life-breath and heart/mind
 ek hauk | এক হউক | "may they become one" — a prayer for unity
 
+[Interludes]
+
 [Arrangement]
 Composed 1905 (1312 Bengali year), originally titled "Rakhi Sangeet," for the Rakhi Bandhan festival Tagore organized to unite Hindus and Muslims in protest of the Partition of Bengal. Raga Kirtan, Taal Ektal. Notation by Indira Devi.
 

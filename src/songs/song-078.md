@@ -4,7 +4,7 @@ title: Se Ki Amar Kobar Kotha
 titleBn: সে কি আমার কবার কথা
 lyricist: Lalon Fakir
 lyricistBn: লালন ফকির
-genre: Baul / Lalongiti
+genre: Baul / Lalongeeti
 key:
 instruments:
 duration:
@@ -100,6 +100,8 @@ chatak | চাতক | a mythical bird that only drinks falling rainwater — s
 meghe | মেঘে | in the cloud
 fanke | ফাঁকে | in the gap, slipping away
 barabari | বরাবরি | again and again, repeatedly
+
+[Interludes]
 
 [Arrangement]
 Subho solo with light dotara plucking, then he slips into rhythm.

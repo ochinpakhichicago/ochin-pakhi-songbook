@@ -82,6 +82,8 @@ Indra sobha | ইন্দ্র সভা | Indra's court — the divine court 
 mouno bina | মৌন বীণা | the silent vina — the vina (veena, a stringed instrument) that is present in the divine court but is not sounding; present in the hall of music but itself mute; a lute that carries music in its form but does not play
 nirobo nupur | নীরব নূপুর | the quiet anklet — "nupur" = ghunghroo, ankle bells worn by dancers; in a dancer's court they ring with every step; but this one is silent; the dancer who is not dancing, the music that is not sounding; the beloved is the beautiful instrument of silence in the court of all music
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

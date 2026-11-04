@@ -4,7 +4,7 @@ title: Chirodin Pushlam Ek
 titleBn: চিরদিন পুষলাম এক
 lyricist: Lalon
 lyricistBn: লালন
-genre: Baul / Lalongiti
+genre: Baul / Lalongeeti
 key:
 instruments:
 duration:
@@ -104,6 +104,8 @@ bhelki | ভেলকি | tricks, sleight of hand, illusion — "bhelki deoa" =
 Siraj Sai | সিরাজ সাঁই | Siraj Shah — Lalon's spiritual master (guru); "Sain/Sai" is an honorific for a Muslim mystic; Siraj Sai was the guru who initiated Lalon into the Baul tradition; his appearance in the final verse as a direct speaker is rare and powerful — the teaching is not Lalon's but the guru's, transmitted through Lalon
 faNd pete | ফাঁদ পেতে | setting a trap — "faNd" = a trap or snare; "peta" = to lay out, spread; the guru's instruction is to become a hunter: set a trap
 siNdh mukhi | সিঁদ মুখি | at the entrance of the burrow — "sindh" = a hole bored through a wall or the earth (specifically by a thief making a secret entry); "mukhi" = at the mouth of; the thief-burrow metaphor: the breath enters and exits the body through a small opening (the nostril), just as a thief enters through a bored hole; the guru's instruction is to watch that opening; this is a direct meditation teaching — sit at the entrance of the nostril and observe the breath as it passes
+
+[Interludes]
 
 [Arrangement]
 

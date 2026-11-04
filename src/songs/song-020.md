@@ -80,6 +80,8 @@ tolomolo | টলমলো | swaying, trembling unsteadily — describing how th
 ghater bari | ঘাটের বাড়ি | the dwelling by the ghat, the steps leading down to a river or pond
 jhilmil pani | ঝিলমিল পানি | water that glimmers and shimmers
 
+[Interludes]
+
 [Arrangement]
 Dotara starts, then dramatic cello entry, then Subho with Nate doing 2 hits, 2 hits, then accordion enters with Sam on a G chord and chimes.
 

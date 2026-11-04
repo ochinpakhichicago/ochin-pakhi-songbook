@@ -94,6 +94,8 @@ kene | কেনে | dialectal/rhetorical "why" — functions here as an implie
 utor / sotor | উতর / সতর | dialectal Baul-Bengali, likely উত্তর (north) and a term for veiling/concealment — the couplet plays on giving a false travel direction as a cover story
 oroshik | অরসিক | one without "rosh" (aesthetic-emotional sensibility) — a person incapable of appreciating or understanding deep love, from whom the secret must be kept
 
+[Interludes]
+
 [Arrangement]
 A classic Baul song of concealed devotion by Nabani Das Khaypa Baul (father of Purna Das Baul, a foundational figure of the modern Bengal Baul tradition). Text cross-checked against a published lyrics source; the "utor/sotor" line carries some dialectal ambiguity even in that source.
 

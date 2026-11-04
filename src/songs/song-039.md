@@ -80,6 +80,8 @@ bhikharir bina | ভিখারীর বীণা | the "beggar's veena" — t
 madhobi bitan | মাধবীবিতান | a bower of madhavi creeper vines, a fragrant flowering vine
 bibhol | বিভোল | overwhelmed, intoxicated — here, with fragrance
 
+[Interludes]
+
 [Arrangement]
 Raga Bibhas-Baul, Taal Dadra. Composed 1337 Bengali year (1931 CE). Prakriti Parjay — a Basanta Utsav (spring/Dol festival) song.
 

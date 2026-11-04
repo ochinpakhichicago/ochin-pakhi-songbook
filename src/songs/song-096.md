@@ -112,6 +112,8 @@ dara suto | দারা সুত | wife and son — shorthand for all family b
 tush | তুষ | husk — passing the husk means offering what is worthless, keeping the grain (the divine)
 GoNsai GuruchaNd | গোঁসাই গুরুচাঁদ | Guruchand Thakur — the second leader of the Matua sect, son of Harichand Thakur; the poet's spiritual master
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

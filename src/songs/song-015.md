@@ -143,6 +143,8 @@ kolma pora | কলমা পড়া | reciting the kalma, the Islamic declara
 mohomoder naam | মোহাম্মদের নাম | invoking the name of Muhammad for protection from fear and danger
 biraj kora | বিরাজ করা | to dwell, to be present — describing a divine presence residing within everyone
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

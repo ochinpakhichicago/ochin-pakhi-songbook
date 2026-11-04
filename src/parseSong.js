@@ -128,6 +128,7 @@ export function parseSong(text) {
     duration: meta.duration || "",
     sections,
     glossary: parseGlossary(blocks["Glossary"]),
+    interludes: joinText(blocks["Interludes"]),
     notes: joinText(blocks["Arrangement"]),
     discussion: {
       summary: joinText(blocks["Discussion.Summary"]),

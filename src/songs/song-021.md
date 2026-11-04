@@ -77,6 +77,8 @@ dui bela ahar | দুই বেলা আহার | two meals a day — the mi
 hirar khonir mojur | হীরার খনির মজুর | the diamond mine laborer — "hirar khoni" = diamond mine; "mojur" = daily wage laborer; the person who digs diamonds from the earth and has nothing; the starkest image in the song: the most valuable thing in the world is extracted by the most impoverished; they touch diamonds and own nothing
 kanakori nai | কানাকড়ি নাই | not a farthing — "kanakori" = a blind cowrie shell, the smallest denomination in old Bengali currency; worth effectively nothing; "nai" = there is none; the laborer in the diamond mine has not even the lowest unit of currency; the absolute bottom of the economic paradox
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

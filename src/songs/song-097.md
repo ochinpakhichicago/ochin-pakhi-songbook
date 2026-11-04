@@ -1,6 +1,6 @@
 ---
 id: 97
-title: Krishna onurager bagane
+title: Krishna Onurager Bagane
 titleBn: কৃষ্ণ অনুরাগের বাগানে
 lyricist: Ananta Gosai
 lyricistBn: অনন্ত গোঁসাই
@@ -125,6 +125,9 @@ choddo poya bagan | চোদ্দ পোয়া বাগান | fourteen-a
 sokam nodi | সকাম নদী | the river of desire/lust — an obstacle that must be crossed on the path of devotion
 Shree Guru Nitai | শ্রী গুরু নিতাই | Sri Guru Nityananda, revered alongside Chaitanya (Gauranga) in Gaudiya Vaishnavism
 Gour Hori, Hori bol | গৌর হরি, হরি বল | invoking Chaitanya (Gauranga) and Hari/Krishna — "Hori bol" is the congregational call-and-response chant of Krishna's name
+
+[Interludes]
+flute, dotara, violin
 
 [Arrangement]
 Subhos starts slow with fills from Tzip and Lu

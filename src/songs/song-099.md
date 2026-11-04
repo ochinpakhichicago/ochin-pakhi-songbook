@@ -85,6 +85,8 @@ gosai | গোসাঁই | an honorific for a Vaishnav saint or spiritual teac
 bhone | ভনে | the bhanita — the poet's own signature declaration within the song
 manush dhora manush bine | মানুষ ধরা মানুষ বিনে | catching the true Man is impossible without a realized Man to guide you — the Baul teaching that a living guru is essential to spiritual attainment
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

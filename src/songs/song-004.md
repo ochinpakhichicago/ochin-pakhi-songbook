@@ -115,6 +115,8 @@ shatar | সাঁতার | swimming — the narrator won't swim the river for
 nithur | নিঠুর | cruel, heartless — addressed to the absent beloved
 kalaa | কালা | the dark one — a term of endearment for the beloved, often evoking Krishna's dark complexion
 
+[Interludes]
+
 [Arrangement]
 Interlude: violin riff, flute solo, group riff.
 

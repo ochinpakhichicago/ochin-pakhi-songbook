@@ -107,6 +107,8 @@ khyapa | খ্যাপা | "madcap" — a common Baul term of address for the
 odhom | অধম | "the lowly one" — a term of humility used in the poet's bhanita signature
 tumsu | তুমসু | the bhanita/signature name used by the poet in the closing verse
 
+[Interludes]
+
 [Arrangement]
 A Baul dehatattva (body-cosmology) song using the "broken house" as a metaphor for the human body. A couple of terms ("khawrami," the exact referent of "duti khuNti") carry some uncertainty in translation.
 

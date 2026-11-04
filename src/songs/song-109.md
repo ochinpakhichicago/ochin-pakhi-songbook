@@ -78,6 +78,8 @@ T: Rudro aloke esho.
 B: রুদ্র আলোকে এসো।
 E: Come with thy light and thy thunder.
 
+[Interludes]
+
 [Arrangement]
 English translation by Rabindranath Tagore himself.
 

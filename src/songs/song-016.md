@@ -62,6 +62,8 @@ debi | দেবী | goddess — the divine feminine presence being invoked
 monoloke | মনোলোকে | in the realm/world of the mind — the inner, mental plane where she remains concealed
 chhayamoyo mayamoyo saje | ছায়াময় মায়াময় সাজে | dressed in shadow and illusion — the poet pleads for her to step out of veiled, elusive form into visible presence
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

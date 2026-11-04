@@ -95,6 +95,8 @@ maabhoi | মাভৈ | Sanskrit for "fear not" — a classical exhortation aga
 ajana | অজানা | the unknown
 durdaro bege dhaao | দুর্দম বেগে ধাও | rush forward with untamable, unstoppable force
 
+[Interludes]
+
 [Arrangement]
 Bichitra Parjay.
 

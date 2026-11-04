@@ -4,7 +4,7 @@ title: Emon Manob Jonom R Ki Hobe
 titleBn: এমন মানব জনম আর কি হবে
 lyricist: Lalon
 lyricistBn: লালন
-genre: Baul / Lalongiti
+genre: Baul / Lalongeeti
 key:
 instruments:
 duration:
@@ -83,6 +83,8 @@ madhurjyo bhajan | মাধুর্য্য ভজন | the sweetest devotion
 nironjon | নিরঞ্জন | the Spotless One — an epithet for the formless divine, free of all blemish or attribute; it is this formless one who shaped the human form for devotion
 kinar | কিনার | shore, bank — the far shore of liberation; to miss this crossing is to remain in the cycle of birth and death
 odhin Lalon | অধীন লালন | dependent Lalon — Lalon's signature of humility in the closing verse; he places himself as a servant, bound and subject to the divine
+
+[Interludes]
 
 [Arrangement]
 

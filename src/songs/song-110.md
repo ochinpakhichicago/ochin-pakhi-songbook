@@ -62,6 +62,8 @@ T: Choudike mor surer jal buni!
 B: চৌদিকে মোর সুরের জাল বুনি!
 E: Weaving around me an endless web of melodies.
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

@@ -45,6 +45,8 @@ T: Porechhe dak cholechhi ami tai.
 B: পড়েছে ডাক চলেছি আমি তাই॥
 E: A summons has come and I am ready for my journey
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

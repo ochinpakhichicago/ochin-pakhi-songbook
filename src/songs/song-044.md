@@ -75,6 +75,8 @@ janmo mrityu | জন্ম মৃত্যু | birth and death, dancing one be
 mukti bandho | মুক্তি বন্ধ | freedom and bondage — another pair of opposites dancing together within the same cosmic rhythm
 se taronge chuti | সে তরঙ্গে ছুটি | running and playing within that same wave — the poet joining the cosmic dance himself
 
+[Interludes]
+
 [Arrangement]
 Raga Kafi, Taal Khemta-Shashthi. Composed 1317 Bengali year (1910 CE). Bichitra Parjay. Notation by Surendranath Bandyopadhyay.
 

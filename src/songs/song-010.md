@@ -94,6 +94,8 @@ paajor | পাঁজর | ribs
 jwaliye | জ্বালিয়ে | setting aflame, igniting
 jwolo | জ্বলো | burn, blaze
 
+[Interludes]
+
 [Arrangement]
 Flute and dotara start. Groove: accordion and dotara on first half, cello on 2nd half "sniff a d d".
 

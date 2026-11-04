@@ -95,6 +95,8 @@ pach jonate lute neoya | পাঁচ জনাতে লুটে নেওয�
 sindukeri dhon | সিন্দুকেরই ধন | wealth kept locked away in a chest/coffer
 jomidar, talukdar | জমিদার, তালুকদার | zamindar and talukdar — hereditary landlord and estate-holder titles from colonial-era Bengal, symbols of worldly status that mean nothing after death
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

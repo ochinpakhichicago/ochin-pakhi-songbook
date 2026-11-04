@@ -99,6 +99,8 @@ isk / ishq | ইশক | divine love — the burning, yearning love at the heart
 fana-fillah | ফানাফিল্লাহ | annihilation in God — the Sufi stage of ego-dissolution
 ashek / mashek | আশেক / মাশেক | lover / beloved — the two poles of Sufi devotion
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

@@ -53,6 +53,9 @@ T: Amar majhare nijere koriya daan.
 B: আমার মাঝারে নিজেরে করিয়া দান।
 E: And taste in me your own divine sweetness.
 
+[Interludes]
+group, violin
+
 [Arrangement]
 Raga Yaman Kalyan, Taal Ektal. Composed 13 Ashadh 1317 (1910), at Bolpur. Puja Parjay, Gitabitan song 85. The English above is Tagore's own free-verse rendering from Gitanjali, which compresses the six-line second antara into four English lines — mapped here by sense rather than strict line count.
 

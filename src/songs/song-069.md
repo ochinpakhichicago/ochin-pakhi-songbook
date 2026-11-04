@@ -92,6 +92,8 @@ rasero aabeshoraashi | রসের আবেশরাশি | an excess of sent
 proloyero shaankh | প্রলয়ের শাঁখ | the conch-shell of apocalypse — sounded to herald destruction that clears the way for renewal
 maayar kujjhotijal | মায়ার কুজ্ঝটিজাল | the fog-veil of illusion — maya's obscuring haze, which must be dispelled
 
+[Interludes]
+
 [Arrangement]
 Composed 4 March 1927. Raga Emon Kalyan, Taal Kaharba. Prakriti Parjay — the iconic anthem of Pohela Boishakh (Bengali New Year).
 

@@ -112,6 +112,8 @@ Hason Raja | হাসন রাজা | the poet's own bhanita signature — Ha
 dalan kutha | দালান কুঠা | a grand pucca/brick mansion — a symbol of worldly wealth and permanence
 rongin kora | রঙিন করা | painting or decorating brightly in color
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

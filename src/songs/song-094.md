@@ -104,6 +104,9 @@ karojure | করজুড়ে | with folded hands — the Bengali gesture of 
 dorbare | দরবারে | at the court — the devotional court of the spiritual master
 bhakter odhin | ভক্তের অধীন | bound to the devotee — the paradox that the divine becomes subservient to pure love
 
+[Interludes]
+flute, dotara, accordion
+
 [Arrangement]
 
 [Discussion.Summary]

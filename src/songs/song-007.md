@@ -4,7 +4,7 @@ title: Milon Hobe Koto Dine
 titleBn: মিলন হবে কতো দিনে
 lyricist: Lalon
 lyricistBn: লালন
-genre: Baul / Lalongiti
+genre: Baul / Lalongeeti
 key:
 instruments:
 duration:
@@ -98,6 +98,9 @@ rup | রূপ | form, beauty — the divine form seen in moments of contemplat
 smrane | স্মরণে | in remembrance — the act of recalling the divine form; memory as spiritual practice
 lok lojja | লোক লজ্জা | public shame — the social embarrassment the true lover transcends; when remembrance of the beloved comes, no worldly judgment matters
 prem | প্রেম | love — divine love as direct knowledge; Lalon's final word: only the one who loves truly knows what love is
+
+[Interludes]
+flute, dotara, violin
 
 [Arrangement]
 Start: Subho with low cello drones, Tzip flute fills, eventually also Sam.

@@ -17,7 +17,7 @@ const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD;
 const ADMIN_USERNAME = (import.meta.env.VITE_ADMIN_USERNAME || "admin").toLowerCase();
 
 const GENRES = [
-  "All", "Baul", "Rabindrasangeet", "Nazrulgiti",
+  "All", "Baul", "Rabindrasangeet", "Nazrulgeeti",
   "Bhatiyali", "Jhumur", "Qawwali", "Jit-sangeet",
 ];
 
@@ -1173,6 +1173,43 @@ function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs",
         {/* ── Arrangement Notes ── */}
         {tab === "notes" && (
           <div>
+            {song.interludes && (
+              <div
+                style={{
+                  background: colors.surface,
+                  border: `1px solid ${colors.border}`,
+                  borderRadius: 10,
+                  padding: "18px 20px",
+                  marginBottom: song.notes ? 16 : 0,
+                }}
+              >
+                <div
+                  style={{
+                    fontSize: 11,
+                    fontWeight: 700,
+                    color: colors.accent,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.08em",
+                    marginBottom: 12,
+                  }}
+                >
+                  Interludes
+                </div>
+                {song.interludes.split("\n").map((line, i) => (
+                  <div
+                    key={i}
+                    style={{
+                      fontSize: 15,
+                      color: colors.text,
+                      lineHeight: 1.6,
+                      marginBottom: 4,
+                    }}
+                  >
+                    {line}
+                  </div>
+                ))}
+              </div>
+            )}
             {song.notes ? (
               <div
                 style={{
@@ -1209,17 +1246,19 @@ function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs",
                 ))}
               </div>
             ) : (
-              <div
-                style={{
-                  textAlign: "center",
-                  color: colors.textMuted,
-                  padding: 40,
-                  fontSize: 14,
-                  fontStyle: "italic",
-                }}
-              >
-                No arrangement notes yet for this song.
-              </div>
+              !song.interludes && (
+                <div
+                  style={{
+                    textAlign: "center",
+                    color: colors.textMuted,
+                    padding: 40,
+                    fontSize: 14,
+                    fontStyle: "italic",
+                  }}
+                >
+                  No arrangement notes yet for this song.
+                </div>
+              )
             )}
           </div>
         )}
@@ -2254,6 +2293,9 @@ E: I stay close to you
 
 [Glossary]
 kachhe | কাছে | nearby, close
+
+[Interludes]
+Dotara fills the gaps between verses.
 
 [Arrangement]
 Start slow, dotara solo intro.

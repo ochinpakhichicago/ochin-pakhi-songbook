@@ -85,6 +85,8 @@ khajna-pati | খাজনা-পাতি | rent and dues — all the obligatio
 nilam | নিলাম | auction — to formally acquire land through the landlord's auction; the speaker cannot even win ownership by paying the full price
 dakhila | দাখিলা | the official receipt of payment, the tenancy document — the proof that ownership has been transferred; it never arrives; the divine does not send a receipt confirming the soul's rightful place
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

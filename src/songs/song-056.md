@@ -64,6 +64,8 @@ thumuk thumuk | থুমুক থুমুক | an onomatopoeic phrase describ
 shoromero rong | শরমেরও রং | the "color" of shyness — a blush
 nagor Kanai, Rai | নাগর কানাই, রাই | Kanai (Krishna) as beloved, and Rai (Radha) — the archetypal divine lovers of Vaishnav poetry, invoked here as models of joyful, expressive dance
 
+[Interludes]
+
 [Arrangement]
 Traditional Bengali wedding song, performed especially at Gaye Holud (turmeric) ceremonies; popularized and arranged by Nirmalendu Chowdhury.
 

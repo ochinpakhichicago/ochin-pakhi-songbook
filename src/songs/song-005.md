@@ -82,6 +82,8 @@ ghaate baaNdha | ঘাটে বাঁধা | tied at the dock — "ghaat" = t
 paal tule de | পাল তুলে দে | raise the sail — "paal" = sail; "tule de" = raise it up, lift it; the sail catches the wind and commits the boat to movement; raising the sail is the point of no return; the wind takes over
 baaNchi mori | বাঁচি মরি | whether we live or die — the final surrender; "baaNchi" = (if) I live; "mori" = (if) I die; it doesn't matter; commit to the crossing and let the outcome be what it is; the absolute courage of the moment when the flood has come and waiting is no longer possible
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

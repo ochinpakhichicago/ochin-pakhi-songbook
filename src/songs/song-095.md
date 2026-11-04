@@ -133,6 +133,8 @@ shoishakhet | শইশাখেত | dialect for সরিষাক্ষেত
 moner mita | মনের মিতা | a true, sworn friend of the heart
 jhalor pani | ঝালর পানি | fringed, glimmering water — the shimmering, rippling surface of the river
 
+[Interludes]
+
 [Arrangement]
 Classic Bhatiali/Polligeeti boatman's song, written and composed by Girin Chakraborty and made famous through Abbas Uddin Ahmed's recording.
 

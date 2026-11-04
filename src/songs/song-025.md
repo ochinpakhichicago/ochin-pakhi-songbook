@@ -120,6 +120,8 @@ break fail | ব্রেক ফেইল | brake failure — "kokhon jani" = wh
 bishom ondhokaar | বিষম অন্ধকার | terrible darkness — "bishom" = extreme, terrible; "ondhokaar" = darkness; the darkness ahead is death; but also: the darkness of not knowing what lies beyond; and the darkness of a life driven by a blind mind
 bhabna | ভাবনা | worry, contemplation — "bhabche" = is thinking; "bhabna" = the act of worried thinking; Abdul Karim sits with this worry; not panic, but the genuine concern of an old man looking at his aging body and the darkness ahead; the word also carries "bhavana" = meditative reflection
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

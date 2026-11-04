@@ -101,6 +101,8 @@ Kutilar Chhawle | কুটিলার ছলে | in Kutila's trick — "Kutil
 gondogole | গণ্ডগোলে | trouble, commotion, mess — "gondogol" = disorder, scandal, interference; the question is sardonic: is Kutila stirring up trouble again? Of course she is.
 akalete kina khaay | আকালেতে কি না খায় | in the age of scarcity, what isn't consumed — a wry, street-level observation; "akal" = the age of scarcity, these days; "khaay" = is consumed, eaten; in these times everything gets swallowed by scandal and gossip; nothing is safe from being made into a drama
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

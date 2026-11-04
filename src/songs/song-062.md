@@ -107,6 +107,8 @@ shike | শিকে | a hanging string or sling used to suspend a pot out of re
 buno ool | বুনো উল | wild yam/taro, which causes an itchy throat if eaten improperly prepared
 sidhel chor kobul na kora | সিঁধেল চোর কবুল না করা | a housebreaking thief who, even when caught red-handed, refuses to confess
 
+[Interludes]
+
 [Arrangement]
 A Kabigan-style composition by kabiyal (folk poet-performer) Gurudas Pal. The performance includes instrumental breaks (music stopping and restarting) before the crow and thief punchline couplets.
 

@@ -92,6 +92,8 @@ basi phool | বাসি ফুল | stale flowers — flowers from the previou
 jugol | যুগল | the divine couple — Radha and Krishna together; "jugol" worship (yugala-upasana) is the central practice of Bengali Vaishnavism
 sebar dasi | সেবার দাসী | handmaidens of service — the sakhis (companions and attendants) of Radha who serve the divine couple; in Vaishnava devotion, the ideal is to be one of these handmaidens
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

@@ -4,7 +4,7 @@ title: Emon Manob Somaj
 titleBn: এমন মানব সমাজ
 lyricist: Lalon
 lyricistBn: লালন
-genre: Baul / Lalongiti
+genre: Baul / Lalongeeti
 key:
 instruments: algoza, dotara, bansuri, violin
 duration:
@@ -88,6 +88,9 @@ amir | আমির | the wealthy, a ruler
 fakir | ফকির | wandering spiritual mendicant; the poor and dispossessed
 ashraf | আশরাফ | the noble — Arabic term for those claiming descent from the Prophet
 jigir | জিগির | dispute, claim, chanting — raising a cry of superiority
+
+[Interludes]
+flute, dotara, violin
 
 [Arrangement]
 Tune to Algoza.

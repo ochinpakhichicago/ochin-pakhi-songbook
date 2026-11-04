@@ -55,6 +55,8 @@ Bhaiyer rokte rangano | ভাইয়ের রক্তে রাঙানো
 chhele hara ma | ছেলে হারা মা | a mother who has lost her son — the grieving mothers of the language martyrs
 Sonar desh | সোনার দেশ | "golden homeland" — an affectionate epithet for Bengal/Bangladesh
 
+[Interludes]
+
 [Arrangement]
 Written by Abdul Gaffar Choudhury on 21 February 1952. Tune composed by Altaf Mahmud (1954), now the definitive melody. The anthem of Ekushey February / International Mother Language Day; featured in Zahir Raihan's 1969 film "Jibon Theke Neya."
 

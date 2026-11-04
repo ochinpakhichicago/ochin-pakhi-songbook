@@ -4,7 +4,7 @@ title: Dhonnyo Dhonnyo Boli Tare
 titleBn: ধন্য ধন্য বলি তারে
 lyricist: Lalon
 lyricistBn: লালন
-genre: Baul / Lalongiti
+genre: Baul / Lalongeeti
 key:
 instruments: dotara, cello, accordion, khol, manjira
 duration:
@@ -85,6 +85,8 @@ chelekotha | চিলেকোঠা | attic, rooftop room — the highest cham
 pagla byata | পাগলা ব্যাটা | the mad fellow — the soul or the divine presence dwelling within
 ekesshyare | একেশ্বরে | with the One God, the single Lord — Lalon's non-sectarian monotheism
 dorja | দরজা | door — the nine openings of the body (nava-dvara) in yogic/Baul tradition; here with an extra half
+
+[Interludes]
 
 [Arrangement]
 Start and end (after Kon dorja khule ghore):

@@ -136,6 +136,8 @@ dunduvi dhak | দুন্দুভি ঢাক | a large ceremonial war-drum
 kal-boishekhi | কাল-বৈশাখী | the fierce nor'wester storm that strikes Bengal in late spring — used as a metaphor for revolutionary upheaval
 bondishala | বন্দীশালা | prison-house
 
+[Interludes]
+
 [Arrangement]
 One of Nazrul's most iconic rebellion/protest anthems, written under British colonial rule and long associated with the independence movement.
 

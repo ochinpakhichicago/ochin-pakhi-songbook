@@ -71,6 +71,8 @@ gore | গোরে | in the grave — Islamic burial; the grave is the resting 
 shmashan | শ্মশানে | in the cremation ground — Hindu cremation; "shmashan" = cremation ground; the fire, the ashes returned to the river; the Hindu resting place after death
 same earth | — | the final image: different rites, same soil; the grave and the cremation ground are both in the same earth, the same country's maati (soil); death makes the distinction irrelevant; the earth does not separate its two traditions
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]

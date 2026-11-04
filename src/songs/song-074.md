@@ -128,6 +128,8 @@ teen er pakhani | তিনের পাখানি | the "boat/vessel of the T
 tin rosh | তিন রস | the "three essences" — likely a symbolic triad in Baul spiritual practice; exact meaning uncertain
 gunomoni | গুণমণি | "jewel of virtue" — an epithet of praise for the beloved
 
+[Interludes]
+
 [Arrangement]
 Lyrics by Meera Dev Barman, tune and vocals by Sachin Dev Burman — a Bhatiali-rooted song blending boatman romance with Krishna-bhakti/Baul mysticism.
 

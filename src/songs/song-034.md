@@ -4,7 +4,7 @@ title: Barir Kachhe Aarshinagar
 titleBn: বাড়ির কাছে আরশিনগর
 lyricist: Lalon
 lyricistBn: লালন
-genre: Baul / Lalongiti
+genre: Baul / Lalongeeti
 key:
 instruments:
 duration:
@@ -90,6 +90,8 @@ neere | নীরে | upon the water — the divine floats in the formless, the
 jom jatona | যম যাতনা | the torments of death — "jom" = Yama, the god of death; all the suffering of dying and rebirth; a single touch from the divine would dissolve it all
 lokkho jojon | লক্ষ যোজন | a hundred thousand leagues — an astronomical distance; the measure of the paradox: same place, infinite gap
 faNk | ফাঁক | a gap, an empty space between — not physical distance but spiritual blindness; the gap is the seeker's own lack of inner sight
+
+[Interludes]
 
 [Arrangement]
 No slow down at the end.

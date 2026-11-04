@@ -89,6 +89,8 @@ namer dhoni | নামের ধ্বনি | the sound of the name — the re
 modhu | মধু | honey — the name's sweetness; "sei namer modhu" = the honey of that name; one sings day and night intoxicated by this sweetness; the same "modhu" as in Sadher Laau — the initiatory sweetness
 sarakhhon | সারাক্ষণ | at every moment, continuously — "sara" = all, whole; "khhon" = moment; Latif Sarkar's heart wants the Khwaja at all times, without interruption; the longing that has no rest
 
+[Interludes]
+
 [Arrangement]
 
 [Discussion.Summary]
