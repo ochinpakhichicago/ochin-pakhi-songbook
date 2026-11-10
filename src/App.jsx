@@ -18,7 +18,7 @@ const ADMIN_USERNAME = (import.meta.env.VITE_ADMIN_USERNAME || "admin").toLowerC
 
 const GENRES = [
   "All", "Baul", "Rabindrasangeet", "Nazrulgeeti",
-  "Bhatiyali", "Jhumur", "Qawwali", "Jit-sangeet",
+  "Bhatiyali", "Jhumur", "Qawwali", "Jit-sangeet", "Lokgeeti",
 ];
 
 // Flip to true to let guests see the "Our Recording" tab. Off for now — recordings are member/admin only.
