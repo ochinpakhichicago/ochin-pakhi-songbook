@@ -45,8 +45,8 @@ T: Baula gaan, ghatu gaan, anonder tufan
 B: বাউলা গান, ঘাটু গান, আনন্দের তুফান
 E: Baul songs, Ghatu songs, a storm of joy
 
-T: Gaiya sari gaan nouka dauraitam
-B: গাইয়া সারি গান নৌকা দৌড়াইতাম
+T: Gaiya sari gaan nao dauraitam
+B: গাইয়া সারি গান নাও দৌড়াইতাম
 E: Singing boat-race songs, we would race our boats
 
 [Verse 3]
@@ -59,7 +59,7 @@ B: রঙে ঢঙে গাইতো, আনন্দ পাইতাম
 E: Sung with such color and flair, and we found our joy
 
 T: Keho ba member, keho ba minister
-B: কেহ বা member, কেহ বা minister
+B: কেহ বা মেম্বার, কেহ বা মিনিস্টার
 E: Someone was a "member," someone a "minister"
 
 T: Amra ki esober naam janitam

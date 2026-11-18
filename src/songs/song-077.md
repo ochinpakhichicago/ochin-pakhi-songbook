@@ -11,9 +11,9 @@ duration:
 ---
 
 [Refrain]
-T: O sadher bosnobi lo bosnobi
-B: ও সাধের বোষ্টমী লো বোষ্টমী
-E: O my beloved Boshtomi, O Boshtomi,
+T: O sadher boishnobi lo boishnobi
+B: ও সাধের বৈষ্ণবী লো বৈষ্ণবী
+E: O my beloved Vaishnabi, O Vaishnabi,
 
 T: amar bhanga ghore
 B: আমার ভাঙা ঘরে
@@ -66,17 +66,17 @@ B: এ ঘরের ছন্ন ভন্ন
 E: this house lies scattered, in disarray —
 
 T: daay kathi
-B: দায় কাঠি
+B: দেয় কাঠি
 E: held together by a mere makeshift prop
 
 [Verse 3]
-T: Bosnobi sottyo kotha koi
-B: বোষ্টমী সত্য কথা কই
-E: O Boshtomi, let me speak the truth,
+T: Boishnobi sottyo kotha koi
+B: বৈষ্ণবী সত্য কথা কই
+E: O Vaishnabi, let me speak the truth,
 
-T: Khawrami dekha holo koi
-B: খড়রামি দেখা হলো কই
-E: where has that raw wildness gone?
+T: Gharamir dekha holo koi
+B: ঘরামীর দেখা হলো কই
+E: where has that house builder gone?
 
 T: Jar ek phoNtate manush gota
 B: যার এক ফোঁটাতে মানুষ গোটা
@@ -86,16 +86,16 @@ T: (khyapa re) noy doroja oi
 B: (খ্যাপা রে) নয় দরজা ওই
 E: O madcap, through those nine doors
 
-T: Odhom tumsu kohe
-B: অধম তুমসু কহে
-E: the lowly Tumsu says:
+T: Odhom Kingshuk kohe
+B: অধম কিংশুক কহে
+E: the lowly Kingshuk says
 
 T: dena tobe e ghorer janla kopat de aNti
 B: দেনা তবে এ ঘরের জানলা কপাট দে আঁটি
 E: then seal shut this house's windows and shutters tightly
 
 [Glossary]
-boshtomi | বোষ্টমী | a female Vaishnav renunciant/practitioner — here the beloved spiritual companion addressed throughout the song
+boishnobi | বৈষ্ণবী | a female Vaishnav renunciant/practitioner — here the beloved spiritual companion addressed throughout the song
 bhanga ghor | ভাঙা ঘর | the "broken house" — a central Baul dehatattva metaphor for the fragile, decaying human body
 duti khuNti | দুটি খুঁটি | two main support-posts of the house — likely a symbolic duality within the body's structure
 aat kuthuri noy doroja | আট কুঠরি নয় দরজা | eight chambers, nine doors — a classic Baul dehatattva formula for the body's nine natural openings (nabadwar) and eight inner constituents
@@ -105,12 +105,11 @@ daay kathi | দায় কাঠি | a makeshift prop used out of necessity 
 ek phoNtate manush gota | এক ফোঁটাতে মানুষ গোটা | an entire human being formed from a single drop — referencing bindu (seminal essence) in Baul reproductive-spiritual cosmology
 khyapa | খ্যাপা | "madcap" — a common Baul term of address for the divine sought within, or for a spiritually intoxicated seeker
 odhom | অধম | "the lowly one" — a term of humility used in the poet's bhanita signature
-tumsu | তুমসু | the bhanita/signature name used by the poet in the closing verse
 
 [Interludes]
 
 [Arrangement]
-A Baul dehatattva (body-cosmology) song using the "broken house" as a metaphor for the human body. A couple of terms ("khawrami," the exact referent of "duti khuNti") carry some uncertainty in translation.
+A Baul dehatattva (body-cosmology) song using the "broken house" as a metaphor for the human body.
 
 [Discussion.Summary]
 
