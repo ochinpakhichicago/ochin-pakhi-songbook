@@ -102,11 +102,13 @@ A nostalgic lament for a vanished era of rural Hindu-Muslim communal life in Syl
 [Discussion.Points]
 
 [Discussion.KeyAspects]
+This song has two tunes - one given by Shah Abdul Karim and another the popular one was by Bidit Lal Das from Sylhet.
 
 [Tags]
 Lokgeeti, Folk, Shah Abdul Karim, Communal Harmony, Hindu-Muslim Unity, Nostalgia, Village Life, Baul, Sylhet
 
 [Reference]
 Age ki sundor din kataitam — Shah Abdul Karim | https://www.youtube.com/watch?v=h71XgxKLq1g 
+Age ki sundor din kataitam — Dohar (Original tune) | https://www.youtube.com/watch?v=rNZ6DY7K00E
 
 [OurRecording]
