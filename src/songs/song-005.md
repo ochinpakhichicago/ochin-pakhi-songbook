@@ -4,7 +4,7 @@ title: Ebar Tor Mora Gaange Baan
 titleBn: এবার তোর মরা গাঙে বান
 lyricist: Tagore
 lyricistBn: রবীন্দ্রনাথ ঠাকুর
-genre: Rabindrasangeet
+genre: Rabindrasangeet / Sari
 key:
 instruments:
 duration:

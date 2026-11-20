@@ -4,7 +4,7 @@ title: Nao Chhariya De
 titleBn: নাও ছাড়িয়া দে
 lyricist: Girin Chakraborty
 lyricistBn: গিরীন চক্রবর্তী
-genre: Bhatiali / Polligeeti
+genre: Sari / Polligeeti
 key:
 instruments:
 duration:
