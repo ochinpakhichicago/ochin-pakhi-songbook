@@ -4,7 +4,7 @@ title: He Mor Debota
 titleBn: হে মোর দেবতা
 lyricist: Tagore
 lyricistBn: রবীন্দ্রনাথ ঠাকুর
-genre: Rabindra Sangeet
+genre: Rabindrasangeet
 key:
 instruments:
 duration:

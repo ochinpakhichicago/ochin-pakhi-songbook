@@ -4,7 +4,7 @@ title: Protidino Ami He Jibonoswami
 titleBn: প্রতিদিন আমি হে জীবনস্বামী
 lyricist: Tagore
 lyricistBn: রবীন্দ্রনাথ ঠাকুর
-genre: Rabindra Sangeet
+genre: Rabindrasangeet
 key:
 instruments:
 duration:

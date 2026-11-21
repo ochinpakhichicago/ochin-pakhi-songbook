@@ -4,7 +4,7 @@ title: Ami Hethay Thaki
 titleBn: আমি হেথায় থাকি
 lyricist: Tagore
 lyricistBn: রবীন্দ্রনাথ ঠাকুর
-genre: Rabindra Sangeet
+genre: Rabindrasangeet
 key:
 instruments:
 duration:

@@ -4,7 +4,7 @@ title: Majhi Baiya Jao Re
 titleBn: মাঝি বাইয়া যাও রে
 lyricist: Abbasuddin
 lyricistBn: আব্বাসউদ্দিন
-genre: Bhatiali / Lokgeeti
+genre: Bhatiyali / Lokgeeti
 key:
 instruments:
 duration:
@@ -24,9 +24,9 @@ B: আমার ভাঙা নাও রে
 E: My broken boat
 
 [Verse 1]
-T: Venna kashther nouka khani
+T: Bhenna kashther nouka khani
 B: ভেন্না কাষ্ঠের নৌকা খানি
-E: A boat made of soft venna wood
+E: A boat made of soft wood
 
 T: Majh khane tar bura
 B: মাঝ খানে তার বুড়া
@@ -94,7 +94,7 @@ jane taro may | জানে তারো মায় | only his mother knows �
 [Arrangement]
 
 [Discussion.Summary]
-A Bhatiali-style folk song by Abbasuddin — one of the great voices of Bengali folk music. It opens with a direct cry to the boatman: row on, in the middle of the shoreless river, with a broken boat. The song then unfolds three ways a life goes wrong. First: a boat made of the wrong wood (venna — soft, unsuitable), already rotting at the middle, losing its prow. Second: marriage and obligation taken on before education or initiation — becoming a slave without earning the right to be bound, spending the body's honest earnings without wisdom. Third: the man who goes abroad into trouble and is lost — a son who dies in a foreign land, the neighbors unaware, only his mother knowing. Each verse is a different form of the same predicament: the vessel is wrong, the crossing was begun too early, and someone is now missing on the far side. Abbasuddin's genius was to hold the folk realism (the specific detail of venna wood, the golui going under, the village not knowing) and the metaphysical resonance (the shoreless river, the broken boat) in the same breath, at the same pitch.
+A Bhatiyali-style folk song by Abbasuddin — one of the great voices of Bengali folk music. It opens with a direct cry to the boatman: row on, in the middle of the shoreless river, with a broken boat. The song then unfolds three ways a life goes wrong. First: a boat made of the wrong wood (venna — soft, unsuitable), already rotting at the middle, losing its prow. Second: marriage and obligation taken on before education or initiation — becoming a slave without earning the right to be bound, spending the body's honest earnings without wisdom. Third: the man who goes abroad into trouble and is lost — a son who dies in a foreign land, the neighbors unaware, only his mother knowing. Each verse is a different form of the same predicament: the vessel is wrong, the crossing was begun too early, and someone is now missing on the far side. Abbasuddin's genius was to hold the folk realism (the specific detail of venna wood, the golui going under, the village not knowing) and the metaphysical resonance (the shoreless river, the broken boat) in the same breath, at the same pitch.
 
 [Discussion.Lyricist]
 
@@ -103,7 +103,7 @@ A Bhatiali-style folk song by Abbasuddin — one of the great voices of Bengali 
 [Discussion.KeyAspects]
 
 [Tags]
-Bhatiali, Abbasuddin, Boatman, River, Broken Boat, Loss, Hardship, Migration, Mother, Folk
+Bhatiyali, Abbasuddin, Boatman, River, Broken Boat, Loss, Hardship, Migration, Mother, Folk
 
 [Reference]
 Majhi Baiya Jao Re -  Amar Pal | https://www.youtube.com/watch?v=R0gI8_dR0lI

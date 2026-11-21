@@ -4,7 +4,7 @@ title: Ghaate Lagaia Dingaa
 titleBn: ঘাটে লাগাইয়া ডিঙা
 lyricist: Meera Dev Barman
 lyricistBn: মীরা দেব বর্মণ
-genre: Bhatiali / Lokgeeti
+genre: Bhatiyali / Lokgeeti
 key:
 instruments:
 duration:
@@ -131,7 +131,7 @@ gunomoni | গুণমণি | "jewel of virtue" — an epithet of praise for t
 [Interludes]
 
 [Arrangement]
-Lyrics by Meera Dev Barman, tune and vocals by Sachin Dev Burman — a Bhatiali-rooted song blending boatman romance with Krishna-bhakti/Baul mysticism.
+Lyrics by Meera Dev Barman, tune and vocals by Sachin Dev Burman — a Bhatiyali-rooted song blending boatman romance with Krishna-bhakti/Baul mysticism.
 
 [Discussion.Summary]
 
@@ -142,7 +142,7 @@ Lyrics by Meera Dev Barman, tune and vocals by Sachin Dev Burman — a Bhatiali-
 [Discussion.KeyAspects]
 
 [Tags]
-Bhatiali, Meera Dev Barman, Sachin Dev Burman, Folk, Krishna, Devotion, Mysticism
+Bhatiyali, Meera Dev Barman, Sachin Dev Burman, Folk, Krishna, Devotion, Mysticism
 
 [Reference]
 Ghate Lagaiya Dinga — Sachin Dev Burman | https://www.youtube.com/watch?v=-iKSHBJtdW0

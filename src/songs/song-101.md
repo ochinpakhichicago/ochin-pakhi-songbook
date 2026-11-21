@@ -4,7 +4,7 @@ title: Amare Tumi Oshesh Korecho
 titleBn: আমারে তুমি অশেষ করেছ
 lyricist: Tagore
 lyricistBn: রবীন্দ্রনাথ ঠাকুর
-genre: Rabindra Sangeet
+genre: Rabindrasangeet
 key:
 instruments:
 duration:

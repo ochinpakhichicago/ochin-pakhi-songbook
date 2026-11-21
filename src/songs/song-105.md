@@ -4,7 +4,7 @@ title: Kolahol To Baron Holo
 titleBn: কোলাহল তো বারণ হল
 lyricist: Tagore
 lyricistBn: রবীন্দ্রনাথ ঠাকুর
-genre: Rabindra Sangeet
+genre: Rabindrasangeet
 key:
 instruments:
 duration:

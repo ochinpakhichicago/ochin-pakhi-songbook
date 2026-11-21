@@ -99,7 +99,7 @@ baul | বাউল | the wandering mystic-singer tradition; here also Shah Abdu
 [Discussion.KeyAspects]
 
 [Tags]
-Baul, Shah Abdul Karim, Love, Longing, Sylheti, Bhatiali, Devotion
+Baul, Shah Abdul Karim, Love, Longing, Sylheti, Bhatiyali, Devotion
 
 [Reference]
 Bonde Maya Lagaishe — Sahana Bajpaie | https://www.youtube.com/watch?v=rZCxAsSrdXE

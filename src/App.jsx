@@ -669,7 +669,7 @@ function SongDetail({ song, onBack, onPlay, onTagClick, backLabel = "All Songs",
     { key: "ours", label: "Our Recording" },
     { key: "discussion", label: "Discussion" },
   ];
-  const guestTabKeys = new Set(["lyrics", "glossary", ...(GUEST_CAN_SEE_OUR_RECORDING ? ["ours"] : [])]);
+  const guestTabKeys = new Set(["lyrics", "glossary", "reference", ...(GUEST_CAN_SEE_OUR_RECORDING ? ["ours"] : [])]);
   const tabs = role === "guest" ? allTabs.filter((t) => guestTabKeys.has(t.key)) : allTabs;
 
   const wordLookup = useMemo(() => {

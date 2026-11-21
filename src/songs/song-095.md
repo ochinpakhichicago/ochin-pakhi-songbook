@@ -136,7 +136,7 @@ jhalor pani | ঝালর পানি | fringed, glimmering water — the shim
 [Interludes]
 
 [Arrangement]
-Classic Bhatiali/Polligeeti boatman's song, written and composed by Girin Chakraborty and made famous through Abbas Uddin Ahmed's recording.
+Classic Bhatiyali/Polligeeti boatman's song, written and composed by Girin Chakraborty and made famous through Abbas Uddin Ahmed's recording.
 
 [Discussion.Summary]
 
@@ -147,7 +147,7 @@ Classic Bhatiali/Polligeeti boatman's song, written and composed by Girin Chakra
 [Discussion.KeyAspects]
 
 [Tags]
-Bhatiali, Folk, Boatman, River, Nature, Girin Chakraborty, Polligeeti
+Bhatiyali, Folk, Boatman, River, Nature, Girin Chakraborty, Polligeeti
 
 [Reference]
 Nao Chhariya De — Abbas Uddin Ahmed | https://www.youtube.com/watch?v=QLogl1qcmLM

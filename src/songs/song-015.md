@@ -136,7 +136,7 @@ E: My heart feels so strange, so restless
 [Glossary]
 dhoro haal shokto haate | ধরো হাল শক্ত হাতে | hold the rudder with a firm hand — steering through life's storm with a steady, unafraid grip
 bodhu | বধূ | bride, wife — a tender term of address
-doriyay tufan | দরিয়ায় তুফান | a storm at sea — "doriya" is a Perso-Arabic-derived word for sea/ocean common in Bhatiali and Bengali Muslim folk song
+doriyay tufan | দরিয়ায় তুফান | a storm at sea — "doriya" is a Perso-Arabic-derived word for sea/ocean common in Bhatiyali and Bengali Muslim folk song
 hese hese jabi vese | হেসে হেসে যাবি ভেসে | drifting along while laughing — meeting life's storms with acceptance and even joy, rather than fear
 nobijir vorsha | নবীজীর ভরসা | faith and trust placed in the Prophet — "Nobiji" refers to the Prophet Muhammad
 kolma pora | কলমা পড়া | reciting the kalma, the Islamic declaration of faith
@@ -156,7 +156,7 @@ biraj kora | বিরাজ করা | to dwell, to be present — describing 
 [Discussion.KeyAspects]
 
 [Tags]
-Lokgeeti, Folk, Bhatiali, River, Faith, Gautam Chattopadhyay, Kalpurush
+Lokgeeti, Folk, Bhatiyali, River, Faith, Gautam Chattopadhyay, Kalpurush
 
 [Reference]
 Mon Amar Kemon Kemon Kore | https://www.youtube.com/watch?v=UsWwoq3jt6o

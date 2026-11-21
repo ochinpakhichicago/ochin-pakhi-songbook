@@ -4,7 +4,7 @@ title: Peyechhi Chhuti
 titleBn: পেয়েছি ছুটি
 lyricist: Tagore
 lyricistBn: রবীন্দ্রনাথ ঠাকুর
-genre: Rabindra Sangeet
+genre: Rabindrasangeet
 key:
 instruments:
 duration:

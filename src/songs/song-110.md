@@ -4,7 +4,7 @@ title: Tumi Kemon Kore Gan Koro
 titleBn: তুমি কেমন করে গান কর
 lyricist: Tagore
 lyricistBn: রবীন্দ্রনাথ ঠাকুর
-genre: Rabindra Sangeet
+genre: Rabindrasangeet
 key:
 instruments:
 duration:

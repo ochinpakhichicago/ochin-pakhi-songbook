@@ -4,7 +4,7 @@ title: Megher Pore Megh Jomechhe
 titleBn: মেঘের পরে মেঘ জমেছে
 lyricist: Tagore
 lyricistBn: রবীন্দ্রনাথ ঠাকুর
-genre: Rabindra Sangeet
+genre: Rabindrasangeet
 key:
 instruments:
 duration:

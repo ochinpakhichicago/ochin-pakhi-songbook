@@ -4,7 +4,7 @@ title: Jibono Jokhono Shukaye Jaay
 titleBn: জীবন যখন শুকায়ে যায়
 lyricist: Tagore
 lyricistBn: রবীন্দ্রনাথ ঠাকুর
-genre: Rabindra Sangeet
+genre: Rabindrasangeet
 key:
 instruments:
 duration:
